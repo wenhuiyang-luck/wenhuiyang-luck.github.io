@@ -1,0 +1,1389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>杨小慧的博客</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://wenhuiyang-luck.github.io/"/>
+  <updated>2017-05-01T05:16:21.503Z</updated>
+  <id>https://wenhuiyang-luck.github.io/</id>
+  
+  <author>
+    <name>杨小慧</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript算法题（1）—— Return Largest Numbers in Arrays</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/04/25/JavaScript%E7%AE%97%E6%B3%95%E9%A2%98%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94Return%20Largest%20Numbers%20in%20Arrays/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/04/25/JavaScript算法题（1）——Return Largest Numbers in Arrays/</id>
+    <published>2017-04-25T02:03:57.160Z</published>
+    <updated>2017-05-01T05:16:21.503Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>Return an array consisting of the largest number from each provided sub-array. For simplicity, the provided array will contain exactly 4 sub-arrays.</p>
+</blockquote>
+<a id="more"></a>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">largestOfFour([[<span class="number">4</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">3</span>], [<span class="number">13</span>, <span class="number">27</span>, <span class="number">18</span>, <span class="number">26</span>], [<span class="number">32</span>, <span class="number">35</span>, <span class="number">37</span>, <span class="number">39</span>], [<span class="number">1000</span>, <span class="number">1001</span>, <span class="number">857</span>, <span class="number">1</span>]]);</div></pre></td></tr></table></figure>
+<h2 id="1-Basic-Code-Solution"><a href="#1-Basic-Code-Solution" class="headerlink" title="1. Basic Code Solution"></a>1. Basic Code Solution</h2><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">largestOfFour</span><span class="params">(arr)</span> </span>&#123;</div><div class="line">  <span class="keyword">var</span> results = [];</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++)&#123;</div><div class="line">    <span class="keyword">var</span> largestNumber = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr[i].length; j++)&#123;</div><div class="line">      <span class="keyword">if</span>(arr[i][j] &gt; largestNumber) &#123;</div><div class="line">        largestNumber = arr[i][j];</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    results[i] = largestNumber;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> results;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>算法说明：</p>
+<ul>
+<li>创建results变量存储返回的结果数组；</li>
+<li>创建一个外部循还遍历外层数组；<ul>
+<li>创建内层循还遍历每一个内层数组，寻找最大值，存储在变量largestNumber中；</li>
+<li>将每一个内层数组中的最大值保存在results中的相应位置；</li>
+</ul>
+</li>
+<li>返回结果数组。</li>
+</ul>
+<h2 id="2-Intermediate-Code-Solution"><a href="#2-Intermediate-Code-Solution" class="headerlink" title="2. Intermediate Code Solution"></a>2. Intermediate Code Solution</h2><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">largestOfFour</span><span class="params">(arr)</span> </span>&#123;</div><div class="line">  <span class="keyword">return</span> arr.map(<span class="function"><span class="keyword">function</span><span class="params">(group)</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> group.reduce(<span class="function"><span class="keyword">function</span><span class="params">(prev, current)</span> </span>&#123;</div><div class="line">      <span class="keyword">return</span> (current &gt; prev) ? current:prev;</div><div class="line">    &#125;,<span class="number">0</span>);</div><div class="line">  &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map?v=example" target="_blank" rel="external">Array.prototype.map()</a></li>
+</ul>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce?v=example" target="_blank" rel="external">Array.prototype.reduce()</a></li>
+</ul>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator" target="_blank" rel="external">Ternary Operators(三元运算)</a></li>
+</ul>
+<h2 id="3-Advanced-Code-Solution"><a href="#3-Advanced-Code-Solution" class="headerlink" title="3. Advanced Code Solution"></a>3. Advanced Code Solution</h2><figure class="highlight fortran"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span></span> largestOfFour(arr) &#123;</div><div class="line">  <span class="keyword">return</span> arr.map(<span class="function"><span class="keyword">Function</span>.<span class="title">apply</span></span>.<span class="keyword">bind</span>(Math.<span class="built_in">max</span>, null));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply" target="_blank" rel="external">Function.prototype.apply()</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind" target="_blank" rel="external">Function.prototype.bind()</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;Return an array consisting of the largest number from each provided sub-array. For simplicity, the provided array will contain exactly 4 sub-arrays.&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="算法题" scheme="https://wenhuiyang-luck.github.io/categories/%E7%AE%97%E6%B3%95%E9%A2%98/"/>
+    
+    
+      <category term="JavaScript" scheme="https://wenhuiyang-luck.github.io/tags/JavaScript/"/>
+    
+      <category term="Arrays" scheme="https://wenhuiyang-luck.github.io/tags/Arrays/"/>
+    
+      <category term="算法题" scheme="https://wenhuiyang-luck.github.io/tags/%E7%AE%97%E6%B3%95%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSS sprites原理</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/04/24/CSS%20sprites%E5%8E%9F%E7%90%86/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/04/24/CSS sprites原理/</id>
+    <published>2017-04-24T09:30:03.115Z</published>
+    <updated>2017-05-01T05:13:34.991Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>解释CSS sprites原理及优缺点。</p>
+</blockquote>
+<a id="more"></a>
+<p><code>CSS sprites</code>其实就是把网页中一些背景图片整合到一张图片中，再利用<code>CSS</code>的<code>background-image</code>，<code>background-repeat</code>，<code>background-position</code>的组合进行背景定位，<code>background-position</code>可以用数字精确的定位出背景图片的位置。</p>
+<p><strong>优点：</strong></p>
+<ol>
+<li>减少网页的<code>http</code>请求。</li>
+<li>减少图片的字节。</li>
+<li>解决了网页设计师在图片命名上的困扰，只需对一张集合的图片上命名就可以了，不需要对每一个小元素进行命名，从而提高了网页的制作效率。</li>
+<li>更换风格方便，只需要在一张或少张图片上修改图片的颜色或样式，整个网页的风格就可以改变。维护起来更加方便。</li>
+</ol>
+<p><strong>缺点：</strong></p>
+<ol>
+<li>在宽屏，高分辨率的屏幕下的自适应页面，图片如果不够宽，很容易出现背景断裂。</li>
+<li><code>CSS sprites</code>在开发的时候，要通过<code>photoshop</code>或其他工具测量计算每一个背景单元的精确位置。</li>
+<li>在维护的时候比较麻烦，如果页面背景有少许改动，一般就要改这张合并的图片。</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;解释CSS sprites原理及优缺点。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="CSS/CSS3笔记" scheme="https://wenhuiyang-luck.github.io/categories/CSS-CSS3%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="CSS" scheme="https://wenhuiyang-luck.github.io/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何解决 “Another git process seems to be running in this repository”</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/04/23/How%20to%20fix%20error%20%E2%80%9CAnother%20git%20process%20seems%20to%20be%20running%20in%20this%20repository%E2%80%9D/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/04/23/How to fix error “Another git process seems to be running in this repository”/</id>
+    <published>2017-04-23T03:57:22.281Z</published>
+    <updated>2017-05-01T05:15:55.600Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>解决 git 推送中 “Another git process seems to be running in this repository” 问题。</p>
+</blockquote>
+<a id="more"></a>
+<p><strong>错误：</strong></p>
+<p><code>git bash</code>使用命令行<code>git commit</code>提交修改时，还未提交成功，就点了关闭按钮。再次提交时，出现了如下错误。</p>
+<p><img src="../../../../images/19-1.png" alt=""></p>
+<p>意思是说，当前已有一个编辑器打开了<code>“git commit”</code>指令，请关闭所有<code>git</code>相关的进程重试，否则，请手动删除那个文件。</p>
+<p><strong>解决办法：</strong></p>
+<p>根据我们所了解到的，<code>windows</code>对于进程的同步互斥管理，是有资源上锁机制的。猜测这里肯定是有进程对某资源进行了加锁，但是由于进程突然崩溃，未来得及解锁，导致其他进程访问不了。进入工作区目录下的隐藏文件夹<code>.git</code>中，可以看到有<code>index.lock</code>文件，只需要删除此文件，就可解决问题。</p>
+<p>使用如下命令删除<code>index.lock</code>文件：</p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm .git/<span class="keyword">index</span>.lock</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;解决 git 推送中 “Another git process seems to be running in this repository” 问题。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="错误整理" scheme="https://wenhuiyang-luck.github.io/categories/%E9%94%99%E8%AF%AF%E6%95%B4%E7%90%86/"/>
+    
+    
+      <category term="Git" scheme="https://wenhuiyang-luck.github.io/tags/Git/"/>
+    
+      <category term="Github" scheme="https://wenhuiyang-luck.github.io/tags/Github/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSS浮动</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/04/20/CSS%E6%B5%AE%E5%8A%A8/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/04/20/CSS浮动/</id>
+    <published>2017-04-20T07:06:35.214Z</published>
+    <updated>2017-05-01T05:13:57.553Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>介绍CSS浮动，浮动对父级元素和布局的影响，以及清除浮动的方法。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="1-CSS浮动"><a href="#1-CSS浮动" class="headerlink" title="1. CSS浮动"></a>1. CSS浮动</h2><p>浮动的框可以向左或向右移动，直到它的外边缘碰到包含框或另一个浮动框的边框为止。由于浮动框不在文档的普通流中，所以文档的普通流中的块框表现得就像浮动框不存在一样。</p>
+<p>当把框 1 向右浮动时，它脱离文档流并且向右移动，直到它的右边缘碰到包含框的右边缘：</p>
+<p><img src="http://www.w3school.com.cn/i/ct_css_positioning_floating_right_example.gif" alt=""></p>
+<p>当框 1 向左浮动时，它脱离文档流并且向左移动，直到它的左边缘碰到包含框的左边缘。因为它不再处于文档流中，所以它不占据空间，实际上覆盖住了框 2，使框 2 从视图中消失。</p>
+<p>如果把所有三个框都向左移动，那么框 1 向左浮动直到碰到包含框，另外两个框向左浮动直到碰到前一个浮动框。</p>
+<p><img src="http://www.w3school.com.cn/i/ct_css_positioning_floating_left_example.gif" alt=""></p>
+<p>如果包含框太窄，无法容纳水平排列的三个浮动元素，那么其它浮动块向下移动，直到有足够的空间。如果浮动元素的高度不同，那么当它们向下移动时可能被其它浮动元素“卡住”：</p>
+<p><img src="http://www.w3school.com.cn/i/ct_css_positioning_floating_left_example_2.gif" alt=""></p>
+<h2 id="2-浮动的影响"><a href="#2-浮动的影响" class="headerlink" title="2. 浮动的影响"></a>2. 浮动的影响</h2><h3 id="2-1-浮动对父级元素的影响"><a href="#2-1-浮动对父级元素的影响" class="headerlink" title="2.1 浮动对父级元素的影响"></a>2.1 浮动对父级元素的影响</h3><p>父级元素出现高度坍塌的问题。</p>
+<p>解析：当没有为父元素设置高度时，父级元素的高度是由子元素的高度撑开的，当子元素浮动之后，就会脱离文档流，相当于是不存在于父级元素中，那么父级元素的高度就会塌陷为“0”。</p>
+<h3 id="2-2-浮动对布局的影响"><a href="#2-2-浮动对布局的影响" class="headerlink" title="2.2 浮动对布局的影响"></a>2.2 浮动对布局的影响</h3><p>1.浮动能实现多个块元素处于同一行；<br>2.子级浮动会使父级出现高度塌陷问题；<br>3.浮动元素会对后面的兄弟级元素造成影响。</p>
+<h2 id="3-清除浮动"><a href="#3-清除浮动" class="headerlink" title="3. 清除浮动"></a>3. 清除浮动</h2><p>正是因为浮动的这种特性，导致本属于普通流中的元素浮动之后，包含框中由于不存在其他普通流元素了，也就表现出高度为0（高度塌陷）。在实际布局中，往往这并不是我们所希望的，所以需要清除浮动，使其包含框表现出正常的高度。</p>
+<h3 id="3-1-使用空标签清浮动"><a href="#3-1-使用空标签清浮动" class="headerlink" title="3.1 使用空标签清浮动"></a>3.1 使用空标签清浮动</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="keyword">div</span>&gt;  </div><div class="line">  &lt;<span class="keyword">div</span> style=<span class="string">"float:left;"</span>&gt;&lt;/<span class="keyword">div</span>&gt;  </div><div class="line">  &lt;<span class="keyword">div</span> style=<span class="string">"float:left;"</span>&gt;&lt;/<span class="keyword">div</span>&gt;  </div><div class="line">  &lt;<span class="keyword">div</span> style=<span class="string">"clear:both;"</span>&gt;&lt;/<span class="keyword">div</span>&gt;  </div><div class="line">&lt;/<span class="keyword">div</span>&gt;</div></pre></td></tr></table></figure>
+<p>优点：通俗易懂，容易掌握<br>缺点：增加无意义的空标签，后期维护不方便，不推荐使用。</p>
+<h3 id="3-2-使用br标签清浮动"><a href="#3-2-使用br标签清浮动" class="headerlink" title="3.2 使用br标签清浮动"></a>3.2 使用br标签清浮动</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>  </div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"float:left;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"float:left;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </div><div class="line">  <span class="tag">&lt;<span class="name">br</span> <span class="attr">clear</span>=<span class="string">"all"</span> /&gt;</span>  </div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>优点：比空标签方式语义稍强，代码量较少。<br>缺点：同样有违结构与表现的分离，不推荐使用。</p>
+<h3 id="3-3-父级div定义-overflow-hidden"><a href="#3-3-父级div定义-overflow-hidden" class="headerlink" title="3.3 父级div定义 overflow: hidden"></a>3.3 父级div定义 overflow: hidden</h3><p>通过设置父元素overflow值设置为hidden；在IE6中还需要触发 hasLayout ，例如 zoom：1；</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="keyword">div</span> style=<span class="string">"overflow:hidden; *zoom:1;"</span>&gt;  </div><div class="line">  &lt;<span class="keyword">div</span> style=<span class="string">"float:left;"</span>&gt;&lt;/<span class="keyword">div</span>&gt;  </div><div class="line">  &lt;<span class="keyword">div</span> style=<span class="string">"float:left;"</span>&gt;&lt;/<span class="keyword">div</span>&gt;  </div><div class="line">&lt;/<span class="keyword">div</span>&gt;</div></pre></td></tr></table></figure>
+<p>优点：不存在结构和语义化问题，代码量极少。<br>缺点：无法显示溢出部分，不推荐使用。</p>
+<h3 id="3-4-让父级发生浮动"><a href="#3-4-让父级发生浮动" class="headerlink" title="3.4 让父级发生浮动"></a>3.4 让父级发生浮动</h3><p>优点：不存在结构和语义化问题，代码量极少。<br>缺点：使得与父元素相邻的元素的布局会受到影响，不可能一直浮动到body，不推荐使用。</p>
+<h3 id="3-5-利用after伪元素清浮动"><a href="#3-5-利用after伪元素清浮动" class="headerlink" title="3.5 利用after伪元素清浮动"></a>3.5 利用after伪元素清浮动</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="keyword">div</span> <span class="built_in">class</span>＝<span class="string">"clearfix"</span>&gt;</div><div class="line">  &lt;<span class="keyword">div</span> style=<span class="string">"float:right;"</span>&gt;&lt;/<span class="keyword">div</span>&gt;</div><div class="line">  &lt;<span class="keyword">div</span> style=<span class="string">"float:left;"</span>&gt;&lt;/<span class="keyword">div</span>&gt;</div><div class="line">&lt;/<span class="keyword">div</span>&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.clearfix</span> &#123;*zoom:<span class="number">1</span>;&#125;</div><div class="line"><span class="selector-class">.clearfix</span>:after &#123;</div><div class="line">    <span class="attribute">content</span>:<span class="string">'.'</span>;</div><div class="line">    <span class="attribute">display</span>:block;</div><div class="line">    <span class="attribute">height</span>:<span class="number">0px</span>;</div><div class="line">    <span class="attribute">clear</span>:both;</div><div class="line">    <span class="attribute">visibility</span>: hidden; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>1.<code>content:&quot;.&quot;;</code>  生成内容作为最后一个元素<br>2.<code>display:block;</code>  使生成的元素以块级元素显示，占满剩余空间;<br>3.<code>height:0px;</code>  避免生成内容破坏原有布局的高度。<br>4.<code>visibility:hidden;</code>  使生成的内容不可见，并允许可能被生成内容盖住的内容可以进行点击和交互;</p>
+<p>优点：结构和语义化完全正确，代码量居中。<br>缺点：复用方式不当会造成代码量增加。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;介绍CSS浮动，浮动对父级元素和布局的影响，以及清除浮动的方法。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="CSS/CSS3笔记" scheme="https://wenhuiyang-luck.github.io/categories/CSS-CSS3%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="CSS" scheme="https://wenhuiyang-luck.github.io/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>position定位属性</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/04/20/position%E5%AE%9A%E4%BD%8D%E5%B1%9E%E6%80%A7/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/04/20/position定位属性/</id>
+    <published>2017-04-20T03:31:05.652Z</published>
+    <updated>2017-05-01T05:14:15.431Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>介绍position定位属性，绝对/固定定位的定位原理以及绝对/相对定位的区别。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="1-position定位属性有哪些"><a href="#1-position定位属性有哪些" class="headerlink" title="1. position定位属性有哪些"></a>1. position定位属性有哪些</h2><figure class="highlight coq"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">position: static | <span class="type">relative</span> | <span class="type">absolute</span> | <span class="type">fixed</span> | <span class="type">inherit</span></div></pre></td></tr></table></figure>
+<ul>
+<li>static：默认值，没有定位；</li>
+<li>relative：生成相对定位元素，相对于其正常位置进行定位；</li>
+<li>absolute：生成绝对定位元素，相对于static以外的第一个父元素进行定位；</li>
+<li>fixed：生成固定定位的元素，相对于浏览器窗口进行定位；</li>
+<li>inherit：规定从父元素继承position属性的值。</li>
+</ul>
+<h2 id="2-绝对-固定定位的定位原理"><a href="#2-绝对-固定定位的定位原理" class="headerlink" title="2. 绝对/固定定位的定位原理"></a>2. 绝对/固定定位的定位原理</h2><ul>
+<li><p><strong>绝对定位</strong>：absolute 相对于设置了除static定位以外的第一个父元素进行定位；</p>
+</li>
+<li><p><strong>固定定位</strong>：fixed相对于浏览器窗口进行定位</p>
+<p>解析：</p>
+</li>
+</ul>
+<ol>
+<li>如果父级（无限）没有设定position属性，那么当前的absolute则结合top，right，left，bottom属性以浏览器左上角为原始点进行定位。</li>
+<li>如果父级（无限）设定position属性，且属性值为relative、absolute、fixed，那么当前的absolute则结合top，right，left，bottom属性以父级（最近）的左上角为原始点进行定位。</li>
+</ol>
+<h2 id="3-绝对-相对定位的区别"><a href="#3-绝对-相对定位的区别" class="headerlink" title="3. 绝对/相对定位的区别"></a>3. 绝对/相对定位的区别</h2><p>​    主要从二者是否脱离文档流、是否会重叠、定位的参照物方面进行比较：</p>
+<ol>
+<li>相对定位不会脱离文档流，绝对定位脱离文档流；</li>
+<li>绝对定位的元素相互层叠，相对定位的元素不会；</li>
+<li>绝对定位的元素相对于static以外的第一个父元素进行定位，相对定位相对于其正常位置进行定位。</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;介绍position定位属性，绝对/固定定位的定位原理以及绝对/相对定位的区别。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="CSS/CSS3笔记" scheme="https://wenhuiyang-luck.github.io/categories/CSS-CSS3%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="CSS" scheme="https://wenhuiyang-luck.github.io/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>a标签伪类的书写顺序及原因</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/04/19/a%E6%A0%87%E7%AD%BE%E4%BC%AA%E7%B1%BB%E7%9A%84%E4%B9%A6%E5%86%99%E9%A1%BA%E5%BA%8F%E5%8F%8A%E5%8E%9F%E5%9B%A0/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/04/19/a标签伪类的书写顺序及原因/</id>
+    <published>2017-04-19T14:10:52.322Z</published>
+    <updated>2017-05-01T05:18:24.010Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>a 标签书写顺序：<code>:link</code>, <code>:visited</code>,  <code>:hover</code>,  <code>:active</code>;  简记：<code>lvha</code>。</p>
+</blockquote>
+<a id="more"></a>
+<ol>
+<li>链接未进行访问时，显示 link 样式，也就是链接的默认样式；</li>
+<li>当访问过了该链接，显示 visited 样式，由于两种选择器的优先级相等，必须让 visited 样式覆盖 link 样式，因此要先写 link 样式；</li>
+<li>当鼠标移动到链接上时，可能是未访问也可能是已经访问， hover 样式要能够覆盖另外两种样式，因此 hover 要放在 visited 的后面；</li>
+<li>当鼠标按下时，鼠标处于 a 标签之上（ hover 效果也处于激活状态），为了能够区分悬停和按下，需要让 active 样式覆盖 hover 样式，即 active 的样式放置在最后。</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;a 标签书写顺序：&lt;code&gt;:link&lt;/code&gt;, &lt;code&gt;:visited&lt;/code&gt;,  &lt;code&gt;:hover&lt;/code&gt;,  &lt;code&gt;:active&lt;/code&gt;;  简记：&lt;code&gt;lvha&lt;/code&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="CSS/CSS3笔记" scheme="https://wenhuiyang-luck.github.io/categories/CSS-CSS3%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="CSS" scheme="https://wenhuiyang-luck.github.io/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>七种隐藏元素的方法</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/04/19/%E4%B8%83%E7%A7%8D%E9%9A%90%E8%97%8F%E5%85%83%E7%B4%A0%E7%9A%84%E6%96%B9%E6%B3%95/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/04/19/七种隐藏元素的方法/</id>
+    <published>2017-04-19T13:46:02.177Z</published>
+    <updated>2017-05-01T05:14:21.359Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>列举七种隐藏元素的方法。</p>
+</blockquote>
+<a id="more"></a>
+<ol>
+<li><code>visiable:hidden;</code>这个属性只是简单的隐藏某个元素，但是元素占用文档空间。<ol>
+<li><code>opacity:0;</code>CSS3属性，可以使一个元素完全透明，与<code>visiable:hidden</code>效果相同。与<code>visiable</code>相比，它可以设置transition和animate。</li>
+</ol>
+</li>
+<li><code>position:absolute;</code>使元素脱离文档流，处于普通文档之上，给它设置一个很大的<code>left</code>负值定位，使元素定位在可见区域之外。</li>
+<li><code>display:none;</code>元素变得不可见，与<code>visiable:hidden</code>不同的是不会占用文档空间。</li>
+<li><code>transform:scale(0);</code>将一个元素设置为无限小，这个元素将不可见，但是元素占用的空间仍然保留。</li>
+<li><code>height:0;overflow:hidden;</code>将元素的高度设置为0，只要元素没有可见的边框，就可以使元素消失。</li>
+<li><code>filter:blur(0);</code>将元素的模糊度设为0，从而使这个元素“消失”在页面中。</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;列举七种隐藏元素的方法。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="CSS/CSS3笔记" scheme="https://wenhuiyang-luck.github.io/categories/CSS-CSS3%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="CSS" scheme="https://wenhuiyang-luck.github.io/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>事件绑定</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/04/11/%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/04/11/事件绑定/</id>
+    <published>2017-04-11T12:56:31.683Z</published>
+    <updated>2017-05-01T05:15:04.926Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<ol>
+<li>如何在选定的元素上绑定一个或多个事件处理函数;</li>
+<li>绑定鼠标滚轮事件;</li>
+<li>如何判断鼠标滚轮方向;</li>
+<li>绑定键盘方向键.</li>
+</ol>
+</blockquote>
+<a id="more"></a>
+<h4 id="1-如何在选定的元素上绑定一个或多个事件处理函数？"><a href="#1-如何在选定的元素上绑定一个或多个事件处理函数？" class="headerlink" title="1. 如何在选定的元素上绑定一个或多个事件处理函数？"></a>1. 如何在选定的元素上绑定一个或多个事件处理函数？</h4><p>语法：<code>on(events[,selector][,data],handler(eventObject))</code></p>
+<p>描述：</p>
+<ul>
+<li><code>events</code>: 一个或多空格分隔的事件类型，例如 click keydown。</li>
+<li><code>selector</code>: 一个选择器字符串，用于过滤出被选中的元素中能触发事件的后代元素，如果为 null，那么被选中的元素总是能触发事件。</li>
+<li><code>data</code>: 事件触发时，要传递给处理函数的 event.data。</li>
+<li><code>handler(eventObject)</code>: 事件触发时，执行的函数。</li>
+</ul>
+<h4 id="2-绑定鼠标滚轮事件"><a href="#2-绑定鼠标滚轮事件" class="headerlink" title="2. 绑定鼠标滚轮事件"></a>2. 绑定鼠标滚轮事件</h4><ol>
+<li>包括IE6浏览器在内都使用 mouseWheel, 而只有火狐浏览器使用 DOMMouseScroll;</li>
+<li><code>$(document).on(&quot;mouseWheel DOMMouseScroll&quot;,handler)</code>.</li>
+</ol>
+<h4 id="3-如何判断鼠标滚轮方向"><a href="#3-如何判断鼠标滚轮方向" class="headerlink" title="3. 如何判断鼠标滚轮方向"></a>3. 如何判断鼠标滚轮方向</h4><ol>
+<li>其他浏览器通过 wheeldalta 属性来判断，但是火狐浏览器没有这个属性，可以通过 detail 属性判断；</li>
+<li>开发中发现每次向下滚动时，wheeldalta 都是-120，但是detail确是3，火狐浏览器方向判断的数值正负与其他浏览器是相反的。</li>
+</ol>
+<h4 id="4-绑定键盘方向键"><a href="#4-绑定键盘方向键" class="headerlink" title="4. 绑定键盘方向键"></a>4. 绑定键盘方向键</h4><ul>
+<li>IE：只有<code>keyCode</code>属性;</li>
+<li>Firefox：有<code>which</code>和<code>charCode</code>属性;</li>
+<li>Opera：有<code>keyCode</code>和<code>which</code>属性;</li>
+</ul>
+<p>但是 jQuery 已经解决了这个兼容问题，通过<code>.witch</code>属性和<code>.keyCode</code>属性来确定按下了哪个键：</p>
+<ul>
+<li>arrow up：37</li>
+<li>arrow left：38</li>
+<li>arrow right：39</li>
+<li>arrow down：40</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$(<span class="built_in">window</span>).on(<span class="string">"keydown"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> keyCode = e.keyCode;</div><div class="line">    <span class="keyword">if</span>(keyCode == <span class="number">37</span> || keyCode == <span class="number">38</span>)&#123;</div><div class="line">    	...</div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(keyCode == <span class="number">39</span> || keyCode == <span class="number">40</span>)&#123;</div><div class="line">		...</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;如何在选定的元素上绑定一个或多个事件处理函数;&lt;/li&gt;
+&lt;li&gt;绑定鼠标滚轮事件;&lt;/li&gt;
+&lt;li&gt;如何判断鼠标滚轮方向;&lt;/li&gt;
+&lt;li&gt;绑定键盘方向键.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="JavaScript笔记" scheme="https://wenhuiyang-luck.github.io/categories/JavaScript%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="JavaScript" scheme="https://wenhuiyang-luck.github.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何解决failed to push some refs to git</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/04/06/%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3failed%20to%20push%20some%20refs%20to%20git/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/04/06/如何解决failed to push some refs to git/</id>
+    <published>2017-04-06T09:38:20.341Z</published>
+    <updated>2017-05-01T05:16:08.397Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>由于Github中的README.md文件不在本地代码目录中，导致执行git push -u origin master 时出现错误。</p>
+</blockquote>
+<a id="more"></a>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git init</div><div class="line">git commit -m <span class="string">"first commit"</span></div><div class="line">git remote <span class="keyword">add</span><span class="bash"> origin your Github repository</span></div><div class="line">git push -u origin master</div></pre></td></tr></table></figure>
+<h5 id="1-在使用git-对源代码进行push到Github时出现如下错误信息："><a href="#1-在使用git-对源代码进行push到Github时出现如下错误信息：" class="headerlink" title="1. 在使用git 对源代码进行push到Github时出现如下错误信息："></a>1. 在使用git 对源代码进行push到Github时出现如下错误信息：</h5><p><code>error: failed to push some refs to</code></p>
+<p><img src="../../../../images/13-1.png" alt=""></p>
+<h5 id="2-出现错误的主要原因是Github中的README-md文件不在本地代码目录中"><a href="#2-出现错误的主要原因是Github中的README-md文件不在本地代码目录中" class="headerlink" title="2. 出现错误的主要原因是Github中的README.md文件不在本地代码目录中."></a>2. 出现错误的主要原因是Github中的README.md文件不在本地代码目录中.</h5><p>可以通过如下命令进行代码合并[ 注：pull=fetch+merge]</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git pull <span class="comment">--rebase origin master</span></div></pre></td></tr></table></figure>
+<h5 id="3-执行上面代码后可以看到本地代码库中多了README-md文件"><a href="#3-执行上面代码后可以看到本地代码库中多了README-md文件" class="headerlink" title="3. 执行上面代码后可以看到本地代码库中多了README.md文件."></a>3. 执行上面代码后可以看到本地代码库中多了README.md文件.</h5><p>此时再执行以下语句即可完成代码上传到Github.</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">push</span> -u <span class="built_in">origin</span> master</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;由于Github中的README.md文件不在本地代码目录中，导致执行git push -u origin master 时出现错误。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="错误整理" scheme="https://wenhuiyang-luck.github.io/categories/%E9%94%99%E8%AF%AF%E6%95%B4%E7%90%86/"/>
+    
+    
+      <category term="Git" scheme="https://wenhuiyang-luck.github.io/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一个页面从输入URL到页面显示完成的过程</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/04/02/%E4%B8%80%E4%B8%AA%E9%A1%B5%E9%9D%A2%E4%BB%8E%E8%BE%93%E5%85%A5URL%E5%88%B0%E9%A1%B5%E9%9D%A2%E6%98%BE%E7%A4%BA%E5%AE%8C%E6%88%90%E7%9A%84%E8%BF%87%E7%A8%8B/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/04/02/一个页面从输入URL到页面显示完成的过程/</id>
+    <published>2017-04-02T05:50:51.378Z</published>
+    <updated>2017-05-01T05:17:38.544Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>一个页面从输入url到页面加载显示完成，这个过程都发生了什么？</p>
+</blockquote>
+<a id="more"></a>
+<h6 id="一个页面从输入url到页面加载显示完成的过程，大致分为以下几步："><a href="#一个页面从输入url到页面加载显示完成的过程，大致分为以下几步：" class="headerlink" title="一个页面从输入url到页面加载显示完成的过程，大致分为以下几步："></a>一个页面从输入url到页面加载显示完成的过程，大致分为以下几步：</h6><ol>
+<li><p>浏览器地址栏输入url；</p>
+</li>
+<li><p>浏览器会先查看浏览器缓存–系统缓存–路由缓存，如有存在缓存，就直接显示。如果没有，接着第三步</p>
+</li>
+<li><p>DNS解析、查找该域名对应的IP地址、重定向（301）、发出第二个GET请求；</p>
+</li>
+<li><p>进行HTTP协议会话；</p>
+</li>
+<li><p>客户端发送报头（请求报头）；</p>
+</li>
+<li><p>服务器回馈报头（响应报头）；</p>
+</li>
+<li><p>html文档开始下载；</p>
+</li>
+<li><p>文档树建立，根据标记请求所需指定MIME类型的文件；</p>
+</li>
+<li><p>文件显示。</p>
+</li>
+</ol>
+<hr>
+<h6 id="浏览器这边做的工作大致分为以下几步："><a href="#浏览器这边做的工作大致分为以下几步：" class="headerlink" title="浏览器这边做的工作大致分为以下几步："></a>浏览器这边做的工作大致分为以下几步：</h6><ul>
+<li><p>加载：根据请求的URL进行域名解析，向服务器发起请求，接收文件（HTML,  JS, CSS, Image等）。</p>
+</li>
+<li><p>解析：对加载到的资源（HTML,  JS, CSS, Image等）进行语法解析，建立响应的内部数据结构（比如HTML的DOM树，JS的（对象）属性表，CSS的样式规则等）。</p>
+<p>​</p>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;一个页面从输入url到页面加载显示完成，这个过程都发生了什么？&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Http" scheme="https://wenhuiyang-luck.github.io/categories/Http/"/>
+    
+    
+      <category term="Http" scheme="https://wenhuiyang-luck.github.io/tags/Http/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo个人博客后期部署</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/03/30/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%90%8E%E6%9C%9F%E9%83%A8%E7%BD%B2/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/03/30/Hexo个人博客后期部署/</id>
+    <published>2017-03-30T08:05:38.740Z</published>
+    <updated>2017-05-01T05:18:10.414Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>Hexo+Github个人博客后期部署的另一种方法。</p>
+</blockquote>
+<a id="more"></a>
+<p>之前部署博客都是采用下面的方式：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ hexo <span class="keyword">new</span>(n) xxx    <span class="comment">//写文章</span></div><div class="line">$ hexo clean         <span class="comment">//清除缓存</span></div><div class="line">$ hexo <span class="keyword">generate</span>(g)   <span class="comment">//把文章生成页面</span></div><div class="line">$ hexo server(s)     <span class="comment">//启动本地服务调试</span></div><div class="line">$ hexo deploy(d)     <span class="comment">//部署到github 可与hexo g合并为 hexo d -g</span></div></pre></td></tr></table></figure>
+<p>这种方式的commit记录：</p>
+<p><img src="../../../../images/11-1.png" alt=""></p>
+<p>另一种方式：</p>
+<p>当我新增文章或者修改内容以后，先<code>hexo generate</code>生成静态页面，然后我每一次只需要将<code>public</code>文件夹<code>git push</code>到我的<code>github</code>上对应的博客仓库里即可。不需要再清除缓存。</p>
+<p>可以通过<code>git status</code>查看文件状态，通过<code>git commit -m &quot;message&quot;</code>提交记录。</p>
+<p>这种方式的commit记录：</p>
+<p><img src="../../../../images/11-2.png" alt=""></p>
+<p>是不是看起来清晰很多呢？嘻嘻 ^_^</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;Hexo+Github个人博客后期部署的另一种方法。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="博客搭建" scheme="https://wenhuiyang-luck.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+    
+      <category term="Hexo" scheme="https://wenhuiyang-luck.github.io/tags/Hexo/"/>
+    
+      <category term="Github" scheme="https://wenhuiyang-luck.github.io/tags/Github/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Flex布局</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/03/29/Flex%E5%B8%83%E5%B1%80/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/03/29/Flex布局/</id>
+    <published>2017-03-29T13:29:16.330Z</published>
+    <updated>2017-05-01T05:14:07.139Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p><code>Flex</code>布局——W3C于2009年提出的一种新的布局方案。相比于传统的布局方式，即基于盒模型，依赖<code>display + position + float</code> 属性，<code>Flex</code>布局可以简便、完整、响应式地完成各种页面布局，而且目前已经得到了所有浏览器的支持。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="1-Flex容器"><a href="#1-Flex容器" class="headerlink" title="1. Flex容器"></a>1. Flex容器</h2><p>采用Flex布局的元素，称为Flex容器（flex container），简称”容器”。它的所有子元素自动成为容器成员，称为Flex项目（flex item），简称”项目”。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071004.png" alt=""></p>
+<p>容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做<code>main start</code>，结束位置叫做<code>main end</code>；交叉轴的开始位置叫做<code>cross start</code>，结束位置叫做<code>cross end</code>。</p>
+<p>项目默认沿主轴排列。单个项目占据的主轴空间叫做<code>main size</code>，占据的交叉轴空间叫做<code>cross size</code>。</p>
+<h2 id="2-容器的属性"><a href="#2-容器的属性" class="headerlink" title="2. 容器的属性"></a>2. 容器的属性</h2><p>共有6个容器属性：</p>
+<ul>
+<li>flex-direction</li>
+<li>flex-wrap</li>
+<li>flex-flow</li>
+<li>justify-content</li>
+<li>align-items</li>
+<li>align-content</li>
+</ul>
+<h3 id="2-1-flex-direction属性"><a href="#2-1-flex-direction属性" class="headerlink" title="2.1 flex-direction属性"></a>2.1 flex-direction属性</h3><p><code>flex-direction</code>属性决定主轴的方向（即项目的排列方向）。</p>
+<p><code>flex-direction:row | row-reverse | column | column-reverse;</code></p>
+<p>它可能有4个值:</p>
+<ul>
+<li><code>row</code>（默认值）：主轴为水平方向，起点在左端。</li>
+<li><code>row-reverse</code>：主轴为水平方向，起点在右端。</li>
+<li><code>column</code>：主轴为垂直方向，起点在上沿。</li>
+<li><code>column-reverse</code>：主轴为垂直方向，起点在下沿。</li>
+</ul>
+<h3 id="2-2-flex-wrap属性"><a href="#2-2-flex-wrap属性" class="headerlink" title="2.2 flex-wrap属性"></a>2.2 flex-wrap属性</h3><p>默认情况下，项目都排在一条线（又称”轴线”）上。<code>flex-wrap</code>属性定义，如果一条轴线排不下，如何换行。</p>
+<p><code>flex-wrap: nowrap | wrap | wrap-reverse;</code></p>
+<p>它可能有3个值:</p>
+<ul>
+<li><code>nowrap</code>（默认）：不换行。</li>
+<li><code>wrap</code>：换行，第一行在上方。</li>
+<li><code>wrap-reverse</code>：换行，第一行在下方。</li>
+</ul>
+<h3 id="2-3-flex-flow属性"><a href="#2-3-flex-flow属性" class="headerlink" title="2.3 flex-flow属性"></a>2.3 flex-flow属性</h3><p><code>flex-flow</code>属性是<code>flex-direction</code>属性和<code>flex-wrap</code>属性的简写形式，默认值为<code>row nowrap</code>。</p>
+<p><code>flex-flow: &lt;flex-direction&gt; || &lt;flex-wrap&gt;;</code></p>
+<h3 id="2-4-justify-content属性"><a href="#2-4-justify-content属性" class="headerlink" title="2.4 justify-content属性"></a>2.4 justify-content属性</h3><p><code>justify-content</code>属性定义了项目在主轴上的对齐方式。</p>
+<p><code>justify-content: flex-start | flex-end | center | space-between | space-around;</code></p>
+<p>它可能取5个值，具体对齐方式与轴的方向有关。下面假设主轴为从左到右。</p>
+<ul>
+<li><code>flex-start</code>（默认值）：左对齐</li>
+<li><code>flex-end</code>：右对齐</li>
+<li><code>center</code>： 居中</li>
+<li><code>space-between</code>：两端对齐，项目之间的间隔都相等。</li>
+<li><code>space-around</code>：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。</li>
+</ul>
+<h3 id="2-5-align-items属性"><a href="#2-5-align-items属性" class="headerlink" title="2.5 align-items属性"></a>2.5 align-items属性</h3><p><code>align-items</code>属性定义项目在交叉轴上如何对齐。</p>
+<p><code>align-items: flex-start | flex-end | center | baseline | stretch;</code></p>
+<p>它可能取5个值。具体的对齐方式与交叉轴的方向有关，下面假设交叉轴从上到下。</p>
+<ul>
+<li><code>flex-start</code>：交叉轴的起点对齐。</li>
+<li><code>flex-end</code>：交叉轴的终点对齐。</li>
+<li><code>center</code>：交叉轴的中点对齐。</li>
+<li><code>baseline</code>: 项目的第一行文字的基线对齐。</li>
+<li><code>stretch</code>（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。</li>
+</ul>
+<h3 id="2-6-align-content属性"><a href="#2-6-align-content属性" class="headerlink" title="2.6 align-content属性"></a>2.6 align-content属性</h3><p><code>align-content</code>属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</p>
+<p><code>align-content: flex-start | flex-end | center | space-between | space-around | stretch;</code></p>
+<p>该属性可能取6个值。</p>
+<ul>
+<li><code>flex-start</code>：与交叉轴的起点对齐。</li>
+<li><code>flex-end</code>：与交叉轴的终点对齐。</li>
+<li><code>center</code>：与交叉轴的中点对齐。</li>
+<li><code>space-between</code>：与交叉轴两端对齐，轴线之间的间隔平均分布。</li>
+<li><code>space-around</code>：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。</li>
+<li><code>stretch</code>（默认值）：轴线占满整个交叉轴。</li>
+</ul>
+<p>以上。</p>
+<h2 id="3-项目的属性"><a href="#3-项目的属性" class="headerlink" title="3. 项目的属性"></a>3. 项目的属性</h2><p>以下6个属性设置在项目上。</p>
+<ul>
+<li><code>order</code></li>
+<li><code>flex-grow</code></li>
+<li><code>flex-shrink</code></li>
+<li><code>flex-basis</code></li>
+<li><code>flex</code></li>
+<li><code>align-self</code></li>
+</ul>
+<h3 id="3-1-order属性"><a href="#3-1-order属性" class="headerlink" title="3.1 order属性"></a>3.1 order属性</h3><p><code>order</code>属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。</p>
+<p><code>order: &lt;integer&gt;;</code></p>
+<h3 id="3-2-flex-grow属性"><a href="#3-2-flex-grow属性" class="headerlink" title="3.2 flex-grow属性"></a>3.2 flex-grow属性</h3><p><code>flex-grow</code>属性定义项目的放大比例，默认为<code>0</code>，即如果存在剩余空间，也不放大。</p>
+<p><code>flex-grow: &lt;number&gt;; /* default 0 */</code></p>
+<p>如果所有项目的<code>flex-grow</code>属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的<code>flex-grow</code>属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。</p>
+<h3 id="3-3-flex-shrink属性"><a href="#3-3-flex-shrink属性" class="headerlink" title="3.3 flex-shrink属性"></a>3.3 flex-shrink属性</h3><p><code>flex-shrink</code>属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。</p>
+<p><code>flex-shrink: &lt;number&gt;; /* default 1 */</code></p>
+<p>如果所有项目的<code>flex-shrink</code>属性都为1，当空间不足时，都将等比例缩小。如果一个项目的<code>flex-shrink</code>属性为0，其他项目都为1，则空间不足时，前者不缩小。</p>
+<p>负值对该属性无效。</p>
+<h3 id="3-4-flex-basis属性"><a href="#3-4-flex-basis属性" class="headerlink" title="3.4 flex-basis属性"></a>3.4 flex-basis属性</h3><p><code>flex-basis</code>属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为<code>auto</code>，即项目的本来大小。</p>
+<p><code>flex-basis: &lt;length&gt; | auto; /* default auto */</code></p>
+<p>它可以设为跟<code>width</code>或<code>height</code>属性一样的值（比如350px），则项目将占据固定空间。</p>
+<h3 id="3-5-flex属性"><a href="#3-5-flex属性" class="headerlink" title="3.5 flex属性"></a>3.5 flex属性</h3><p><code>flex</code>属性是<code>flex-grow</code>, <code>flex-shrink</code> 和 <code>flex-basis</code>的简写，默认值为<code>0 1 auto</code>。后两个属性可选。</p>
+<p><code>flex: none | [ &lt;&#39;flex-grow&#39;&gt; &lt;&#39;flex-shrink&#39;&gt;? || &lt;&#39;flex-basis&#39;&gt; ]</code></p>
+<p>该属性有两个快捷值：<code>auto</code> (<code>1 1 auto</code>) 和 none (<code>0 0 auto</code>)。</p>
+<p>建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。</p>
+<h3 id="3-6-align-self属性"><a href="#3-6-align-self属性" class="headerlink" title="3.6 align-self属性"></a>3.6 align-self属性</h3><p><code>align-self</code>属性允许单个项目有与其他项目不一样的对齐方式，可覆盖<code>align-items</code>属性。默认值为<code>auto</code>，表示继承父元素的<code>align-items</code>属性，如果没有父元素，则等同于<code>stretch</code>。</p>
+<p><code>align-self: auto | flex-start | flex-end | center | baseline | stretch;</code></p>
+<p>该属性可能取6个值，除了<code>auto</code>，其他都与<code>align-items</code>属性完全一致。</p>
+<h2 id="4-Flex实现水平、垂直居中"><a href="#4-Flex实现水平、垂直居中" class="headerlink" title="4. Flex实现水平、垂直居中"></a>4. Flex实现水平、垂直居中</h2><h3 id="4-1-单个元素水平居中"><a href="#4-1-单个元素水平居中" class="headerlink" title="4.1 单个元素水平居中"></a>4.1 单个元素水平居中</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* CSS 代码 */</span></div><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">  <span class="attribute">display</span>: flex;</div><div class="line">  <span class="attribute">justify-content</span>: center;</div><div class="line">  <span class="attribute">background</span>: <span class="number">#0099cc</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">h1</span> &#123;</div><div class="line">  <span class="attribute">color</span>:<span class="number">#fff</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//HTML 代码</span></div><div class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"box"</span>&gt;</div><div class="line">    &lt;h1&gt;单个元素水平居中&lt;/h1&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p><a href="http://js.jirengu.com/toyaquzaqe/1/edit" target="_blank" rel="external">效果预览</a></p>
+<p>​    我们只需要给h1标签的父元素添加两个属性就可以了，<code>justify-content</code>其作用就是 让<code>class</code>类为<code>box</code>的div盒子居中。盒子居中了，盒子里面的元素就自然居中了，他的好处就是不需要对需居中的元素（h1）设置任何样式，如果：<code>width，margin</code>。</p>
+<h3 id="4-2-多个h1元素水平居中"><a href="#4-2-多个h1元素水平居中" class="headerlink" title="4.2 多个h1元素水平居中"></a>4.2 多个h1元素水平居中</h3><figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// HTML 代码</span></div><div class="line"><span class="params">&lt;div class="box"&gt;</span></div><div class="line">    <span class="params">&lt;h1&gt;</span>多个h1元素水平居中<span class="params">&lt;/h1&gt;</span></div><div class="line">    <span class="params">&lt;h1&gt;</span>多个h1元素水平居中<span class="params">&lt;/h1&gt;</span></div><div class="line">    <span class="params">&lt;h1&gt;</span>多个h1元素水平居中<span class="params">&lt;/h1&gt;</span></div><div class="line"><span class="params">&lt;/div&gt;</span></div><div class="line"></div><div class="line"><span class="comment">/* CSS代码 */</span></div><div class="line">.box&#123;</div><div class="line"><span class="symbol">    display:</span> flex;</div><div class="line">    justify-content: center;</div><div class="line"><span class="symbol">    width:</span> <span class="number">100</span>%;</div><div class="line"><span class="symbol">    background:</span> <span class="meta">#0099cc</span></div><div class="line">&#125;</div><div class="line">h1&#123;</div><div class="line">    font-size: <span class="number">1</span>rem;</div><div class="line"><span class="symbol">    padding:</span> <span class="number">1</span>rem;</div><div class="line"><span class="symbol">    border:</span> <span class="number">1</span>px dashed <span class="meta">#FFF;</span></div><div class="line"><span class="symbol">    color:</span> <span class="meta">#fff;</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><a href="http://js.jirengu.com/makuyuvobe/2/edit" target="_blank" rel="external">效果预览</a></p>
+<p>​    在Flex有两个东西，一个是<code>Flex</code>容器（子项目父元素），另一个是子项目（Flex容器子元素）。如果不给<code>.box</code>添加样式， 一个<code>h1</code>标签占一行，也就是页面会显示三行文字 “多个h1元素水平居中”。如果我们给<code>.box</code>添加了<code>display: flex;</code>那么三个<code>h1</code>标签就妥妥地在一行里排列了，相当于浮动，只不过他不会因为超出了<code>.box</code>的宽度而换行，他总是会在一行内显示。</p>
+<h3 id="4-3-单个h1标签垂直居中"><a href="#4-3-单个h1标签垂直居中" class="headerlink" title="4.3 单个h1标签垂直居中"></a>4.3 单个h1标签垂直居中</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// HTML 代码</span></div><div class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"box"</span>&gt;</div><div class="line">    &lt;h1&gt;单个h1标签垂直居中&lt;/h1&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line"><span class="comment">/* CSS代码 */</span></div><div class="line">.box&#123;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">width</span>: <span class="number">980px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">30rem</span>;</div><div class="line">    <span class="attribute">align-items</span>:center;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#0099cc</span></div><div class="line">&#125;</div><div class="line">h1&#123;</div><div class="line">    <span class="attribute">font-size</span>: <span class="number">1rem</span>;</div><div class="line">    <span class="attribute">padding</span>: <span class="number">1rem</span>;</div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> dashed <span class="number">#FFF</span>;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#FFF</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><a href="http://js.jirengu.com/biyovanere/3/edit" target="_blank" rel="external">效果预览</a></p>
+<h3 id="4-4-多个h1标签垂直居中"><a href="#4-4-多个h1标签垂直居中" class="headerlink" title="4.4 多个h1标签垂直居中"></a>4.4 多个h1标签垂直居中</h3><figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// HTML 代码</span></div><div class="line"><span class="params">&lt;div class="box"&gt;</span></div><div class="line">    <span class="params">&lt;h1&gt;</span>单个h1标签垂直居中<span class="params">&lt;/h1&gt;</span></div><div class="line">    <span class="params">&lt;h1&gt;</span>单个h1标签垂直居中<span class="params">&lt;/h1&gt;</span></div><div class="line">    <span class="params">&lt;h1&gt;</span>单个h1标签垂直居中<span class="params">&lt;/h1&gt;</span></div><div class="line"><span class="params">&lt;/div&gt;</span></div><div class="line"></div><div class="line"><span class="comment">/* CSS代码 */</span></div><div class="line">.box&#123;</div><div class="line"><span class="symbol">    display:</span> flex;</div><div class="line"><span class="symbol">    width:</span> <span class="number">980</span>px;</div><div class="line"><span class="symbol">    height:</span> <span class="number">30</span>rem;</div><div class="line">    align-items:center;</div><div class="line"><span class="symbol">    background:</span> <span class="meta">#0099cc</span></div><div class="line">&#125;</div><div class="line">h1&#123;</div><div class="line">    font-size: <span class="number">1</span>rem;</div><div class="line"><span class="symbol">    padding:</span> <span class="number">1</span>rem;</div><div class="line"><span class="symbol">    border:</span> <span class="number">1</span>px dashed <span class="meta">#FFF;</span></div><div class="line"><span class="symbol">    color:</span> <span class="meta">#FFF</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><a href="http://js.jirengu.com/biyovanere/4/edit" target="_blank" rel="external">效果预览</a></p>
+<h3 id="4-5-多个h1标签水平垂直居中"><a href="#4-5-多个h1标签水平垂直居中" class="headerlink" title="4.5 多个h1标签水平垂直居中"></a>4.5 多个h1标签水平垂直居中</h3><figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// HTML 代码</span></div><div class="line"><span class="params">&lt;div class="box"&gt;</span></div><div class="line">    <span class="params">&lt;h1&gt;</span>多个h1标签水平垂直居中<span class="params">&lt;/h1&gt;</span></div><div class="line">    <span class="params">&lt;h1&gt;</span>多个h1标签水平垂直居中<span class="params">&lt;/h1&gt;</span></div><div class="line">    <span class="params">&lt;h1&gt;</span>多个h1标签水平垂直居中<span class="params">&lt;/h1&gt;</span></div><div class="line">    <span class="params">&lt;h1&gt;</span>多个h1标签水平垂直居中<span class="params">&lt;/h1&gt;</span></div><div class="line"><span class="params">&lt;/div&gt;</span></div><div class="line"></div><div class="line"><span class="comment">/* CSS代码 */</span></div><div class="line">body&#123;display: flex;justify-content:center&#125;</div><div class="line">.box&#123;</div><div class="line"><span class="symbol">    display:</span> flex;</div><div class="line"><span class="symbol">    width:</span> <span class="number">980</span>px;</div><div class="line"><span class="symbol">    height:</span> <span class="number">30</span>rem;</div><div class="line"><span class="symbol">    background:</span> <span class="meta">#0099cc;</span></div><div class="line">    justify-content:center;</div><div class="line">    flex-direction:column;</div><div class="line">    align-items:center;</div><div class="line">&#125;</div><div class="line">h1&#123;</div><div class="line"><span class="symbol">    display:</span> flex;</div><div class="line">    justify-content:center;</div><div class="line">    font-size: <span class="number">1</span>rem;</div><div class="line"><span class="symbol">    padding:</span> <span class="number">1</span>rem;</div><div class="line"><span class="symbol">    border:</span> <span class="number">1</span>px dashed <span class="meta">#FFF;</span></div><div class="line"><span class="symbol">    color:</span> <span class="meta">#FFF;</span></div><div class="line"><span class="symbol">    width:</span> <span class="number">28</span>rem；</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><a href="http://js.jirengu.com/nizateqoru/5/edit" target="_blank" rel="external">效果预览</a></p>
+<p>​    为了让h1里的文字居中，我们给h1添加了<code>display:flex;</code> 以及<code>justify-content:center</code>，同样的为了让h1在<code>.box</code>里垂直居中，我们给<code>.box</code>也加上 <code>display:flex;</code>以及<code>justify-content:center</code>属性。而<code>.box</code>里的<code>align-items:center</code>就 是让h1水平居中的。这个属性的作用是：定义项目在交叉轴上的对齐方式。由于我们使用了 <code>flex-direction:column;</code>所以垂直方向作为主轴，交叉轴自然就是水平方向了。为了让<code>.box</code>也水平居中，我们同时也定义了<code>body{display:flex;justify- content:center}</code>。</p>
+<p><strong>学习链接：</strong></p>
+<p><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool" target="_blank" rel="external">Flex布局教程：语法篇</a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank" rel="external">Flex布局教程：实例篇</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;Flex&lt;/code&gt;布局——W3C于2009年提出的一种新的布局方案。相比于传统的布局方式，即基于盒模型，依赖&lt;code&gt;display + position + float&lt;/code&gt; 属性，&lt;code&gt;Flex&lt;/code&gt;布局可以简便、完整、响应式地完成各种页面布局，而且目前已经得到了所有浏览器的支持。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="CSS/CSS3笔记" scheme="https://wenhuiyang-luck.github.io/categories/CSS-CSS3%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="CSS" scheme="https://wenhuiyang-luck.github.io/tags/CSS/"/>
+    
+      <category term="Flex" scheme="https://wenhuiyang-luck.github.io/tags/Flex/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>页面重绘（repaint）和页面回流（reflow）</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/03/14/%E9%A1%B5%E9%9D%A2%E9%87%8D%E7%BB%98%E5%92%8C%E9%A1%B5%E9%9D%A2%E5%9B%9E%E6%B5%81/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/03/14/页面重绘和页面回流/</id>
+    <published>2017-03-14T11:42:31.607Z</published>
+    <updated>2017-05-01T05:17:17.653Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>如果你的HTML变得很大很复杂，那么影响你javaScript性能的可能并不是javaScript代码的复杂度，而是页面的回流和重绘。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="1-页面的渲染过程"><a href="#1-页面的渲染过程" class="headerlink" title="1. 页面的渲染过程"></a>1. 页面的渲染过程</h2><h3 id="1-1-解析HTML文件，创建DOM树"><a href="#1-1-解析HTML文件，创建DOM树" class="headerlink" title="1.1 解析HTML文件，创建DOM树"></a>1.1 解析HTML文件，创建DOM树</h3><p>浏览器将获取到的html代码解析成1个DOM树，html中的每个tag都是DOM树中的节点，根节点是document对象（即<html>标签)。DOM树包含了所有的html标签，包括<code>display: none</code> 的元素，还有js动态添加的元素等。</html></p>
+<p><img src="http://www.w3school.com.cn/i/ct_htmltree.gif" alt="HTML DOM Node Tree"></p>
+<h3 id="1-2-解析CSS"><a href="#1-2-解析CSS" class="headerlink" title="1.2 解析CSS"></a>1.2 解析CSS</h3><p>浏览器把所有样式（主要包括css和浏览器的样式设置）解析成样式结构体，在解析中去掉不能识别的样式，比如IE会去掉-moz开头的样式，而firefox会去掉_开头的样式。</p>
+<h3 id="1-3-将CSS和DOM合并，构建渲染树（render-tree）"><a href="#1-3-将CSS和DOM合并，构建渲染树（render-tree）" class="headerlink" title="1.3 将CSS和DOM合并，构建渲染树（render tree）"></a>1.3 将CSS和DOM合并，构建渲染树（render tree）</h3><ul>
+<li>render tree和dom tree类似，但其实区别很大，render tree能识别样式，render tree中的每个节点都有自己的样式，而且render tree忽略诸如head、diaplay: none的元素，因为这些样式不会影响页面的呈现。</li>
+<li><strong>注意：</strong>visiability: hidden隐藏的元素还是会包含，因为它会影响布局，会占有空间。</li>
+</ul>
+<h3 id="1-4-布局和绘制"><a href="#1-4-布局和绘制" class="headerlink" title="1.4 布局和绘制"></a>1.4 布局和绘制</h3><p>一旦render tree构建完毕后，浏览器就可以根据render tree来绘制页面了。浏览器在绘制页面的过程中不断的进行着重绘和回流。</p>
+<h2 id="2-重绘和回流"><a href="#2-重绘和回流" class="headerlink" title="2. 重绘和回流"></a>2. 重绘和回流</h2><h3 id="2-1-重绘和回流"><a href="#2-1-重绘和回流" class="headerlink" title="2.1 重绘和回流"></a>2.1 重绘和回流</h3><p><strong>重绘(repaint)：</strong>当render tree中的一些元素需要更新属性，单这些属性只会影响元素的外观，风格，而不会影响到元素的布局，此类的页面渲染叫作页面重绘。</p>
+<p><strong>回流(reflow)：</strong>当render tree中的一部分（或全部）因为元素的规模尺寸，布局，隐藏等改变而引起的页面重新渲染。</p>
+<p>可以看出，回流必将引起重绘，而重绘不一定会引起回流。</p>
+<h3 id="2-2-引发回流的范例"><a href="#2-2-引发回流的范例" class="headerlink" title="2.2 引发回流的范例"></a>2.2 引发回流的范例</h3><p>当页面布局和几何属性改变时就需要回流。下述情况会发生浏览器回流：</p>
+<ul>
+<li>DOM树发生变化——如：增加一个元素或删除一个元素（元素为可见元素）；</li>
+<li>通过style控制元素的位置变化——典型的碰壁反弹；</li>
+<li>元素尺寸的改变——盒模型的每种尺寸均算在其内；</li>
+<li>内容改变引发的尺寸改变——如：文本文本改变或者图片大小改变而引起的计算值宽度和高度改变；</li>
+<li>浏览器窗口尺寸改变——resize事件发生时。</li>
+</ul>
+<h3 id="2-3-改善由于dom操作产生的回流"><a href="#2-3-改善由于dom操作产生的回流" class="headerlink" title="2.3 改善由于dom操作产生的回流"></a>2.3 改善由于dom操作产生的回流</h3><p>减少回流、重绘其实就是需要减少对render tree的操作，并减少对一些style信息的请求，尽量利用好浏览器的优化策略。具体方法有：</p>
+<p><strong>（1）不要一个一个改变元素的样式属性，直接改变className，如果动态改变样式，则使用cssText。</strong></p>
+<p><strong>如下面代码：</strong></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//不好的写法</span></div><div class="line"><span class="keyword">var</span> <span class="keyword">left</span> = <span class="number">1</span>;</div><div class="line"><span class="keyword">var</span> top = <span class="number">1</span>;</div><div class="line">el.style.<span class="keyword">left</span> = <span class="keyword">left</span> + <span class="string">"px"</span>;</div><div class="line">el.style.<span class="keyword">right</span> = <span class="keyword">right</span> + <span class="string">"px"</span>;</div><div class="line"></div><div class="line"><span class="comment">//比较好的写法</span></div><div class="line">el.className += <span class="string">"className1"</span>;</div><div class="line"></div><div class="line"><span class="comment">//动态改变样式，比较好的写法</span></div><div class="line">el.style.cssText += <span class="string">";left:"</span> + <span class="keyword">left</span> + <span class="string">"px; top:"</span> + top + <span class="string">"px;"</span>;</div></pre></td></tr></table></figure>
+<p><strong>（2）让要操作的元素进行“离线处理”，处理完后一起更新。这里所谓的”离线处理”即让元素不存在于render tree中，比如：</strong></p>
+<ul>
+<li>使用DocumentFragment进行缓存操作,引发一次回流和重绘；<ul>
+<li>这个主要用于添加元素的时候，就是先把所有要添加到元素添加到1个div中(这个div也是新加的)，最后才把这个div append到body中。</li>
+</ul>
+</li>
+<li>使用display:none技术，只引发两次回流和重绘；<ul>
+<li>先display:none 隐藏元素，然后对该元素进行所有的操作，最后再显示该元素。因对display:none的元素进行操作不会引起回流、重绘。所以只要操作只会有2次回流。</li>
+</ul>
+</li>
+<li>使用cloneNode(true or false) 和 replaceChild 技术，引发一次回流和重绘。</li>
+</ul>
+<p><strong>（3）不要经常访问会引起浏览器flush队列的属性，如果你确实要访问，利用缓存。</strong></p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//不好的写法</div><div class="line"><span class="keyword">for</span>(循环) &#123;</div><div class="line">     el.style.<span class="built_in">left</span> = el.offsetLeft + <span class="number">5</span> + <span class="string">"px"</span>;</div><div class="line">     el.style.<span class="built_in">top</span> = el.offsetTop + <span class="number">5</span> + <span class="string">"px"</span>;</div><div class="line"> &#125;</div><div class="line"></div><div class="line">// 比较好的写法</div><div class="line">var <span class="built_in">left</span> = el.offsetLeft,</div><div class="line">	<span class="built_in">top</span> = el.offsetTop,</div><div class="line">	s = el.style;</div><div class="line"><span class="keyword">for</span>(循环) &#123;</div><div class="line">     <span class="built_in">left</span> += <span class="number">10</span>;</div><div class="line">     <span class="built_in">top</span> += <span class="number">10</span>;</div><div class="line">     s.<span class="built_in">left</span> = <span class="built_in">left</span> + <span class="string">"px"</span>;</div><div class="line">     s.<span class="built_in">top</span> = <span class="built_in">top</span> + <span class="string">"px"</span>;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p><strong>（4）让元素脱离动画流，减少回流的Render Tree的规模。</strong></p>
+<p>​    假设block1是position: absolute的元素，block2是position: relative的元素。当使用jquery的animate()方法移动元素来展示一些动画效果时：</p>
+<p><code>$(&quot;#block1&quot;).animate({left:50});</code></p>
+<p>​    block1移动，会影响到它父元素下的所有子元素。因为在移动过程中，所有子元素需要判断block1的z-index是否在自己的上面，如果是在自己的上面，则需要重绘，这里不会引起回流。</p>
+<p><code>$(&quot;#block2&quot;).animate({marginLeft:50});</code></p>
+<p>​    block2是相对定位的元素，影响的元素与block1一样，但是因为block2非绝对定位，而且改变的是marginLeft属性，所以这里每次改变不但会重绘，还会引起父元素及其下元素的回流。</p>
+<p>​    所以，动画效果应用到position属性为absolute或fixed的元素上，它们不影响其他元素的布局，所它他们只会导致重新绘制，而不是一个完整回流。这样消耗会更低。</p>
+<p><strong>参考链接：</strong></p>
+<p><a href="http://www.zhangxinxu.com/wordpress/2010/01/%E5%9B%9E%E6%B5%81%E4%B8%8E%E9%87%8D%E7%BB%98%EF%BC%9Acss%E6%80%A7%E8%83%BD%E8%AE%A9javascript%E5%8F%98%E6%85%A2%EF%BC%9F/" target="_blank" rel="external">回流与重绘：CSS性能让JavaScript变慢？</a></p>
+<p><a href="http://www.blogjava.net/BearRui/archive/2010/05/10/web_performance_repaint_relow.html" target="_blank" rel="external">高性能WEB开发(8) - 页面呈现、重绘、回流</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;如果你的HTML变得很大很复杂，那么影响你javaScript性能的可能并不是javaScript代码的复杂度，而是页面的回流和重绘。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="页面渲染" scheme="https://wenhuiyang-luck.github.io/categories/%E9%A1%B5%E9%9D%A2%E6%B8%B2%E6%9F%93/"/>
+    
+    
+      <category term="DOM" scheme="https://wenhuiyang-luck.github.io/tags/DOM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Canvas实现放大镜效果</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/03/10/Canvas%E5%AE%9E%E7%8E%B0%E6%94%BE%E5%A4%A7%E9%95%9C%E6%95%88%E6%9E%9C/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/03/10/Canvas实现放大镜效果/</id>
+    <published>2017-03-10T04:16:29.295Z</published>
+    <updated>2017-05-01T05:13:05.625Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>我们在购物时，经常会看到这样的效果：当鼠标划过商品时，会在展示图旁边出现一个商品局部放大图，这就是放大镜效果。这个小效果可以由<code>HTML5</code>的<code>canvas</code>实现，主要依靠<code>canvas</code>中的<code>drawImage()</code>函数，可以初步认识<code>canvas</code>。让我们快点开始吧。</p>
+</blockquote>
+<a id="more"></a>
+<p>效果图：</p>
+<p><img src="../../../../images/8-1.png" alt=""></p>
+<h2 id="1-实验原理"><a href="#1-实验原理" class="headerlink" title="1. 实验原理"></a>1. 实验原理</h2><p>一个<code>canvas</code>绘制好一张图片，当鼠标移到<code>canvas</code>上边的时候出现一个透明框，同时另一个<code>canvas(copycanvas)</code>开始绘制透明框部分的图像，利用<code>drawImage()</code>可修改绘制时的大小以实现放大效果。</p>
+<p><strong>需要注意的细节：</strong></p>
+<ul>
+<li>透明框不能移除<code>canvas</code>；</li>
+<li>鼠标移入、移出<code>canvas</code>时，<code>copycanvas</code>能对应的显示、隐藏。</li>
+</ul>
+<h2 id="2-需要用到的知识点介绍"><a href="#2-需要用到的知识点介绍" class="headerlink" title="2. 需要用到的知识点介绍"></a>2. 需要用到的知识点介绍</h2><h3 id="2-1-drawImage-函数"><a href="#2-1-drawImage-函数" class="headerlink" title="2.1 drawImage()函数"></a>2.1 drawImage()函数</h3><p>此函数为<code>canvas</code>绘制图像方法，即将图像绘制到<code>canvas</code>中，并将图像像素映射为<code>canvas</code>坐标系统的一个单元。</p>
+<p><code>drawImage()</code>可以接受一下 3 套参数：</p>
+<ul>
+<li><code>drawImage(imagedata, dx, dy);</code>此方法会将整幅图像绘制到 <code>canvas</code>的指定位置上，<code>dx ，dy</code>分别指目标 <code>canvas</code> 开始绘制点的 <code>x , y</code>坐标。</li>
+<li><code>drawImage(imagedata, dx, dy , dw, dh);</code>此套参数中新增的<code>2</code>个参数<code>dw,dh</code>分别代表绘制时指定的宽和高（也因此实现缩放的效果）。</li>
+<li><code>drawImage(imagedata, sx, sy, sw, sh, dx, dy, dw, dh);</code>此套参数中又新增了<code>4</code>个参数<code>sx, sy, sw, sh</code>,分别代表被绘制图像开始绘制点的 <code>x, y</code>坐标，以及被绘制部分的宽和高。</li>
+</ul>
+<h3 id="2-2-Dom-Event-对象"><a href="#2-2-Dom-Event-对象" class="headerlink" title="2.2 Dom Event 对象"></a>2.2 Dom Event 对象</h3><p>当然完成放大镜效果，最终达到和商品展示的放大效果一致，光是 <code>canvas</code> 的图像绘制还是不够的。当我们在商品展示图上移动鼠标能及时看到效果，这就是需要 <code>Dom Event</code> 对象的支持，介绍几个项目中涉及到的对象：</p>
+<ul>
+<li><code>onmouseover</code> 鼠标移动到某元素之上触发事件</li>
+<li><code>onmousemove</code> 鼠标在某元素之上移动时触发事件</li>
+</ul>
+<h3 id="2-3-Dom-Element-对象"><a href="#2-3-Dom-Element-对象" class="headerlink" title="2.3 Dom Element 对象"></a>2.3 Dom Element 对象</h3><p>当我们想要控制透明选择框不移出<code>canvas</code>，就需要时刻计算透明选择框和<code>canvas</code>的边距关系，这便涉及到接下来我要介绍的几个 <code>Dom Element</code> 对象：</p>
+<ul>
+<li><code>offsetLeft</code> 返回元素水平偏移量(从上到下开始计算)</li>
+<li><code>offsetTop</code> 返回元素垂直偏移量(从左到右开始计算)</li>
+</ul>
+<h2 id="3-步骤"><a href="#3-步骤" class="headerlink" title="3. 步骤"></a>3. 步骤</h2><h3 id="3-1-页面设计"><a href="#3-1-页面设计" class="headerlink" title="3.1 页面设计"></a>3.1 页面设计</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"canvas"</span> <span class="attr">width</span>=<span class="string">"430"</span> <span class="attr">height</span>=<span class="string">"430"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"copycanvas"</span> <span class="attr">width</span>=<span class="string">"300"</span> <span class="attr">height</span>=<span class="string">"300"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"square"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"main.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="3-2-简单的样式设计"><a href="#3-2-简单的样式设计" class="headerlink" title="3.2 简单的样式设计"></a>3.2 简单的样式设计</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#copycanvas</span> &#123;</div><div class="line">   	<span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#000</span>;</div><div class="line">   	<span class="attribute">display</span>: none;</div><div class="line">&#125;</div><div class="line"><span class="selector-id">#square</span> &#123;</div><div class="line">	<span class="attribute">width</span>: <span class="number">90px</span>;</div><div class="line">	<span class="attribute">height</span>: <span class="number">90px</span>;</div><div class="line">	<span class="attribute">background-color</span>: <span class="number">#cc3</span>;</div><div class="line">	<span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#f00</span>;</div><div class="line">	<span class="attribute">opacity</span>: <span class="number">0.5</span>;</div><div class="line">	<span class="attribute">position</span>: absolute;</div><div class="line">	<span class="attribute">z-index</span>: <span class="number">999</span>;</div><div class="line">	<span class="attribute">display</span>: none;</div><div class="line">	<span class="attribute">cursor</span>: crosshair;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3-3-javascript部分"><a href="#3-3-javascript部分" class="headerlink" title="3.3 javascript部分"></a>3.3 javascript部分</h3><h4 id="3-3-1-定义所需变量和共有对象-创建图像对象，并加载"><a href="#3-3-1-定义所需变量和共有对象-创建图像对象，并加载" class="headerlink" title="3.3.1 定义所需变量和共有对象,创建图像对象，并加载"></a>3.3.1 定义所需变量和共有对象,创建图像对象，并加载</h4><figure class="highlight mel"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">var <span class="keyword">canvas</span> = document.getElementById(<span class="string">'canvas'</span>), <span class="comment">//获取canvas对象</span></div><div class="line">	context = <span class="keyword">canvas</span>.getContext(<span class="string">'2d'</span>),  <span class="comment">//获取上下文</span></div><div class="line"></div><div class="line">	copycanvas = document.getElementById(<span class="string">'copycanvas'</span>),  <span class="comment">//获取copycanvas</span></div><div class="line">	copycontext = copycanvas.getContext(<span class="string">'2d'</span>),</div><div class="line"></div><div class="line">	square = document.getElementById(<span class="string">'square'</span>),  <span class="comment">//获取透明框</span></div><div class="line">	squaredata = &#123;&#125;, <span class="comment">//用来保存选择框数据</span></div><div class="line"></div><div class="line">	box = <span class="keyword">canvas</span>.getBoundingClientRect();  </div><div class="line">	<span class="comment">//getBoundingClientRect方法可以获取元素上、下、左、右分别相对浏览器的坐标位置</span></div><div class="line"></div><div class="line"><span class="comment">//创建图像对象，并加载</span></div><div class="line"><span class="keyword">image</span> = new Image();</div><div class="line"><span class="keyword">image</span>.src = <span class="string">"1.jpg"</span>;</div><div class="line"><span class="keyword">image</span>.onload = function()&#123;</div><div class="line">    context.drawImage(<span class="keyword">image</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="keyword">canvas</span>.width,<span class="keyword">canvas</span>.height);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="3-3-2-触发事件"><a href="#3-3-2-触发事件" class="headerlink" title="3.3.2 触发事件"></a>3.3.2 触发事件</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">canvas.onmouseover = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> x = e.clientX, <span class="comment">//获取鼠标实时坐标</span></div><div class="line">		y = e.clientY;</div><div class="line"></div><div class="line">	createSquare(x,y); <span class="comment">//保存透明选择框属性</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">window</span>.onmousemove = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> x = e.clientX,</div><div class="line">		y = e.clientY;</div><div class="line"></div><div class="line">	<span class="comment">//判断鼠标是否移出canvas</span></div><div class="line">	<span class="keyword">if</span>(x &gt;= canvas.offsetLeft &amp;&amp; x &lt;= canvas.offsetLeft + canvas.width &amp;&amp; </div><div class="line">	   y &gt;= canvas.offsetTop &amp;&amp; y &lt;= canvas.offsetTop + canvas.height)&#123;</div><div class="line">		createSquare(x,y);</div><div class="line">	&#125;<span class="keyword">else</span>&#123;</div><div class="line">		hideSquare();</div><div class="line">		hideCanvas();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="3-3-3-显示、隐藏选择框和copycanvas"><a href="#3-3-3-显示、隐藏选择框和copycanvas" class="headerlink" title="3.3.3 显示、隐藏选择框和copycanvas"></a>3.3.3 显示、隐藏选择框和copycanvas</h4><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">showSquare</span><span class="params">()</span></span>&#123;</div><div class="line">	square.style.display = <span class="string">'block'</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">hideSquare</span><span class="params">()</span></span>&#123;</div><div class="line">	square.style.display = <span class="string">'none'</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">showCanvas</span><span class="params">()</span></span>&#123;</div><div class="line">	copycanvas.style.display = <span class="string">"inline"</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">hideCanvas</span><span class="params">()</span></span>&#123;</div><div class="line">	copycanvas.style.display = <span class="string">"none"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="3-3-4-移动鼠标同时实时移动选择框"><a href="#3-3-4-移动鼠标同时实时移动选择框" class="headerlink" title="3.3.4 移动鼠标同时实时移动选择框"></a>3.3.4 移动鼠标同时实时移动选择框</h4><figure class="highlight llvm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">function createSquare(<span class="keyword">x</span>,y)&#123;    </div><div class="line">	//控制选择框不移动出canvas</div><div class="line">	<span class="keyword">x</span> = <span class="keyword">x</span> - <span class="number">45</span> &lt; canvas.offsetLeft ? canvas.offsetLeft:<span class="keyword">x</span> - <span class="number">45</span><span class="comment">;</span></div><div class="line">	y = y - <span class="number">45</span> &lt; canvas.offsetTop ? canvas.offsetTop:y - <span class="number">45</span><span class="comment">;</span></div><div class="line"></div><div class="line">	<span class="keyword">x</span> = <span class="keyword">x</span> + <span class="number">90</span> &lt; box.right ? <span class="keyword">x</span>:box.right - <span class="number">90</span><span class="comment">;</span></div><div class="line">	y = y + <span class="number">90</span> &lt; box.bottom ? y:box.bottom - <span class="number">90</span><span class="comment">;</span></div><div class="line"></div><div class="line">	squaredata.left = <span class="keyword">x</span><span class="comment">;</span></div><div class="line">	squaredata.top = y<span class="comment">;</span></div><div class="line">	moveSquare(<span class="keyword">x</span>,y)<span class="comment">;</span></div><div class="line">&#125;</div><div class="line">function moveSquare(<span class="keyword">x</span>,y)&#123;</div><div class="line">	square.style.left = <span class="keyword">x</span> + <span class="string">"px"</span><span class="comment">;</span></div><div class="line">	square.style.top = y + <span class="string">"px"</span><span class="comment">;</span></div><div class="line">	showCanvas()<span class="comment">;</span></div><div class="line">	showSquare()<span class="comment">;</span></div><div class="line">	copy()<span class="comment">;</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="3-3-5-绘制canvas到copycanvas实现放大效果"><a href="#3-3-5-绘制canvas到copycanvas实现放大效果" class="headerlink" title="3.3.5 绘制canvas到copycanvas实现放大效果"></a>3.3.5 绘制canvas到copycanvas实现放大效果</h4><figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function <span class="built_in">copy</span>()&#123;</div><div class="line">	copycontext.drawImage(</div><div class="line">		canvas,          </div><div class="line">		squaredata.left - <span class="built_in">box</span>.left,</div><div class="line">    	squaredata.top - <span class="built_in">box</span>.top,</div><div class="line">    	<span class="number">90</span>,</div><div class="line">    	<span class="number">90</span>,</div><div class="line">    	<span class="number">0</span>,</div><div class="line">    	<span class="number">0</span>,</div><div class="line">    	copycanvas.<span class="built_in">width</span>,</div><div class="line">    	copycanvas.<span class="built_in">height</span></div><div class="line">	);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>到此，便完全实现了放大镜效果。</p>
+<h2 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h2><p>网上也有各种版本的放大镜效果插件，比如<code>jQuery</code>插件。它的原理是，准备了一大一小且内容相同的两张图，然后通过设置大图的<code>position: absolute</code>，控制<code>left、right</code>属性，以及<code>overflow: hidden</code>，以此来模拟放大效果。显而易见，这样做无意义的增加了请求次数，浪费流量；而且并没有真正的实现图片的局部放大效果。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;我们在购物时，经常会看到这样的效果：当鼠标划过商品时，会在展示图旁边出现一个商品局部放大图，这就是放大镜效果。这个小效果可以由&lt;code&gt;HTML5&lt;/code&gt;的&lt;code&gt;canvas&lt;/code&gt;实现，主要依靠&lt;code&gt;canvas&lt;/code&gt;中的&lt;code&gt;drawImage()&lt;/code&gt;函数，可以初步认识&lt;code&gt;canvas&lt;/code&gt;。让我们快点开始吧。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="HTML/HTML5笔记" scheme="https://wenhuiyang-luck.github.io/categories/HTML-HTML5%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="HTML5" scheme="https://wenhuiyang-luck.github.io/tags/HTML5/"/>
+    
+      <category term="Canvas" scheme="https://wenhuiyang-luck.github.io/tags/Canvas/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript中的call()和apply()方法</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/03/04/2017-03-04-JavaScript%E4%B8%AD%E7%9A%84call()%20%E5%92%8Capply()%E8%AF%A6%E8%A7%A3/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/03/04/2017-03-04-JavaScript中的call() 和apply()详解/</id>
+    <published>2017-03-04T06:51:30.056Z</published>
+    <updated>2017-05-01T05:11:31.856Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p><code>JavaScript</code>中的<code>call()</code>和<code>apply()</code>都是用于调用当前函数<code>functionObject</code>，并可同时使用指定对象<code>thisObj</code>作为本次执行时<code>functionObject</code>函数内部的<code>this</code>指针引用。</p>
+<p>它们都输属于<code>Function</code>对象，所有主流浏览器均支持。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="1-call-和apply-的定义"><a href="#1-call-和apply-的定义" class="headerlink" title="1. call()和apply()的定义"></a>1. call()和apply()的定义</h2><h3 id="1-1-call-方法"><a href="#1-1-call-方法" class="headerlink" title="1.1 call()方法"></a>1.1 call()方法</h3><p><strong>定义</strong>：调用一个对象的一个方法，以另一个对象替换当前对象。</p>
+<p><strong>语法</strong>：<br><code>functionObject.call( [ thisObj [, arg1 [, arg2 [, args...]]]] )</code></p>
+<p><strong>参数</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>thisObj</code></td>
+<td><code>可选/Object类型</code>，指定执行<code>functionObject</code>函数时，函数内部<code>this</code>指针引用的对象。</td>
+</tr>
+<tr>
+<td><code>arg1</code></td>
+<td><code>可选/任意类型</code>，调用<code>functionObject</code>函数时传入的第1个参数。</td>
+</tr>
+<tr>
+<td><code>arg2</code></td>
+<td><code>可选/任意类型</code>，调用<code>functionObject</code>函数时传入的第2个参数。</td>
+</tr>
+<tr>
+<td><code>args</code></td>
+<td><code>可选/任意类型</code>，调用<code>functionObject</code>函数时传入的更多参数，可以有多个。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-2-apply-方法"><a href="#1-2-apply-方法" class="headerlink" title="1.2 apply()方法"></a>1.2 apply()方法</h3><p><strong>定义</strong>：应用一个对象的一个方法，用另一个对象替换当前对象。</p>
+<p><strong>语法</strong>：<br><code>functionObject.apply( [ thisObj [, argsArray ]] )</code></p>
+<p><strong>参数</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>thisObj</code></td>
+<td><code>可选/Object类型</code>，指定执行<code>functionObject</code>函数时，函数内部<code>this</code>指针引用的对象。</td>
+</tr>
+<tr>
+<td><code>argsArray</code></td>
+<td><code>可选/Array或arguments</code>对象，调用<code>functionObject</code>时传入的参数数组或arguments对象。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-3-call-和apply-的异同"><a href="#1-3-call-和apply-的异同" class="headerlink" title="1.3 call()和apply()的异同"></a>1.3 call()和apply()的异同</h3><p><strong>相同点：</strong></p>
+<p>都可以用来代替另一个对象调用一个方法，将一个函数的对象上下文从初始的上下文改变为由<code>thisObj</code>指定的新对象。</p>
+<p><strong>不同点</strong>：</p>
+<ul>
+<li><code>call()</code>:则是直接的参数列表，主要用在<code>js</code>对象各方法互相调用的时候，使当前<code>this</code>实例指针保持一致,或在特殊情况下需要改变<code>this</code>指针。如果没有提供 <code>thisObj</code> 参数，那么 <code>Global</code> 对象被用作 <code>thisObj</code>。</li>
+<li><code>apply()</code>：最多只能有两个参数———新<code>this</code>对象和一个数组<code>argsArray</code>。如果给该方法传递多个参数，则把参数都写进这个数组里面，当然，即使只有一个参数，也要写进数组里面。如果 argArray 不是一个有效的数组或者不是 <code>arguments</code> 对象，那么将导致一个 <code>TypeError</code>。如果没有提供<code>argsArray</code> 和<code>thisObj</code>任何一个参数，那么<code>Global</code>对象将被用作<code>thisObj</code>，并且无法被传递任何参数。 </li>
+</ul>
+<p><strong>总结：</strong></p>
+<ul>
+<li><code>call()</code>和<code>apply()</code>都可以用来代替另一个对象调用一个方法，将一个函数的对象上下文从初始的上下文改变为由<code>thisObj</code>指定的新对象。</li>
+<li><code>call()</code>函数是将<code>FunctionObject</code>的参数一个个分别传入，如<code>functionObject.call(thisObj,arg1,arg2,arg3)</code>；</li>
+<li><code>apply()</code>函数是将<code>FunctionObject</code>对象的参数以一个数组或<code>arguments</code>对象的形式整体传入,如<code>functionObject.apply(func1,[arg1,arg2,arg3])</code>。</li>
+</ul>
+<h2 id="2-call-和apply-实例"><a href="#2-call-和apply-实例" class="headerlink" title="2. call()和apply()实例"></a>2. call()和apply()实例</h2><h3 id="2-1-实例一"><a href="#2-1-实例一" class="headerlink" title="2.1 实例一"></a>2.1 实例一</h3><figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function add(a, b) &#123;</div><div class="line">    alert(a + b);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function <span class="function"><span class="keyword">sub</span>(<span class="title">a</span>, <span class="title">b</span>) </span>&#123;</div><div class="line">    alert(a - b);</div><div class="line">&#125;</div><div class="line"></div><div class="line">add.call(<span class="function"><span class="keyword">sub</span>, 3,1)</span>;</div><div class="line">//add.apply(<span class="function"><span class="keyword">sub</span>, [3,1])</span>;</div></pre></td></tr></table></figure>
+<p><strong>说明：</strong></p>
+<p>例子中用<code>add</code>来替换<code>sub</code>，<code>add.call(sub,3,1) == add(3,1)</code>，所以运行结果为：<code>4</code>; </p>
+<p>需要注意的是，这里直接用了函数名<code>sub</code>，而不是<code>sub()</code>,因为在<code>js</code>中的函数其实是对象，函数名是对<code>Function</code> 对象的引用。 </p>
+<h3 id="2-1-实例二"><a href="#2-1-实例二" class="headerlink" title="2.1 实例二"></a>2.1 实例二</h3><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span><span class="params">(name)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">    <span class="keyword">this</span>.showName = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</div><div class="line">        alert(<span class="keyword">this</span>.name);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span><span class="params">(name)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = <span class="string">"Cat"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> animal = <span class="keyword">new</span> Animal();</div><div class="line"><span class="keyword">var</span> cat = <span class="keyword">new</span> Cat();</div><div class="line"></div><div class="line">animal.showName.call(cat,<span class="string">","</span>)</div><div class="line"><span class="comment">//animal.showName.apply(cat,[]);</span></div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>通过<code>call</code>或<code>apply</code>方法，将原本属于<code>Animal</code>对象的<code>showName()</code>方法交给对象<code>cat</code>来使用了。因此输入结果为<code>&quot;Cat&quot;</code>。</p>
+<h3 id="2-3-实例三（实现继承）"><a href="#2-3-实例三（实现继承）" class="headerlink" title="2.3 实例三（实现继承）"></a>2.3 实例三（实现继承）</h3><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span><span class="params">(name)</span> </span>&#123;    </div><div class="line">    <span class="keyword">this</span>.name = name;    </div><div class="line">    <span class="keyword">this</span>.showName = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;    </div><div class="line">        alert(<span class="keyword">this</span>.name);    </div><div class="line">    &#125;    </div><div class="line">&#125;    </div><div class="line">   </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span><span class="params">(name)</span> </span>&#123;  </div><div class="line">    Animal.call(<span class="keyword">this</span>, name); </div><div class="line">    <span class="comment">//Animal.apply(this, [name]);</span></div><div class="line">&#125;    </div><div class="line">   </div><div class="line"><span class="keyword">var</span> cat = <span class="keyword">new</span> Cat(<span class="string">"Black Cat"</span>);   </div><div class="line">cat.showName();</div></pre></td></tr></table></figure>
+<p><strong>说明：</strong></p>
+<p><code>Animal.call(this, name)</code> 的意思就是使用 <code>Animal</code>对象代替<code>this</code>对象，那么<code>Cat</code>对象就能够直接调用<code>Animal</code>的方法以及属性了。</p>
+<h3 id="2-4-实例四（多重继承）"><a href="#2-4-实例四（多重继承）" class="headerlink" title="2.4 实例四（多重继承）"></a>2.4 实例四（多重继承）</h3><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Class10</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.showSub = <span class="function"><span class="keyword">function</span><span class="params">(a,b)</span> </span>&#123;</div><div class="line">        alert(a-b);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Class11</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.showAdd = <span class="function"><span class="keyword">function</span><span class="params">(a,b)</span> </span>&#123;</div><div class="line">        alert(a+b);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Class2</span><span class="params">()</span> </span>&#123;</div><div class="line">    Class10.call(<span class="keyword">this</span>);</div><div class="line">    Class11.call(<span class="keyword">this</span>);</div><div class="line">    <span class="comment">//Class10.apply(this);</span></div><div class="line">    <span class="comment">//Class11.apply(this);</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> c2=<span class="keyword">new</span> Class2();</div><div class="line">c2.showSub(<span class="number">3</span>,<span class="number">1</span>);</div><div class="line">c2.showAdd(<span class="number">3</span>,<span class="number">1</span>); <span class="comment">//使用两个 call 就实现多重继承</span></div></pre></td></tr></table></figure>
+<h2 id="3-apply-的其他妙用"><a href="#3-apply-的其他妙用" class="headerlink" title="3. apply()的其他妙用"></a>3. apply()的其他妙用</h2><p>既然apply和call的用法差不多，那么为什么还同时存在呢？</p>
+<p>——这是因为apply所传的参数类型（数组）还有其他妙用。</p>
+<h3 id="3-1-Math-max可以实现得到数组中最大的一项"><a href="#3-1-Math-max可以实现得到数组中最大的一项" class="headerlink" title="3.1 Math.max可以实现得到数组中最大的一项"></a>3.1 Math.max可以实现得到数组中最大的一项</h3><p>因为<code>Math.max</code>参数不支持数组传递，但是它支持列表传递，即<code>Math.max(param1,param2,param3…)</code>,所以可以根据<code>apply</code>的特点来解决 <code>var max=Math.max.apply(null,array)</code>，这样轻易的可以得到一个数组中最大的一项。(<code>apply</code>会将一个数组转换为一个参数接一个参数的传递给方法)。 </p>
+<p><strong>注意</strong>：调用的时候第一个参数给了一个<code>null</code>，是因为没有对象去调用这个方法，只需要用这个方法帮助运算，得到返回的结果就行，所以直接传递了一个<code>null</code>过去。</p>
+<h3 id="3-2-Array-min-可以实现得到数组中最小的一项"><a href="#3-2-Array-min-可以实现得到数组中最小的一项" class="headerlink" title="3.2 Array.min 可以实现得到数组中最小的一项"></a>3.2 Array.min 可以实现得到数组中最小的一项</h3><p>同样和<code>max</code>是一个思想 <code>var min=Math.min.apply(null,array)</code>。 </p>
+<h3 id="3-3-Array-prototype-push-可以实现两个数组合并"><a href="#3-3-Array-prototype-push-可以实现两个数组合并" class="headerlink" title="3.3 Array.prototype.push 可以实现两个数组合并"></a>3.3 Array.prototype.push 可以实现两个数组合并</h3><p>同样<code>push</code>方法没有提供<code>push</code>一个数组，但是它提供了<code>push(param1,param,…paramN)</code> 所以同样也可以通过<code>apply</code>来转换一下这个数组，即: </p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr1=<span class="keyword">new</span> <span class="type">Array</span>(<span class="string">"1"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>); </div><div class="line"><span class="keyword">var</span> arr2=<span class="keyword">new</span> <span class="type">Array</span>(<span class="string">"4"</span>,<span class="string">"5"</span>,<span class="string">"6"</span>); </div><div class="line"><span class="keyword">Array</span>.prototype.push.apply(arr1,arr2);</div></pre></td></tr></table></figure>
+<p>也可以这样理解，<code>arr1</code>调用了<code>push</code>方法，参数是通过<code>apply</code>将数组装换为参数列表的集合。 </p>
+<p><strong>总结：</strong></p>
+<p>当目标函数只需要<code>n</code>个参数列表,而不接收一个数组的形式<code>（[param1[,param2[,…[,paramN]]]]）</code>，可以通过<code>apply</code>的方式巧妙地解决这个问题。 </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;JavaScript&lt;/code&gt;中的&lt;code&gt;call()&lt;/code&gt;和&lt;code&gt;apply()&lt;/code&gt;都是用于调用当前函数&lt;code&gt;functionObject&lt;/code&gt;，并可同时使用指定对象&lt;code&gt;thisObj&lt;/code&gt;作为本次执行时&lt;code&gt;functionObject&lt;/code&gt;函数内部的&lt;code&gt;this&lt;/code&gt;指针引用。&lt;/p&gt;
+&lt;p&gt;它们都输属于&lt;code&gt;Function&lt;/code&gt;对象，所有主流浏览器均支持。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="JavaScript笔记" scheme="https://wenhuiyang-luck.github.io/categories/JavaScript%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="JavaScript" scheme="https://wenhuiyang-luck.github.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript正则</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/03/03/2017-03-03-JavaScript%E6%AD%A3%E5%88%99%E7%AC%94%E8%AE%B0/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/03/03/2017-03-03-JavaScript正则笔记/</id>
+    <published>2017-03-03T04:11:14.927Z</published>
+    <updated>2017-05-01T05:11:12.259Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>正则表达式，又称规则表达式。简单讲就是一个用来处理字符串的规则，这里的“处理”一般包含匹配和捕获。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="1-初识正则"><a href="#1-初识正则" class="headerlink" title="1. 初识正则"></a>1. 初识正则</h2><h3 id="1-1正则的匹配和捕获"><a href="#1-1正则的匹配和捕获" class="headerlink" title="1.1正则的匹配和捕获"></a>1.1正则的匹配和捕获</h3><ul>
+<li><strong>匹配：判断一个字符串是否符合指定的规则，使用<code>reg.test(str)</code></strong></li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> <span class="keyword">reg</span> = /\<span class="keyword">d</span>/; <span class="comment">//包含一个0-9之间的数字</span></div><div class="line">console.<span class="built_in">log</span>(<span class="keyword">reg</span>.<span class="keyword">test</span>('1')); <span class="comment">//true</span></div><div class="line">console.<span class="built_in">log</span>(<span class="keyword">reg</span>.<span class="keyword">test</span>('我今年18岁')); <span class="comment">//true,只要包含数字就返回true</span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>捕获：获取字符串中符合指定的规则的内容，使用<code>reg.exec(str)</code></strong></li>
+</ul>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var reg = <span class="regexp">/\d/</span>;</div><div class="line">console.log(reg.exec(<span class="string">'1'</span>)); <span class="regexp">//</span>[<span class="string">"1"</span>, index: <span class="number">0</span>, input: <span class="string">"1"</span>]</div><div class="line">console.log(reg.exec(<span class="string">'我今年18岁'</span>)); <span class="regexp">//</span>[<span class="string">"1"</span>, index: <span class="number">3</span>, input: <span class="string">"我今年18岁"</span>]</div></pre></td></tr></table></figure>
+<h3 id="1-2-创建正则"><a href="#1-2-创建正则" class="headerlink" title="1.2 创建正则"></a>1.2 创建正则</h3><ul>
+<li><strong>字面量方式</strong></li>
+</ul>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">var reg</span> = /\d/;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>实例方式</strong></li>
+</ul>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'/\d/'</span>);</div></pre></td></tr></table></figure>
+<h2 id="2-正则的组成"><a href="#2-正则的组成" class="headerlink" title="2. 正则的组成"></a>2. 正则的组成</h2><h3 id="2-1-元字符"><a href="#2-1-元字符" class="headerlink" title="2.1 元字符"></a>2.1 元字符</h3><ul>
+<li><strong>具有特殊意义的元字符</strong><ul>
+<li>\: 转义字符，转义后面字符所代表的含义</li>
+<li>^: 以某一个元字符开始</li>
+<li>$: 以某一个元字符结束</li>
+<li>.: 除了\n以外的任意字符</li>
+<li>\n: 匹配一个换行符</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> <span class="keyword">reg</span> = /^0.5$/; <span class="comment">// 以0开头，以5结尾，中间可以是除了\n的任意字符</span></div><div class="line">console.<span class="built_in">log</span>(<span class="keyword">reg</span>.<span class="keyword">test</span>('0.5')); <span class="comment">// true</span></div><div class="line">console.<span class="built_in">log</span>(<span class="keyword">reg</span>.<span class="keyword">test</span>('0-5')); <span class="comment">// true</span></div><div class="line"></div><div class="line"><span class="keyword">reg</span> = /^0\.5$/; <span class="comment">// 将"."转义,中间必须是"."</span></div><div class="line">console.<span class="built_in">log</span>(<span class="keyword">reg</span>.<span class="keyword">test</span>('0.5')); <span class="comment">// true</span></div><div class="line">console.<span class="built_in">log</span>(<span class="keyword">reg</span>.<span class="keyword">test</span>('0-5')); <span class="comment">// false</span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>代表出现次数的量词元字符</strong><ul>
+<li>*：出现0到多次</li>
+<li>+：出现1到多次</li>
+<li>?：出现0次或者1次</li>
+<li>{n}：出现n次</li>
+<li>{n,m}：出现n到m次</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> <span class="keyword">reg</span> = /\<span class="keyword">d</span>+/; <span class="comment">//匹配0-9之间的数字最少一次</span></div><div class="line">console.<span class="built_in">log</span>(<span class="keyword">reg</span>.<span class="keyword">test</span>('2015')); <span class="comment">// true</span></div></pre></td></tr></table></figure>
+<h3 id="2-2-修饰符"><a href="#2-2-修饰符" class="headerlink" title="2.2 修饰符"></a>2.2 修饰符</h3><ul>
+<li>x|y：x或y中的一个</li>
+<li>[xyz]：x或y或z中的一个</li>
+<li>[^xyz]：除了xyz以外的任意一个字符</li>
+<li>[a-z]：a-z之间的任何一个字符</li>
+<li>[^a-z]：除了a-z之间的任何一个字符</li>
+<li>\d：一个0~9之间的数字</li>
+<li>\D：除了0~9之间的数字以外的任何字符</li>
+<li>\b：一个边界符</li>
+<li>\w：数字、字母、下划线中的任意一个字符</li>
+<li>\s：匹配一个空白字符、空格</li>
+<li>()：分组，把一个大正则本身划分成几个小的正则，例如：<code>var reg = /^(\d+)zhufeng(\d+)$/</code>;</li>
+</ul>
+<h2 id="3-元字符的应用"><a href="#3-元字符的应用" class="headerlink" title="3. 元字符的应用"></a>3. 元字符的应用</h2><p>在做元字符的应用前，有必要先了解下中括号和分组的使用。</p>
+<h3 id="3-1-的规律"><a href="#3-1-的规律" class="headerlink" title="3.1 []的规律"></a>3.1 []的规律</h3><ul>
+<li><strong>在中括号中出现的所有的字符都是代表本身的意思的字符（没有特殊含义）</strong></li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> <span class="keyword">reg</span> = /^[.]$/;</div><div class="line">console.<span class="built_in">log</span>(<span class="keyword">reg</span>.<span class="keyword">test</span>('1')); <span class="comment">// false</span></div><div class="line">console.<span class="built_in">log</span>(<span class="keyword">reg</span>.<span class="keyword">test</span>('.')); <span class="comment">// true</span></div><div class="line"></div><div class="line"><span class="keyword">reg</span> = /^[\w-]$/; <span class="comment">// 数字、字母、下划线、- 中的一个</span></div><div class="line">console.<span class="built_in">log</span>(<span class="keyword">reg</span>.<span class="keyword">test</span>('-')); <span class="comment">// true</span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>中括号不识别两位数</strong></li>
+</ul>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var reg = <span class="regexp">/^[12]$/</span>; <span class="regexp">//</span> --&gt; <span class="number">1</span>或者<span class="number">2</span>中的一个（符合[xyz]）</div><div class="line">var reg = <span class="regexp">/^[12-68]$/</span>; <span class="regexp">//</span> --&gt; <span class="number">1</span>、<span class="number">2</span>-<span class="number">6</span>中的一个、<span class="number">8</span>  三个中的一个</div></pre></td></tr></table></figure>
+<h3 id="3-2-的作用"><a href="#3-2-的作用" class="headerlink" title="3.2 ()的作用"></a>3.2 ()的作用</h3><ul>
+<li><strong>改变x|y的默认的优先级</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg = <span class="regexp">/^18|19$/</span>; <span class="comment">// 18、19、181、189、119、819、1819这些都符合</span></div><div class="line"><span class="keyword">var</span> reg = <span class="regexp">/^(18|19)$/</span>; <span class="comment">// 只能18或者19</span></div></pre></td></tr></table></figure>
+<h3 id="3-3-应用"><a href="#3-3-应用" class="headerlink" title="3.3 应用"></a>3.3 应用</h3><ul>
+<li><strong>应用一：有效数字的正则</strong><br>  有效数字可以是正数、负数、零、小数，所以其特点为：<ul>
+<li>“.”可以出现也可以不出现，一旦出现，后面必须跟着一位或多为数字；</li>
+<li>最开始可能有“+/-”，也可以没有；</li>
+<li>整数部分，一位数的情况可以是0-9中的一个，多位数的情况下不能以0开头；</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var reg = /^[+-]?(<span class="symbol">\d</span>|([1-9]<span class="symbol">\d</span>+))(<span class="symbol">\.</span><span class="symbol">\d</span>+)?$/;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>应用二：年龄介于18~65之间</strong><br>年龄介于18~65之间的数字可以是18-19、20-59、60-65。</li>
+</ul>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var reg = /^<span class="number">1</span>[<span class="number">8</span><span class="number">-9</span>]|[<span class="number">2</span><span class="number">-5</span>]\d|<span class="number">6</span>[<span class="number">0</span><span class="number">-5</span>]$/;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>应用三：简单的邮箱验证</strong></li>
+</ul>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var reg = /^[\w.-]+@[<span class="number">0</span><span class="number">-9</span>a-zA-Z]+(\.[a-zA-Z]&#123;<span class="number">2</span>,<span class="number">4</span>&#125;)&#123;<span class="number">1</span>,<span class="number">2</span>&#125;$/;</div></pre></td></tr></table></figure>
+<h2 id="4-两种方式创建正则的区别"><a href="#4-两种方式创建正则的区别" class="headerlink" title="4. 两种方式创建正则的区别"></a>4. 两种方式创建正则的区别</h2><p>创建正则有两种方式：字面量方式、对象方式。</p>
+<p>在字面量方式中，”//“之间包起来的所有的内容都是元字符，有的具有特殊的意义，大部分都是代表本身含义的普通元字符。</p>
+<p>正则中的某一段内容是不固定的，那么我们用字面量的方式可能会这么写：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = 'iceman';</div><div class="line"><span class="keyword">var</span> <span class="keyword">reg</span> = /^\<span class="keyword">d</span>+<span class="string">"+name+"</span>\<span class="keyword">d</span>+$/;</div><div class="line">console.<span class="built_in">log</span>(<span class="keyword">reg</span>.<span class="keyword">test</span>('2015iceman2016')); <span class="comment">// false</span></div><div class="line">console.<span class="built_in">log</span>(<span class="keyword">reg</span>.<span class="keyword">test</span>('2015<span class="string">""</span><span class="string">"nameeee"</span>2016')); <span class="comment">// true</span></div></pre></td></tr></table></figure>
+<p>为什么出现这样的结果？与我们的想法不一致。仔细一看，就会发现我们在第二条匹配的字符串中写了三个引号，name的后面再加了三个e。</p>
+<p>因为在字面量方式创建的正则中，引号和单独出现的加号都被当成了普通的元字符。就会解析成匹配“一次或多次，破匹配e一次或多次，对于上面的这个需求，我们只能使用实例创建正则的方式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">'iceman'</span>;</div><div class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"^\\d+"</span> + name + <span class="string">"\\d+$"</span>, <span class="string">"g"</span>);</div><div class="line"><span class="built_in">console</span>.log(reg.test(<span class="string">'2015iceman2016'</span>)); <span class="comment">// true</span></div></pre></td></tr></table></figure>
+<p>所以总结字面量方式和实例方式创建正则的区别：</p>
+<ul>
+<li>字面量方式中出现的一切都是元字符，不能进行变量值的拼接，而实例创建的方式可以；</li>
+<li>字面量方式中直接写\d可以，而在实例中需要把它转义 <code>\\d</code></li>
+</ul>
+<h2 id="5-正则的捕获及其贪婪性和懒惰性"><a href="#5-正则的捕获及其贪婪性和懒惰性" class="headerlink" title="5. 正则的捕获及其贪婪性和懒惰性"></a>5. 正则的捕获及其贪婪性和懒惰性</h2><h3 id="5-1-懒惰性"><a href="#5-1-懒惰性" class="headerlink" title="5.1 懒惰性"></a>5.1 懒惰性</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">var reg</span> = /\d+/;</div><div class="line"><span class="attribute">var str</span> = <span class="string">'iceman2016learn2017'</span>;</div></pre></td></tr></table></figure>
+<p>reg默认有一个lastIndex字段，该字段是正则每一次捕获时，在字符串中开始查找的位置，默认的值是0。</p>
+<p><strong>第一次捕获：</strong></p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">console.<span class="built_in">log</span>(<span class="keyword">reg</span>.lastIndex); <span class="comment">// 0，第一次捕获的时候，从字符串索引0处开始查找</span></div><div class="line"><span class="keyword">var</span> res = <span class="keyword">reg</span>.exec(str);</div><div class="line">console.<span class="built_in">log</span>(res); <span class="comment">// ["2016", index: 6, input: "iceman2016learn2017"]</span></div></pre></td></tr></table></figure>
+<p>从代码的输出可知，正则捕获的内容格式：捕获到的内容是一个数组:</p>
+<ul>
+<li>数组的第一项是当前大正则捕获的内容；</li>
+<li>有一项是index：捕获内容在字符串中开始的索引位置；</li>
+<li>有一项是input：捕获的原始字符串；</li>
+</ul>
+<p><strong>现在进行第二次捕获：</strong></p>
+<figure class="highlight sqf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">console.<span class="built_in">log</span>(reg.lastIndex); <span class="comment">// 0  说明第二次捕获的时候，也要从字符串索引0处开始查找</span></div><div class="line"><span class="comment">// 第二次通过exec捕获的内容还是第一个"2016"</span></div><div class="line">res = reg.<span class="built_in">exec</span>(<span class="built_in">str</span>);</div><div class="line">console.<span class="built_in">log</span>(res); <span class="comment">//["2016", index: 6, input: "iceman2016learn2017"]</span></div></pre></td></tr></table></figure>
+<p>由上面的两次捕获可知，每次的捕获都是从字符串的索引0处开始查找的，这就是正则的<strong>懒惰性</strong>。</p>
+<p><strong>如何解决？</strong></p>
+<p>在正则的末尾加一个修饰“g”（全局匹配），类似g这样的修饰符还有两个：i、m，这三者的作用是：</p>
+<ul>
+<li>global（g）：全局匹配</li>
+<li>ignoreCase（i）：忽略大小写</li>
+<li>multiline（m）：多行匹配</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> <span class="keyword">reg</span> = /\<span class="keyword">d</span>+/<span class="keyword">g</span>;</div><div class="line"><span class="keyword">var</span> str = 'iceman2016learn2017';</div><div class="line">console.<span class="built_in">log</span>(<span class="keyword">reg</span>.lastIndex); <span class="comment">// 0</span></div><div class="line">console.<span class="built_in">log</span>(<span class="keyword">reg</span>.exec(str)); <span class="comment">// ["2016", index: 6, input: "iceman2016learn2017"]</span></div><div class="line"></div><div class="line">console.<span class="built_in">log</span>(<span class="keyword">reg</span>.lastIndex); <span class="comment">// 10</span></div><div class="line">console.<span class="built_in">log</span>(<span class="keyword">reg</span>.exec(str)); <span class="comment">// ["2017", index: 15, input: "iceman2016learn2017"]</span></div><div class="line"></div><div class="line">console.<span class="built_in">log</span>(<span class="keyword">reg</span>.lastIndex); <span class="comment">// 19</span></div><div class="line">console.<span class="built_in">log</span>(<span class="keyword">reg</span>.exec(str)); <span class="comment">// null</span></div></pre></td></tr></table></figure>
+<p>在加了修饰符g之后，就解决了懒惰型，达到了我们想要的效果，所以全局修饰符g的原理是：正则每一次捕获结束后，lastIndex的值都变成了最新的值，下一次捕获从最新的位置开始查找，这样就可以把所有需要捕获的内容都获取到了。</p>
+<h3 id="5-2-贪婪性"><a href="#5-2-贪婪性" class="headerlink" title="5.2 贪婪性"></a>5.2 贪婪性</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg = <span class="regexp">/\d+/g</span>; <span class="comment">// 出现一到多个0~9之间的数字</span></div><div class="line"><span class="keyword">var</span> str = <span class="string">'iceman2016learn2017javascript2018'</span>;</div><div class="line"><span class="built_in">console</span>.log(reg.exec(str)); <span class="comment">// ["2016", index: 6, input: "iceman2016learn2017javascript2018"]</span></div></pre></td></tr></table></figure>
+<p>正则的内容是<code>/\d+/</code>，是匹配1到多个数字，<code>2015</code>是符合正则的，但是2也是符合正则的，为什么默认就捕获了2016呢？ 这就是正则的<strong>贪婪性</strong>。</p>
+<p><strong>如何解决？</strong></p>
+<p>在量词元字符后面添加一个”?”即可。</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">var</span> reg = /\d+?/g; // 出现一到多个<span class="number">0</span>~<span class="number">9</span>之间的数字</div><div class="line"><span class="built_in">var</span> str = 'iceman2016learn2017javascript2018';</div><div class="line">console.<span class="built_in">log</span>(reg.exec(str)); // [<span class="string">"2"</span>, index: <span class="number">6</span>, input: <span class="string">"iceman2016learn2017javascript2018"</span>]</div><div class="line"><span class="built_in">var</span> ary = [] , res = reg.exec(str);</div><div class="line"><span class="keyword">while</span> (res) &#123;</div><div class="line">    ary.<span class="built_in">push</span>(res[<span class="number">0</span>]);</div><div class="line">    res = reg.exec(str)</div><div class="line">&#125;</div><div class="line">console.<span class="built_in">log</span>(ary); // [<span class="string">"0"</span>, <span class="string">"1"</span>, <span class="string">"6"</span>, <span class="string">"2"</span>, <span class="string">"0"</span>, <span class="string">"1"</span>, <span class="string">"7"</span>, <span class="string">"2"</span>, <span class="string">"0"</span>, <span class="string">"1"</span>, <span class="string">"8"</span>]</div></pre></td></tr></table></figure>
+<p>“?”在正则中的作用：</p>
+<ul>
+<li>放在一个普通的元字符后面，代表出现0~1次；</li>
+<li>放在一个量词的元字符后面，取消捕获时候的贪婪性；</li>
+</ul>
+<h3 id="5-3-字符串中的match方法"><a href="#5-3-字符串中的match方法" class="headerlink" title="5.3 字符串中的match方法"></a>5.3 字符串中的match方法</h3><p>match方法的作用是，把所有和正则匹配的字符都获取到。</p>
+<figure class="highlight cal"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg = /\d+?/g;</div><div class="line"><span class="keyword">var</span> str = <span class="string">'zhufeng2015peixun2016dasgdas2017'</span>;</div><div class="line"><span class="keyword">var</span> ary = str.match(reg);</div><div class="line">console.log(ary); // [<span class="string">"2"</span>, <span class="string">"0"</span>, <span class="string">"1"</span>, <span class="string">"5"</span>, <span class="string">"2"</span>, <span class="string">"0"</span>, <span class="string">"1"</span>, <span class="string">"6"</span>, <span class="string">"2"</span>, <span class="string">"0"</span>, <span class="string">"1"</span>, <span class="string">"7"</span>]</div></pre></td></tr></table></figure>
+<p><strong>注意</strong>：虽然在当前的情况下，match比exec更加的简洁一些，但是match存在一些自己处理不了的问题：在分组捕获的情况下，match只能捕获到大正则，而对于小正则捕获的内容是无法获取的。</p>
+<h2 id="6-分组捕获"><a href="#6-分组捕获" class="headerlink" title="6. 分组捕获"></a>6. 分组捕获</h2><h3 id="6-1-正则分组"><a href="#6-1-正则分组" class="headerlink" title="6.1 正则分组"></a>6.1 正则分组</h3><p>正则分组的两个作用：</p>
+<ul>
+<li>改变优先级</li>
+<li>分组引用<ul>
+<li>\2代表和第二个分组出现一模一样（和对应的分组中的内容和值都要一样）的内容;</li>
+<li>\1代表和第一个分组出现一模一样的内容；</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> <span class="keyword">reg</span> = /^(\w)(\w)\1\2$/;</div><div class="line">console.<span class="built_in">log</span>(<span class="keyword">reg</span>.<span class="keyword">test</span>(<span class="string">"icic"</span>)); <span class="comment">// true</span></div><div class="line">console.<span class="built_in">log</span>(<span class="keyword">reg</span>.<span class="keyword">test</span>(<span class="string">"r0g_"</span>)); <span class="comment">// false</span></div></pre></td></tr></table></figure>
+<h3 id="6-2-分组捕获"><a href="#6-2-分组捕获" class="headerlink" title="6.2 分组捕获"></a>6.2 分组捕获</h3><p>正则在捕获的时候，不仅仅把大正则匹配的内容捕获到，而且还可以把小分组匹配的内容捕获到。</p>
+<p>身份证中的数字都有意义的，比如开头的两位代表省，中间的四位代表…所以对于一个身份中，有必要对其中的数字按照其意义进行分组捕获。</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var reg = /^(<span class="tag">\<span class="name">d</span><span class="string">&#123;2&#125;</span></span>)(<span class="tag">\<span class="name">d</span><span class="string">&#123;4&#125;</span></span>)(<span class="tag">\<span class="name">d</span><span class="string">&#123;4&#125;</span></span>)(<span class="tag">\<span class="name">d</span><span class="string">&#123;2&#125;</span></span>)(<span class="tag">\<span class="name">d</span><span class="string">&#123;2&#125;</span></span>)(?:<span class="tag">\<span class="name">d</span><span class="string">&#123;2&#125;</span></span>)(<span class="tag">\<span class="name">d</span></span>)(?:<span class="tag">\<span class="name">d</span></span>|X)<span class="formula">$/;</span></div><div class="line">var str = "350324202904190216";</div><div class="line">console.log(reg.exec(str));</div></pre></td></tr></table></figure>
+<p><strong>注意</strong>：(?:) 在分组中?:的意思是只匹配不捕获</p>
+<p>输出的内容为：[“350324200904190216”, “35”, “0324”, “2009”, “04”, “19”, “1”, index: 0, input: “350324200904190216”]</p>
+<p>其中：</p>
+<ul>
+<li>350324200904190216 ：大正则匹配的内容</li>
+<li>35 ：第一个分组捕获的内容</li>
+<li>0324 ：第二个分组捕获的内容</li>
+<li>……</li>
+</ul>
+<p>在这里使用match方法的话，和exec获取的内容一样：</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.<span class="built_in">log</span>(<span class="built_in">str</span>.<span class="built_in">match</span>(reg));</div></pre></td></tr></table></figure>
+<p>另一个例子：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var reg = <span class="regexp">/ice(\d+)/g</span>;</div><div class="line">var str = <span class="string">'ice1234ice3456ice5678'</span></div><div class="line"><span class="regexp">//</span> 用exec执行三次，每一次不仅仅把大正则匹配的获取到，而且还可以获取第一个分组匹配的内容</div><div class="line">console.log(reg.exec(str)); <span class="regexp">//</span> [<span class="string">"ice1234"</span>, <span class="string">"1234"</span>, index: <span class="number">0</span>, input: <span class="string">"ice1234ice3456ice5678"</span>]</div><div class="line">console.log(reg.exec(str)); <span class="regexp">//</span> [<span class="string">"ice3456"</span>, <span class="string">"3456"</span>, index: <span class="number">7</span>, input: <span class="string">"ice1234ice3456ice5678"</span>]</div><div class="line">console.log(reg.exec(str)); <span class="regexp">//</span> [<span class="string">"ice5678"</span>, <span class="string">"5678"</span>, index: <span class="number">14</span>, input: <span class="string">"ice1234ice3456ice5678"</span>]</div><div class="line"></div><div class="line"><span class="regexp">//</span> 而match只能捕获大正则</div><div class="line">console.log(str.match(reg)); <span class="regexp">//</span> [<span class="string">"ice1234"</span>, <span class="string">"ice3456"</span>, <span class="string">"ice5678"</span>]</div></pre></td></tr></table></figure>
+<p>此时match是只能捕获大正则的内容，所以match能做到的exec都能做到，match做不到的exec也能做到。</p>
+<p><strong>总结</strong>：只捕获一次就好的，那么用exec和match都可以，像本例中要连续捕获三次的，用match就捕获不到小正则了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;正则表达式，又称规则表达式。简单讲就是一个用来处理字符串的规则，这里的“处理”一般包含匹配和捕获。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="JavaScript笔记" scheme="https://wenhuiyang-luck.github.io/categories/JavaScript%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="JavaScript" scheme="https://wenhuiyang-luck.github.io/tags/JavaScript/"/>
+    
+      <category term="正则" scheme="https://wenhuiyang-luck.github.io/tags/%E6%AD%A3%E5%88%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>总结一些Sublime Text3使用技巧</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/02/26/2017-02-26-Sublime%20Text3%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/02/26/2017-02-26-Sublime Text3使用技巧/</id>
+    <published>2017-02-26T09:35:54.270Z</published>
+    <updated>2017-05-01T05:10:50.676Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>Sublime Text 是很多人喜欢的代码编辑器，掌握一些快捷键，能让你打码更有效率。本篇笔记向大家介绍Sublime Text编辑器一些常用的快捷技巧，希望对大家有所帮助。                                                                    </p>
+</blockquote>
+<a id="more"></a>
+<h1 id="1-Goto-Anything：Ctrl-P"><a href="#1-Goto-Anything：Ctrl-P" class="headerlink" title="1. Goto Anything：Ctrl+P"></a>1. Goto Anything：Ctrl+P</h1><hr>
+<p><strong>功能1</strong>：Ctrl +P 快速查询文件（支持模糊匹配），如：public/index.html；</p>
+<p><strong>功能2</strong>：@可以快速查询css中的选择器或js中的函数；</p>
+<p><img src="http://images.cnitblog.com/i/446475/201407/032226221849590.jpg" alt="img"></p>
+<p><code>#</code>匹配页面标签</p>
+<p><img src="http://images.cnitblog.com/i/446475/201407/032205212307495.jpg" alt="img"></p>
+<p><strong>功能3</strong>：模糊匹配，如设置background-color属性，仅输入bgc即可。</p>
+<h1 id="2-多行游标"><a href="#2-多行游标" class="headerlink" title="2. 多行游标"></a>2. 多行游标</h1><hr>
+<p><strong>功能：</strong>快速替换，快速添加。</p>
+<p>(1) <strong>普通方法</strong>：</p>
+<p>Ctrl + H：Find what（想要替换），Replace what（替换成什么）中完成替换；</p>
+<p>(2) <strong>快捷方法：</strong></p>
+<p>​    选中第一个匹配项，使用Ctrl+D选中下一个，依次使用Ctrl +D选中所有想要替换的文本（Crtl + K 可跳过中间某一个不想选中的），可以看到每一个文本后面都有了闪动的光标，输入替换内容即可；</p>
+<p>​    也可用上述方法同时在不同的模块下添加多行新的配置项（Find Replace不能完成的功能）。</p>
+<p><strong>如何产生多行游标：</strong></p>
+<ul>
+<li>Ctrl +D（Ctrl+K跳过）；</li>
+<li>选中第一个，再按Alt+F3整页选中所有匹配项；</li>
+<li>拆行方式，先Ctrl + A，再Ctrl+Shift+L；</li>
+<li>拖动方式：按住Shift +鼠标右键，向下拖动产生多行游标；</li>
+</ul>
+<h1 id="3-命令模式：Ctrl-Shift-P（模糊匹配）"><a href="#3-命令模式：Ctrl-Shift-P（模糊匹配）" class="headerlink" title="3. 命令模式：Ctrl+Shift+P（模糊匹配）"></a>3. 命令模式：Ctrl+Shift+P（模糊匹配）</h1><hr>
+<p><strong>功能：</strong>修改编辑区的语法模式、安装插件、隐藏/显示minimap</p>
+<p><strong>修改语法模式</strong>：输入ss（Set Syntax）+语法模式，如ssJavaScript、ssphp、ssjava或JavaScript、java等，即可改变文件类型。</p>
+<h1 id="4-PackageControl安装插件"><a href="#4-PackageControl安装插件" class="headerlink" title="4. PackageControl安装插件"></a>4. PackageControl安装插件</h1><hr>
+<p>官网：<a href="https://sublime.wbond.net" target="_blank" rel="external">https://sublime.wbond.net</a></p>
+<ul>
+<li>复制代码</li>
+<li>View &gt; Show Console黏贴代码，重新启动</li>
+<li>Ctrl + Shift + P启动命令模式，输入pc（Package Control），选择Install Package安装插件</li>
+</ul>
+<h1 id="5-snippets以模板的方式编程（以js为例）"><a href="#5-snippets以模板的方式编程（以js为例）" class="headerlink" title="5. snippets以模板的方式编程（以js为例）"></a>5. snippets以模板的方式编程（以js为例）</h1><hr>
+<p><strong>功能1</strong>：快速生成函数</p>
+<p>第一步：Ctrl + Shift + P启动命令模式，输入ssjs切换语法模式；</p>
+<p><img src="../../../../images/ssjs.png" alt=""></p>
+<p>第二步：写一个函数，Ctrl + Shift + P启动命令模式，输入snip;</p>
+<p>​    <img src="../../../../images/snip.png" alt=""></p>
+<p>第三步：选择snippets:Function，回车，即可自动生成函数；</p>
+<p><img src="../../../../images/snip+fun.png" alt=""></p>
+<p>第四步：直接修改函数名，再使用tab键，即可看到光标在argument参数部分高亮显示，即可修改参数，再一次按tab键，就跳转到函数体部分。Tab键的使用减少了移动光标的操作。</p>
+<p><strong>功能2：</strong>自动补全</p>
+<p>例1：fun + Enter</p>
+<p><img src="../../../../images/fun+enter.png" alt=""></p>
+<p>例2：ife + Enter</p>
+<p><img src="../../../../images/ife+enter.png" alt=""></p>
+<p>例3：Prototypre</p>
+<p>定义一个构造函数Person：</p>
+<p><img src="../../../../images/person.png" alt=""></p>
+<p>Person类定义一个实例函数，使用原型链，只需要输入一个Prototype+Enter，修改相应内容即可。</p>
+<p><img src="../../../../images/prototype.png" alt=""></p>
+<h1 id="6-几个其他常用快捷键"><a href="#6-几个其他常用快捷键" class="headerlink" title="6. 几个其他常用快捷键"></a>6. 几个其他常用快捷键</h1><hr>
+<p>Ctrl+Shift+D ————复制光标所在整行，插入到下一行。</p>
+<p>Ctrl+Shift+V ————-粘贴过程中保持缩进</p>
+<p>Ctrl+Shift+K ————-删除整行。</p>
+<p>Ctrl+Shift+Enter——–在上一行插入新行</p>
+<p>Ctrl+Enter —————-在下一行插入新行。即使光标不在行尾，也能快速向下插入一行。</p>
+<p>Ctrl + W ——————-关闭当前文档</p>
+<p>Ctrl + ] ———————右缩进</p>
+<p>Ctrl + [ ———————左缩进</p>
+<p>Alt + . ———————-快速闭合标签</p>
+<p>!+Ctrl+E——————–快速生成html完整标记（Emmet插件）</p>
+<p>ul&gt;.item$*10 + Ctrl + E————-产生多个无序列表：</p>
+<p><img src="../../../../images/li.png" alt=""></p>
+<p>参考链接 ： <a href="http://blog.jobbole.com/82527/" target="_blank" rel="external">http://blog.jobbole.com/82527/</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;Sublime Text 是很多人喜欢的代码编辑器，掌握一些快捷键，能让你打码更有效率。本篇笔记向大家介绍Sublime Text编辑器一些常用的快捷技巧，希望对大家有所帮助。                                                                    &lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="开发工具" scheme="https://wenhuiyang-luck.github.io/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="编辑工具" scheme="https://wenhuiyang-luck.github.io/tags/%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于Chrome自带的开发者工具你不知道的事</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/02/22/2017-02-22-%E5%85%B3%E4%BA%8EChrome%E8%87%AA%E5%B8%A6%E7%9A%84%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E4%BA%8B/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/02/22/2017-02-22-关于Chrome自带的开发者工具你不知道的事/</id>
+    <published>2017-02-22T03:05:54.165Z</published>
+    <updated>2017-05-01T05:10:06.861Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>今天早上，在FreeCodeCamp公众号中看到了一篇关于Chrome自带开发者工具的文章。以前自己也只是知道一点点最简单的功能，看完觉得特别有用，记录一下。    </p>
+<p>原文链接：<a href="https://zhuanlan.zhihu.com/p/22665710" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/22665710</a>                                                                    </p>
+</blockquote>
+<a id="more"></a>
+<h2 id="选取DOM元素"><a href="#选取DOM元素" class="headerlink" title="选取DOM元素"></a>选取DOM元素</h2><p><code>jQuery</code>中，我们一般用 <code>(&#39;tagName&#39;)、 (&#39;.class&#39;)、$(&#39;#id&#39;)</code>等选择器选取DOM元素，它们都相当于原生js的<code>document.querySelector()</code>方法。返回的第一个匹配选择规则的DOM元素。</p>
+<p>在<code>Chrome</code>的控制台里，你可以通过 <code>$$(&#39;tagName&#39;)</code> 或者 <code>$$(&#39;.className&#39;)</code>， 即两个$$符号来选择所有匹配规则的DOM元素。返回的结果是一个数组，然后可以通过数组的方法来访问其中的单个元素。</p>
+<p>比如：<code>$$(&#39;className&#39;)</code> 会返回给你所有包含 <code>className</code> 类属性的元素，之后你可以通过 <code>$$(&#39;className&#39;)[0]</code> 和<code>$$(&#39;className&#39;)[1]</code> 来访问其中的某个元素。</p>
+<h2 id="直接在浏览器里更改网页的文本内容"><a href="#直接在浏览器里更改网页的文本内容" class="headerlink" title="直接在浏览器里更改网页的文本内容"></a>直接在浏览器里更改网页的文本内容</h2><p>以前，我也是右键审查元素，然后编辑源代码。但是现在，只需要在控制台中输入<code>document.body.contentEditable = true</code>, 就可以直接在网页中编辑文本内容。</p>
+<h2 id="获取某个DOM元素绑定的事件"><a href="#获取某个DOM元素绑定的事件" class="headerlink" title="获取某个DOM元素绑定的事件"></a>获取某个DOM元素绑定的事件</h2><p>通过<code>getEventListeners($(&#39;selector&#39;))</code> 方法以数组对象的格式返回某个元素绑定的所有事件。你可以在控              制台里展开对象查看详细的内容。</p>
+<p>选择其中的某个事件，可以通过下面的方法来访问：<code>getEventListeners($(&#39;selector&#39;)).eventName[0].listener</code>  ，这里的 <code>eventName</code> 表示某种事件类型。比如： <code>getEventListeners($(&#39;#firstName&#39;)).click[0].listener</code>会返回ID为<code>firstName</code>元素绑定的<code>click</code>事件。</p>
+<h2 id="监测事件"><a href="#监测事件" class="headerlink" title="监测事件"></a>监测事件</h2><p><code>monitorEvents($(&#39;selector&#39;))</code> 会监测某个元素上绑定的所有事件，一旦该元素的某个事件被触发就会在控制台里显示出来。</p>
+<p><code>monitorEvents($(&#39;selector&#39;),&#39;eventName&#39;)</code> 可以监听某个元素上绑定的具体事件。第二个参数代表事件类型的名称。例如 <code>monitorEvents($(&#39;#firstName&#39;),&#39;click&#39;)</code> 只监测<code>ID</code>为<code>firstName</code>的元素上的<code>click</code>事件。</p>
+<p><code>monitorEvents($(&#39;selector&#39;),[&#39;eventName1&#39;,&#39;eventName3&#39;,….])</code> 同上。可以同时检测具体指定的多个事件类型。</p>
+<p><code>unmonitorEvents($(&#39;selector&#39;))</code> 用来停止对某个元素的事件监测。</p>
+<h2 id="用计时器来获取某段代码块的运行时间"><a href="#用计时器来获取某段代码块的运行时间" class="headerlink" title="用计时器来获取某段代码块的运行时间"></a>用计时器来获取某段代码块的运行时间</h2><p>通过 <code>console.time(&#39;labelName&#39;)</code> 来设定一个计时器，其中的 <code>labelName</code>是计时器的名称。通过<code>console.timeEnd(&#39;labelName&#39;)</code>方法来停止并输出某个计时器的时间。</p>
+<p>​结合上述两种方法，可以计算代码块运行时间。</p>
+<h2 id="以表格的形式输出数组"><a href="#以表格的形式输出数组" class="headerlink" title="以表格的形式输出数组"></a>以表格的形式输出数组</h2><p>直接在控制台里输入数组的名称，Chrome会以文本的形式返回一个数组对象。但你完全可以通过<code>console.table(variableName)</code> 方法来以表格的形式输出每个元素的值。<code>variableName</code>是数组名。</p>
+<h2 id="通过控制台方法来检查元素"><a href="#通过控制台方法来检查元素" class="headerlink" title="通过控制台方法来检查元素"></a>通过控制台方法来检查元素</h2><p><code>inspect($(&#39;selector&#39;))</code> 会检查所有匹配选择器的DOM元素，并返回所有选择器选择的DOM对象。例如<code>inspect($(&#39;#firstName&#39;))</code>选择所有ID是 <code>firstName</code> 的元素，<code>inspect($$(&#39;p&#39;)[3])</code> 检查并返回页面上第四个<code>p</code>元素。</p>
+<p><code>$0, $1, $2</code>等等会返回你最近检查过的几个元素，例如<code>$1</code>会返回你最后检查的元素，<code>$2</code>则返回倒数第二个。</p>
+<h2 id="列出某个元素的所有属性"><a href="#列出某个元素的所有属性" class="headerlink" title="列出某个元素的所有属性"></a>列出某个元素的所有属性</h2><p><code>dir($(&#39;selector&#39;))</code>会返回匹配选择器的DOM元素的所有属性，你可以展开输出的结果查看详细内容。</p>
+<h2 id="获取最后计算结果的值"><a href="#获取最后计算结果的值" class="headerlink" title="获取最后计算结果的值"></a>获取最后计算结果的值</h2><p>在Chrome控制台里进行计算时，可以通过<code>$_</code>来获取最后的计算结果值。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;今天早上，在FreeCodeCamp公众号中看到了一篇关于Chrome自带开发者工具的文章。以前自己也只是知道一点点最简单的功能，看完觉得特别有用，记录一下。    &lt;/p&gt;
+&lt;p&gt;原文链接：&lt;a href=&quot;https://zhuanlan.zhihu.com/p/22665710&quot;&gt;https://zhuanlan.zhihu.com/p/22665710&lt;/a&gt;                                                                    &lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="开发工具" scheme="https://wenhuiyang-luck.github.io/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="Chrome" scheme="https://wenhuiyang-luck.github.io/tags/Chrome/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jQuery 选择器全解</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/02/21/2017-02-21-jQuery%20%E9%80%89%E6%8B%A9%E5%99%A8%E5%85%A8%E8%A7%A3/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/02/21/2017-02-21-jQuery 选择器全解/</id>
+    <published>2017-02-21T09:29:26.029Z</published>
+    <updated>2017-05-01T05:11:57.430Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>通俗的讲, Selector选择器就是”一个表示特殊语意的字符串”。只要把选择器字符串传入上面的方法中就能够选择不同的 Dom 对象并且以 jQuery 包装集的形式返回。</p>
+<p>jQuery 选择器按照功能主要分为”选择”和”过滤”，并且是配合使用的，可以同时使用组合成一个选择器字符串。 主要的区别是”过滤”作用的选择器是指定条件从前面匹配的内容中筛选,”过滤”选择器也可以单独使用, 表示从全部”*”中筛选.</p>
+<p>比如:<code>$(&quot;:[title]&quot;)</code>等同于<code>$(&quot;*:[title]&quot;)</code>,而”选择”功能的选择器则不会有默认的范围,因为作用是”选择”而不是”过滤”。</p>
+</blockquote>
+<a id="more"></a> 
+<p>​    下面的选择器分类中, 带有”过滤器”的分类表示是”过滤”选择器,否则就是”选择”功能的选择器。jQuery 选择器分为如下几类:</p>
+<p>  ● 基础选择器 Basics</p>
+<p><img src="../../../../images/clipboard1.png" alt=""></p>
+<p>  ● 层次选择器 Hierarchy</p>
+<p><img src="../../../../images/clipboard2.png" alt=""></p>
+<p>  ● 基本过滤器 Basic Filters</p>
+<p><img src="../../../../images/clipboard3.png" alt=""></p>
+<p>  ● 内容过滤器 Content Filters</p>
+<p><img src="../../../../images/clipboard4.png" alt=""></p>
+<p>  ● 可见性过滤器 Visibility Filters</p>
+<p><img src="../../../../images/clipboard5.png" alt=""></p>
+<p>  ● 属性过滤器 Attribute Filters</p>
+<p><img src="../../../../images/clipboard6.png" alt=""></p>
+<p>  ● 子元素过滤器 Child Filters</p>
+<p><img src="../../../../images/clipboard7.png" alt=""></p>
+<p>  ● 表单选择器 Forms</p>
+<p><img src="../../../../images/clipboard8.png" alt=""></p>
+<p>  ● 表单过滤器 Form Filters</p>
+<p><img src="../../../../images/clipboard9.png" alt=""></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;通俗的讲, Selector选择器就是”一个表示特殊语意的字符串”。只要把选择器字符串传入上面的方法中就能够选择不同的 Dom 对象并且以 jQuery 包装集的形式返回。&lt;/p&gt;
+&lt;p&gt;jQuery 选择器按照功能主要分为”选择”和”过滤”，并且是配合使用的，可以同时使用组合成一个选择器字符串。 主要的区别是”过滤”作用的选择器是指定条件从前面匹配的内容中筛选,”过滤”选择器也可以单独使用, 表示从全部”*”中筛选.&lt;/p&gt;
+&lt;p&gt;比如:&lt;code&gt;$(&amp;quot;:[title]&amp;quot;)&lt;/code&gt;等同于&lt;code&gt;$(&amp;quot;*:[title]&amp;quot;)&lt;/code&gt;,而”选择”功能的选择器则不会有默认的范围,因为作用是”选择”而不是”过滤”。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="jQuery笔记" scheme="https://wenhuiyang-luck.github.io/categories/jQuery%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="jQuery" scheme="https://wenhuiyang-luck.github.io/tags/jQuery/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HEXO+Github 搭建个人博客</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/02/21/2017-02-21-HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/02/21/2017-02-21-HEXO搭建个人博客/</id>
+    <published>2017-02-21T03:49:34.728Z</published>
+    <updated>2017-05-01T05:11:48.704Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>刚刚接触hexo，喜欢其简约的风格，因此想着自己也搭建一个。网上使用hexo搭建博客的教程很多，我自己也跟着别人的教程一步步的搭建了属于自己的博客。基本上只要是有点计算机基础的人，完全可以轻松的使用hexo搭建起自己的博客。记录一下自己的历程，算是个人笔记吧。</p>
+<p>hexo是一款基于Node.js的静态博客框架, <a href="https://github.com/hexojs/hexo" target="_blank" rel="external">hexo github链接</a> ,这篇笔记主要是针对windows系统进行搭建的。  </p>
+</blockquote>
+<p>​                                                                            <a id="more"></a></p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="安装Node"><a href="#安装Node" class="headerlink" title="安装Node"></a>安装Node</h3><p>作用：用来生成静态页面。</p>
+<p>Node.js官网：<a href="https://nodejs.org/" target="_blank" rel="external">Node.js</a>  </p>
+<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p>作用：把本地的hexo内容提交到github上去。</p>
+<p>Git官网：<a href="http://git-scm.com/" target="_blank" rel="external">Git</a> </p>
+<p>初始配置，请看<a href="">Git学习笔记</a></p>
+<h3 id="Github账号申请"><a href="#Github账号申请" class="headerlink" title="Github账号申请"></a>Github账号申请</h3><p>作用：是用来做博客的远程创库、域名、服务器之类的。</p>
+<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>使用以下命令安装hexo到全局</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo npm <span class="keyword">install</span> -g hexo</div></pre></td></tr></table></figure>
+<p>然后输入命令 <code>hexo -v</code>输出hexo的版本号即为安装成功。</p>
+<h2 id="博客搭建"><a href="#博客搭建" class="headerlink" title="博客搭建"></a>博客搭建</h2><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>在某个地方新建一个项目文件夹（比如Blog），然后进入Blog目录，以下所有的命令行操作都是在这个文件夹下进行的。</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">hexo init</span></div></pre></td></tr></table></figure>
+<h3 id="生成静态页面"><a href="#生成静态页面" class="headerlink" title="生成静态页面"></a>生成静态页面</h3><p>初始化完成之后，就已经生成一篇”hello word”的文章了，现在执行以下命令把文章编译为静态页面：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo <span class="keyword">generate</span>（hexo g 也可以）</div></pre></td></tr></table></figure>
+<h3 id="本地启动"><a href="#本地启动" class="headerlink" title="本地启动"></a>本地启动</h3><p>把文章变为页面之后，可以执行以下命令，本地启动服务，在浏览器中输入<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a>查看生成的页面效果。</p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo <span class="keyword">server</span>（或hexo s）</div></pre></td></tr></table></figure>
+<p>如果你看到了下面这个画面，恭喜你，你成功了！ </p>
+<p><img src="https://img.alicdn.com/tps/TB1.knpHVXXXXcmaXXXXXXXXXXX-1003-456.png" alt="img"></p>
+<p>若不能看到上面页面，说明环境还没配置好</p>
+<p>先执行</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm <span class="keyword">install</span> hexo-<span class="keyword">server</span> <span class="comment">--save</span></div></pre></td></tr></table></figure>
+<p>再执行：</p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo <span class="keyword">server</span></div></pre></td></tr></table></figure>
+<p>得到: <code>INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.</code></p>
+<p>然后在浏览器中输入<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a>，便可看到生成的静态页面。</p>
+<h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><p>上面的博客效果是<code>hexo</code>自己默认的主题<code>landscape</code>，我将它修改成<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">yilia</a>主题</p>
+<h3 id="clone主题代码"><a href="#clone主题代码" class="headerlink" title="clone主题代码"></a>clone主题代码</h3><p>在主目录下执行下面的命令<code>clone</code>主题代码：</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="keyword">clone</span> <span class="title">https</span>://github.com/litten/hexo-theme-yilia.git themes/yilia</div></pre></td></tr></table></figure>
+<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>注意：修改的时候，每个冒号后面都需要留一个英文空格，不然会报错！</p>
+<p>修改<code>Blog/_config.yml</code>文件：</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">theme:</span> yilia    <span class="comment">//默认为landscape</span></div></pre></td></tr></table></figure>
+<p>修改<code>themes/yilia/_config.yml</code>文件：</p>
+<p>更改主题之后可以使用命令<code>hexo server</code>打开本地服务，查看效果。</p>
+<h2 id="部署到Github上"><a href="#部署到Github上" class="headerlink" title="部署到Github上"></a>部署到Github上</h2><h3 id="建立Repository"><a href="#建立Repository" class="headerlink" title="建立Repository"></a>建立Repository</h3><p>建立与你用户名对应的仓库，仓库名必须为[your_user_name.github.io]，固定写法。</p>
+<h3 id="修改配置文件-1"><a href="#修改配置文件-1" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>部署之前先修改<code>Blog/_config.yml</code>文件，注意<code>: 后面要有空格</code>：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">deploy</span>:</div><div class="line">    <span class="attribute">type</span>: git</div><div class="line">    <span class="attribute">repository</span>: <span class="attribute">https</span>:<span class="comment">//github.com/your_user_name/your_user_name.github.io.git </span></div><div class="line">    <span class="attribute">branch</span>: master</div></pre></td></tr></table></figure>
+<p>然后使用以下命令进行部署：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>hexo deploy</div></pre></td></tr></table></figure>
+<p>如果执行上述命令报错，你可以试试下面这个命令再试：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm <span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></div></pre></td></tr></table></figure>
+<p>然后再浏览器中输入<a href="https://wenhuiyang-luck.github.io/">https://wenhuiyang-luck.github.io/</a>  就行了。把wenhuiyang-luck换成你的名字即可。</p>
+<h3 id="后期部署步骤"><a href="#后期部署步骤" class="headerlink" title="后期部署步骤"></a>后期部署步骤</h3><p>搭建完成之后，通过以下简单命令，就可以维护自己的博客：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ hexo <span class="keyword">new</span>(n) xxx    <span class="comment">//写文章</span></div><div class="line">$ hexo clean         <span class="comment">//清除缓存</span></div><div class="line">$ hexo <span class="keyword">generate</span>(g)   <span class="comment">//把文章生成页面</span></div><div class="line">$ hexo server(s)     <span class="comment">//启动本地服务调试</span></div><div class="line">$ hexo deploy(d)     <span class="comment">//部署到github 可与hexo g合并为 hexo d -g</span></div></pre></td></tr></table></figure>
+<p>##### </p>
+<hr>
+<h3 id="遇到的问题：标签和分类无法显示，怎么解决？"><a href="#遇到的问题：标签和分类无法显示，怎么解决？" class="headerlink" title="**遇到的问题：标签和分类无法显示，怎么解决？"></a>**遇到的问题：标签和分类无法显示，怎么解决？</h3><ul>
+<li>新建一个页面，命名为tags。命令如下：会在blog\source\下生成一个名为tags的文件夹，打开里面的index.md，添加内容，如下：</li>
+</ul>
+<p><img src="../../../../images/标签.png" alt=""></p>
+<p>​    如果启用多说评论，默认页面会带有评论。需要关闭的话，就加上<code>comment: false</code>.注意：冒号后有一个空格。</p>
+<ul>
+<li>当<code>$ hexo new xxx</code>一篇新的文章，在新生成的.md文章默认格式title下添加tags字段，如下图:</li>
+</ul>
+<p><img src="../../../../images/tags.png" alt=""></p>
+<p>​    “Git”是你的标签名，若为多个标签，写成如下形式：<code>tags: [tag1,tag2,tag3]</code></p>
+<p>​    分类(categories)的设置与上面一样。</p>
+<p>更详细教程，请参考：<a href="http://www.jianshu.com/p/f4cc5866946b" target="_blank" rel="external">http://www.jianshu.com/p/f4cc5866946b</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;刚刚接触hexo，喜欢其简约的风格，因此想着自己也搭建一个。网上使用hexo搭建博客的教程很多，我自己也跟着别人的教程一步步的搭建了属于自己的博客。基本上只要是有点计算机基础的人，完全可以轻松的使用hexo搭建起自己的博客。记录一下自己的历程，算是个人笔记吧。&lt;/p&gt;
+&lt;p&gt;hexo是一款基于Node.js的静态博客框架, &lt;a href=&quot;https://github.com/hexojs/hexo&quot;&gt;hexo github链接&lt;/a&gt; ,这篇笔记主要是针对windows系统进行搭建的。  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;​
+    
+    </summary>
+    
+      <category term="博客搭建" scheme="https://wenhuiyang-luck.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+    
+      <category term="Hexo" scheme="https://wenhuiyang-luck.github.io/tags/Hexo/"/>
+    
+      <category term="Github" scheme="https://wenhuiyang-luck.github.io/tags/Github/"/>
+    
+  </entry>
+  
+</feed>

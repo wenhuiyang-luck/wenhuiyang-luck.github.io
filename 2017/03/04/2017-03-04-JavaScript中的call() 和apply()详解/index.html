@@ -1,0 +1,1155 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="hOMCwxIR48sYIKgzjwc_E0wOmv_lZRm6xem62lnlSws" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="杨小慧的博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="JavaScript中的call()和apply()都是用于调用当前函数functionObject，并可同时使用指定对象thisObj作为本次执行时functionObject函数内部的this指针引用。
+它们都输属于Function对象，所有主流浏览器均支持。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript中的call()和apply()方法">
+<meta property="og:url" content="https://wenhuiyang-luck.github.io/2017/03/04/2017-03-04-JavaScript中的call() 和apply()详解/index.html">
+<meta property="og:site_name" content="杨小慧的博客">
+<meta property="og:description" content="JavaScript中的call()和apply()都是用于调用当前函数functionObject，并可同时使用指定对象thisObj作为本次执行时functionObject函数内部的this指针引用。
+它们都输属于Function对象，所有主流浏览器均支持。">
+<meta property="og:updated_time" content="2017-05-01T05:11:31.856Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript中的call()和apply()方法">
+<meta name="twitter:description" content="JavaScript中的call()和apply()都是用于调用当前函数functionObject，并可同时使用指定对象thisObj作为本次执行时functionObject函数内部的this指针引用。
+它们都输属于Function对象，所有主流浏览器均支持。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://wenhuiyang-luck.github.io/2017/03/04/2017-03-04-JavaScript中的call() 和apply()详解/"/>
+
+
+
+
+
+  <title> JavaScript中的call()和apply()方法 | 杨小慧的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">杨小慧的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            主页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://wenhuiyang-luck.github.io/2017/03/04/2017-03-04-JavaScript中的call() 和apply()详解/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="杨小慧">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="杨小慧的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="杨小慧的博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JavaScript中的call()和apply()方法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-04T14:51:30+08:00">
+                2017-03-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/04/2017-03-04-JavaScript中的call() 和apply()详解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/04/2017-03-04-JavaScript中的call() 和apply()详解/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/03/04/2017-03-04-JavaScript中的call() 和apply()详解/" class="leancloud_visitors" data-flag-title="JavaScript中的call()和apply()方法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p><code>JavaScript</code>中的<code>call()</code>和<code>apply()</code>都是用于调用当前函数<code>functionObject</code>，并可同时使用指定对象<code>thisObj</code>作为本次执行时<code>functionObject</code>函数内部的<code>this</code>指针引用。</p>
+<p>它们都输属于<code>Function</code>对象，所有主流浏览器均支持。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="1-call-和apply-的定义"><a href="#1-call-和apply-的定义" class="headerlink" title="1. call()和apply()的定义"></a>1. call()和apply()的定义</h2><h3 id="1-1-call-方法"><a href="#1-1-call-方法" class="headerlink" title="1.1 call()方法"></a>1.1 call()方法</h3><p><strong>定义</strong>：调用一个对象的一个方法，以另一个对象替换当前对象。</p>
+<p><strong>语法</strong>：<br><code>functionObject.call( [ thisObj [, arg1 [, arg2 [, args...]]]] )</code></p>
+<p><strong>参数</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>thisObj</code></td>
+<td><code>可选/Object类型</code>，指定执行<code>functionObject</code>函数时，函数内部<code>this</code>指针引用的对象。</td>
+</tr>
+<tr>
+<td><code>arg1</code></td>
+<td><code>可选/任意类型</code>，调用<code>functionObject</code>函数时传入的第1个参数。</td>
+</tr>
+<tr>
+<td><code>arg2</code></td>
+<td><code>可选/任意类型</code>，调用<code>functionObject</code>函数时传入的第2个参数。</td>
+</tr>
+<tr>
+<td><code>args</code></td>
+<td><code>可选/任意类型</code>，调用<code>functionObject</code>函数时传入的更多参数，可以有多个。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-2-apply-方法"><a href="#1-2-apply-方法" class="headerlink" title="1.2 apply()方法"></a>1.2 apply()方法</h3><p><strong>定义</strong>：应用一个对象的一个方法，用另一个对象替换当前对象。</p>
+<p><strong>语法</strong>：<br><code>functionObject.apply( [ thisObj [, argsArray ]] )</code></p>
+<p><strong>参数</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>thisObj</code></td>
+<td><code>可选/Object类型</code>，指定执行<code>functionObject</code>函数时，函数内部<code>this</code>指针引用的对象。</td>
+</tr>
+<tr>
+<td><code>argsArray</code></td>
+<td><code>可选/Array或arguments</code>对象，调用<code>functionObject</code>时传入的参数数组或arguments对象。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-3-call-和apply-的异同"><a href="#1-3-call-和apply-的异同" class="headerlink" title="1.3 call()和apply()的异同"></a>1.3 call()和apply()的异同</h3><p><strong>相同点：</strong></p>
+<p>都可以用来代替另一个对象调用一个方法，将一个函数的对象上下文从初始的上下文改变为由<code>thisObj</code>指定的新对象。</p>
+<p><strong>不同点</strong>：</p>
+<ul>
+<li><code>call()</code>:则是直接的参数列表，主要用在<code>js</code>对象各方法互相调用的时候，使当前<code>this</code>实例指针保持一致,或在特殊情况下需要改变<code>this</code>指针。如果没有提供 <code>thisObj</code> 参数，那么 <code>Global</code> 对象被用作 <code>thisObj</code>。</li>
+<li><code>apply()</code>：最多只能有两个参数———新<code>this</code>对象和一个数组<code>argsArray</code>。如果给该方法传递多个参数，则把参数都写进这个数组里面，当然，即使只有一个参数，也要写进数组里面。如果 argArray 不是一个有效的数组或者不是 <code>arguments</code> 对象，那么将导致一个 <code>TypeError</code>。如果没有提供<code>argsArray</code> 和<code>thisObj</code>任何一个参数，那么<code>Global</code>对象将被用作<code>thisObj</code>，并且无法被传递任何参数。 </li>
+</ul>
+<p><strong>总结：</strong></p>
+<ul>
+<li><code>call()</code>和<code>apply()</code>都可以用来代替另一个对象调用一个方法，将一个函数的对象上下文从初始的上下文改变为由<code>thisObj</code>指定的新对象。</li>
+<li><code>call()</code>函数是将<code>FunctionObject</code>的参数一个个分别传入，如<code>functionObject.call(thisObj,arg1,arg2,arg3)</code>；</li>
+<li><code>apply()</code>函数是将<code>FunctionObject</code>对象的参数以一个数组或<code>arguments</code>对象的形式整体传入,如<code>functionObject.apply(func1,[arg1,arg2,arg3])</code>。</li>
+</ul>
+<h2 id="2-call-和apply-实例"><a href="#2-call-和apply-实例" class="headerlink" title="2. call()和apply()实例"></a>2. call()和apply()实例</h2><h3 id="2-1-实例一"><a href="#2-1-实例一" class="headerlink" title="2.1 实例一"></a>2.1 实例一</h3><figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function add(a, b) &#123;</div><div class="line">    alert(a + b);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function <span class="function"><span class="keyword">sub</span>(<span class="title">a</span>, <span class="title">b</span>) </span>&#123;</div><div class="line">    alert(a - b);</div><div class="line">&#125;</div><div class="line"></div><div class="line">add.call(<span class="function"><span class="keyword">sub</span>, 3,1)</span>;</div><div class="line">//add.apply(<span class="function"><span class="keyword">sub</span>, [3,1])</span>;</div></pre></td></tr></table></figure>
+<p><strong>说明：</strong></p>
+<p>例子中用<code>add</code>来替换<code>sub</code>，<code>add.call(sub,3,1) == add(3,1)</code>，所以运行结果为：<code>4</code>; </p>
+<p>需要注意的是，这里直接用了函数名<code>sub</code>，而不是<code>sub()</code>,因为在<code>js</code>中的函数其实是对象，函数名是对<code>Function</code> 对象的引用。 </p>
+<h3 id="2-1-实例二"><a href="#2-1-实例二" class="headerlink" title="2.1 实例二"></a>2.1 实例二</h3><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span><span class="params">(name)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">    <span class="keyword">this</span>.showName = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</div><div class="line">        alert(<span class="keyword">this</span>.name);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span><span class="params">(name)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = <span class="string">"Cat"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> animal = <span class="keyword">new</span> Animal();</div><div class="line"><span class="keyword">var</span> cat = <span class="keyword">new</span> Cat();</div><div class="line"></div><div class="line">animal.showName.call(cat,<span class="string">","</span>)</div><div class="line"><span class="comment">//animal.showName.apply(cat,[]);</span></div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>通过<code>call</code>或<code>apply</code>方法，将原本属于<code>Animal</code>对象的<code>showName()</code>方法交给对象<code>cat</code>来使用了。因此输入结果为<code>&quot;Cat&quot;</code>。</p>
+<h3 id="2-3-实例三（实现继承）"><a href="#2-3-实例三（实现继承）" class="headerlink" title="2.3 实例三（实现继承）"></a>2.3 实例三（实现继承）</h3><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span><span class="params">(name)</span> </span>&#123;    </div><div class="line">    <span class="keyword">this</span>.name = name;    </div><div class="line">    <span class="keyword">this</span>.showName = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;    </div><div class="line">        alert(<span class="keyword">this</span>.name);    </div><div class="line">    &#125;    </div><div class="line">&#125;    </div><div class="line">   </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span><span class="params">(name)</span> </span>&#123;  </div><div class="line">    Animal.call(<span class="keyword">this</span>, name); </div><div class="line">    <span class="comment">//Animal.apply(this, [name]);</span></div><div class="line">&#125;    </div><div class="line">   </div><div class="line"><span class="keyword">var</span> cat = <span class="keyword">new</span> Cat(<span class="string">"Black Cat"</span>);   </div><div class="line">cat.showName();</div></pre></td></tr></table></figure>
+<p><strong>说明：</strong></p>
+<p><code>Animal.call(this, name)</code> 的意思就是使用 <code>Animal</code>对象代替<code>this</code>对象，那么<code>Cat</code>对象就能够直接调用<code>Animal</code>的方法以及属性了。</p>
+<h3 id="2-4-实例四（多重继承）"><a href="#2-4-实例四（多重继承）" class="headerlink" title="2.4 实例四（多重继承）"></a>2.4 实例四（多重继承）</h3><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Class10</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.showSub = <span class="function"><span class="keyword">function</span><span class="params">(a,b)</span> </span>&#123;</div><div class="line">        alert(a-b);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Class11</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.showAdd = <span class="function"><span class="keyword">function</span><span class="params">(a,b)</span> </span>&#123;</div><div class="line">        alert(a+b);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Class2</span><span class="params">()</span> </span>&#123;</div><div class="line">    Class10.call(<span class="keyword">this</span>);</div><div class="line">    Class11.call(<span class="keyword">this</span>);</div><div class="line">    <span class="comment">//Class10.apply(this);</span></div><div class="line">    <span class="comment">//Class11.apply(this);</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> c2=<span class="keyword">new</span> Class2();</div><div class="line">c2.showSub(<span class="number">3</span>,<span class="number">1</span>);</div><div class="line">c2.showAdd(<span class="number">3</span>,<span class="number">1</span>); <span class="comment">//使用两个 call 就实现多重继承</span></div></pre></td></tr></table></figure>
+<h2 id="3-apply-的其他妙用"><a href="#3-apply-的其他妙用" class="headerlink" title="3. apply()的其他妙用"></a>3. apply()的其他妙用</h2><p>既然apply和call的用法差不多，那么为什么还同时存在呢？</p>
+<p>——这是因为apply所传的参数类型（数组）还有其他妙用。</p>
+<h3 id="3-1-Math-max可以实现得到数组中最大的一项"><a href="#3-1-Math-max可以实现得到数组中最大的一项" class="headerlink" title="3.1 Math.max可以实现得到数组中最大的一项"></a>3.1 Math.max可以实现得到数组中最大的一项</h3><p>因为<code>Math.max</code>参数不支持数组传递，但是它支持列表传递，即<code>Math.max(param1,param2,param3…)</code>,所以可以根据<code>apply</code>的特点来解决 <code>var max=Math.max.apply(null,array)</code>，这样轻易的可以得到一个数组中最大的一项。(<code>apply</code>会将一个数组转换为一个参数接一个参数的传递给方法)。 </p>
+<p><strong>注意</strong>：调用的时候第一个参数给了一个<code>null</code>，是因为没有对象去调用这个方法，只需要用这个方法帮助运算，得到返回的结果就行，所以直接传递了一个<code>null</code>过去。</p>
+<h3 id="3-2-Array-min-可以实现得到数组中最小的一项"><a href="#3-2-Array-min-可以实现得到数组中最小的一项" class="headerlink" title="3.2 Array.min 可以实现得到数组中最小的一项"></a>3.2 Array.min 可以实现得到数组中最小的一项</h3><p>同样和<code>max</code>是一个思想 <code>var min=Math.min.apply(null,array)</code>。 </p>
+<h3 id="3-3-Array-prototype-push-可以实现两个数组合并"><a href="#3-3-Array-prototype-push-可以实现两个数组合并" class="headerlink" title="3.3 Array.prototype.push 可以实现两个数组合并"></a>3.3 Array.prototype.push 可以实现两个数组合并</h3><p>同样<code>push</code>方法没有提供<code>push</code>一个数组，但是它提供了<code>push(param1,param,…paramN)</code> 所以同样也可以通过<code>apply</code>来转换一下这个数组，即: </p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr1=<span class="keyword">new</span> <span class="type">Array</span>(<span class="string">"1"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>); </div><div class="line"><span class="keyword">var</span> arr2=<span class="keyword">new</span> <span class="type">Array</span>(<span class="string">"4"</span>,<span class="string">"5"</span>,<span class="string">"6"</span>); </div><div class="line"><span class="keyword">Array</span>.prototype.push.apply(arr1,arr2);</div></pre></td></tr></table></figure>
+<p>也可以这样理解，<code>arr1</code>调用了<code>push</code>方法，参数是通过<code>apply</code>将数组装换为参数列表的集合。 </p>
+<p><strong>总结：</strong></p>
+<p>当目标函数只需要<code>n</code>个参数列表,而不接收一个数组的形式<code>（[param1[,param2[,…[,paramN]]]]）</code>，可以通过<code>apply</code>的方式巧妙地解决这个问题。 </p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/03/2017-03-03-JavaScript正则笔记/" rel="next" title="JavaScript正则">
+                <i class="fa fa-chevron-left"></i> JavaScript正则
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/10/Canvas实现放大镜效果/" rel="prev" title="Canvas实现放大镜效果">
+                Canvas实现放大镜效果 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+ 
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="<%- page.path %>" data-title="<%- page.title %>" data-url="<%- page.permalink %>"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"ywhluck"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="杨小慧" />
+          <p class="site-author-name" itemprop="name">杨小慧</p>
+           
+              <p class="site-description motion-element" itemprop="description">In Dreams and In Love, There Are <br />No Impossibilities.</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wenhuiyang-luck/wenhuiyang-luck.github.io" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/5517207799/home?wvr=5" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-call-和apply-的定义"><span class="nav-text">1. call()和apply()的定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-call-方法"><span class="nav-text">1.1 call()方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-apply-方法"><span class="nav-text">1.2 apply()方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-call-和apply-的异同"><span class="nav-text">1.3 call()和apply()的异同</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-call-和apply-实例"><span class="nav-text">2. call()和apply()实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-实例一"><span class="nav-text">2.1 实例一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-实例二"><span class="nav-text">2.1 实例二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-实例三（实现继承）"><span class="nav-text">2.3 实例三（实现继承）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-实例四（多重继承）"><span class="nav-text">2.4 实例四（多重继承）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-apply-的其他妙用"><span class="nav-text">3. apply()的其他妙用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-Math-max可以实现得到数组中最大的一项"><span class="nav-text">3.1 Math.max可以实现得到数组中最大的一项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-Array-min-可以实现得到数组中最小的一项"><span class="nav-text">3.2 Array.min 可以实现得到数组中最小的一项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-Array-prototype-push-可以实现两个数组合并"><span class="nav-text">3.3 Array.prototype.push 可以实现两个数组合并</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">杨小慧</span>
+</div>
+
+
+<div class="powered-by">
+  Power by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+<div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"ywhluck"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="local-search-pop-overlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("9MBN0WK2OyYLVfIlTyi8MDPY-gzGzoHsz", "NQHXgeTVb8LnOSPmaCs6uY6V");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+ 
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+  
+</body>
+</html>
