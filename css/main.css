@@ -1698,7 +1698,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #59d552;
+  background: #d2e045;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2791,4 +2791,8 @@ hr {
   -webkit-box-shadow: 0 0 10px 2px #e5e5e5;
   -moz-box-shadow: 0 0 10px 2px #e5e5e5;
   box-shadow: 0 0 10px 2px #e5e5e5;
+}
+header {
+  background: #f5f5f5 url("/images/header-bg.jpg");
+  overflow: hidden;
 }
