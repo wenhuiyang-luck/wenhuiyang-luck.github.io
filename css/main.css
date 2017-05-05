@@ -2801,17 +2801,3 @@ hr {
   font-family: 'Comic Sans MS', sans-serif;
   text-align: center;
 }
-.post-button {
-  margin-top: 30px;
-}
-.post-button .btn {
-  color: #fff;
-  font-size: 15px;
-  background: #686868;
-  line-height: 2;
-  margin: 0 4px 8px 4px;
-  padding: 0 20px;
-}
-.post-button a:hover {
-  color: #7784ba;
-}
