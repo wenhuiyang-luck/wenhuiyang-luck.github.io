@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wenhuiyang-luck.github.io/"/>
-  <updated>2017-05-01T05:16:21.503Z</updated>
+  <updated>2017-05-15T02:10:46.822Z</updated>
   <id>https://wenhuiyang-luck.github.io/</id>
   
   <author>
@@ -14,6 +14,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>天猫仿站：分类页面——排序和价格</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/05/14/%E5%A4%A9%E7%8C%AB%E4%BB%BF%E7%AB%99%EF%BC%9A%E5%88%86%E7%B1%BB%E9%A1%B5%E9%9D%A2%E2%80%94%E2%80%94%E6%8E%92%E5%BA%8F%E5%92%8C%E4%BB%B7%E6%A0%BC/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/05/14/天猫仿站：分类页面——排序和价格/</id>
+    <published>2017-05-14T14:04:56.516Z</published>
+    <updated>2017-05-15T02:10:46.822Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>分类页面之排序和价格页面的布局。</p>
+</blockquote>
+<a id="more"></a>
+<p><img src="../../../../images/22-1.png" alt=""></p>
+<p><a href="https://wenhuiyang-luck.github.io/Worklists/%E4%BB%BF%E7%AB%99/3-%E5%88%86%E7%B1%BB%E9%A1%B5%E9%9D%A2/3-%E5%88%86%E7%B1%BB%E9%A1%B5%E9%9D%A2_%E6%8E%92%E5%BA%8F%E5%92%8C%E4%BB%B7%E6%A0%BC.html">预览地址</a></p>
+<h4 id="1-HTML结构"><a href="#1-HTML结构" class="headerlink" title="1. HTML结构"></a>1. HTML结构</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"categorySortBarTable categorySortTable"</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">tbody</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"grayColumn"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>综合<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon-arrow-down"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>人气<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon-arrow-down"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>新品<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon-arrow-down"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>销量<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon-arrow-down"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>价格<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon-resize-vertical"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">   <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"categorySortBarTable"</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">tbody</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">placeholder</span>=<span class="string">"请输入"</span> <span class="attr">class</span>=<span class="string">"sortBarPrice beginPrice"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"grayColumn priceMiddleColumn"</span>&gt;</span>-<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">placeholder</span>=<span class="string">"请输入"</span> <span class="attr">class</span>=<span class="string">"sortBarPrice endPrice"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">   <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="2-表格布局"><a href="#2-表格布局" class="headerlink" title="2. 表格布局"></a>2. 表格布局</h4><p>要实现上述效果中显示的，使排序项排列在一行，有多种方式，如float，inline，inline-block。<br>此处，我们要实现的效果不仅是排列在一行，此外每个排序项还需要边框，倘若不使用表格来做，而是使用span的border样式来做边框，那么相邻的两个span的边框会挨再一起，就是二倍宽度，看上去过粗。 为了解决过粗的问题，需要对每个span进行仅仅设置左边框，或者右边框，显而易见，此时增加了设置样式的复杂度。而使用table，只需要为td设置border边框，就可以达到效果。 容易很多，维护起来也更简单。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">table</span><span class="selector-class">.categorySortBarTable</span> &#123;</div><div class="line">   <span class="attribute">border-collapse</span>: collapse;  <span class="comment">/*单元格之间没有空隙*/</span></div><div class="line">   <span class="attribute">display</span>: inline-block;      <span class="comment">/*显示为内联，既可以设置大小，又能够不换行*/</span></div><div class="line">&#125;</div><div class="line"><span class="selector-tag">table</span><span class="selector-class">.categorySortBarTable</span> <span class="selector-tag">td</span> &#123;</div><div class="line">   <span class="attribute">height</span>: <span class="number">17px</span>;</div><div class="line">   <span class="attribute">font-size</span>: <span class="number">12px</span>;</div><div class="line">   <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</div><div class="line">   <span class="attribute">padding</span>: <span class="number">3px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>关于border-collapse属性：<br>border-collapse: separate(默认,边框分隔) | collapse(边框合并)</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></div><div class="line"><span class="selector-tag">table</span><span class="selector-class">.t1</span>&#123;</div><div class="line">   <span class="attribute">border-collapse</span>:separate;</div><div class="line">&#125; </div><div class="line"><span class="selector-tag">table</span><span class="selector-class">.t2</span>&#123;</div><div class="line">   <span class="attribute">border-collapse</span>:collapse;</div><div class="line">&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"t1"</span> <span class="attr">border</span>=<span class="string">"1"</span> <span class="attr">width</span>=<span class="string">"200px"</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">"50%"</span>&gt;</span>边框分离<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">"50%"</span>&gt;</span>边框分离<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">   <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"t2"</span> <span class="attr">border</span>=<span class="string">"1"</span> <span class="attr">width</span>=<span class="string">"200px"</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">"50%"</span>&gt;</span>边框合并<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">"50%"</span>&gt;</span>边框合并<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">   <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><a href="http://js.jirengu.com/geyas/2/edit" target="_blank" rel="external">预览</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;分类页面之排序和价格页面的布局。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="仿站" scheme="https://wenhuiyang-luck.github.io/categories/%E4%BB%BF%E7%AB%99/"/>
+    
+    
+      <category term="仿站" scheme="https://wenhuiyang-luck.github.io/tags/%E4%BB%BF%E7%AB%99/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript算法题（1）—— Return Largest Numbers in Arrays</title>
@@ -1294,95 +1330,6 @@
     
     
       <category term="jQuery" scheme="https://wenhuiyang-luck.github.io/tags/jQuery/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HEXO+Github 搭建个人博客</title>
-    <link href="https://wenhuiyang-luck.github.io/2017/02/21/2017-02-21-HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
-    <id>https://wenhuiyang-luck.github.io/2017/02/21/2017-02-21-HEXO搭建个人博客/</id>
-    <published>2017-02-21T03:49:34.728Z</published>
-    <updated>2017-05-01T05:11:48.704Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>刚刚接触hexo，喜欢其简约的风格，因此想着自己也搭建一个。网上使用hexo搭建博客的教程很多，我自己也跟着别人的教程一步步的搭建了属于自己的博客。基本上只要是有点计算机基础的人，完全可以轻松的使用hexo搭建起自己的博客。记录一下自己的历程，算是个人笔记吧。</p>
-<p>hexo是一款基于Node.js的静态博客框架, <a href="https://github.com/hexojs/hexo" target="_blank" rel="external">hexo github链接</a> ,这篇笔记主要是针对windows系统进行搭建的。  </p>
-</blockquote>
-<p>​                                                                            <a id="more"></a></p>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="安装Node"><a href="#安装Node" class="headerlink" title="安装Node"></a>安装Node</h3><p>作用：用来生成静态页面。</p>
-<p>Node.js官网：<a href="https://nodejs.org/" target="_blank" rel="external">Node.js</a>  </p>
-<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p>作用：把本地的hexo内容提交到github上去。</p>
-<p>Git官网：<a href="http://git-scm.com/" target="_blank" rel="external">Git</a> </p>
-<p>初始配置，请看<a href="">Git学习笔记</a></p>
-<h3 id="Github账号申请"><a href="#Github账号申请" class="headerlink" title="Github账号申请"></a>Github账号申请</h3><p>作用：是用来做博客的远程创库、域名、服务器之类的。</p>
-<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>使用以下命令安装hexo到全局</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo npm <span class="keyword">install</span> -g hexo</div></pre></td></tr></table></figure>
-<p>然后输入命令 <code>hexo -v</code>输出hexo的版本号即为安装成功。</p>
-<h2 id="博客搭建"><a href="#博客搭建" class="headerlink" title="博客搭建"></a>博客搭建</h2><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>在某个地方新建一个项目文件夹（比如Blog），然后进入Blog目录，以下所有的命令行操作都是在这个文件夹下进行的。</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">hexo init</span></div></pre></td></tr></table></figure>
-<h3 id="生成静态页面"><a href="#生成静态页面" class="headerlink" title="生成静态页面"></a>生成静态页面</h3><p>初始化完成之后，就已经生成一篇”hello word”的文章了，现在执行以下命令把文章编译为静态页面：</p>
-<figure class="highlight verilog"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo <span class="keyword">generate</span>（hexo g 也可以）</div></pre></td></tr></table></figure>
-<h3 id="本地启动"><a href="#本地启动" class="headerlink" title="本地启动"></a>本地启动</h3><p>把文章变为页面之后，可以执行以下命令，本地启动服务，在浏览器中输入<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a>查看生成的页面效果。</p>
-<figure class="highlight axapta"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo <span class="keyword">server</span>（或hexo s）</div></pre></td></tr></table></figure>
-<p>如果你看到了下面这个画面，恭喜你，你成功了！ </p>
-<p><img src="https://img.alicdn.com/tps/TB1.knpHVXXXXcmaXXXXXXXXXXX-1003-456.png" alt="img"></p>
-<p>若不能看到上面页面，说明环境还没配置好</p>
-<p>先执行</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm <span class="keyword">install</span> hexo-<span class="keyword">server</span> <span class="comment">--save</span></div></pre></td></tr></table></figure>
-<p>再执行：</p>
-<figure class="highlight axapta"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo <span class="keyword">server</span></div></pre></td></tr></table></figure>
-<p>得到: <code>INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.</code></p>
-<p>然后在浏览器中输入<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a>，便可看到生成的静态页面。</p>
-<h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><p>上面的博客效果是<code>hexo</code>自己默认的主题<code>landscape</code>，我将它修改成<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">yilia</a>主题</p>
-<h3 id="clone主题代码"><a href="#clone主题代码" class="headerlink" title="clone主题代码"></a>clone主题代码</h3><p>在主目录下执行下面的命令<code>clone</code>主题代码：</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="keyword">clone</span> <span class="title">https</span>://github.com/litten/hexo-theme-yilia.git themes/yilia</div></pre></td></tr></table></figure>
-<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>注意：修改的时候，每个冒号后面都需要留一个英文空格，不然会报错！</p>
-<p>修改<code>Blog/_config.yml</code>文件：</p>
-<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">theme:</span> yilia    <span class="comment">//默认为landscape</span></div></pre></td></tr></table></figure>
-<p>修改<code>themes/yilia/_config.yml</code>文件：</p>
-<p>更改主题之后可以使用命令<code>hexo server</code>打开本地服务，查看效果。</p>
-<h2 id="部署到Github上"><a href="#部署到Github上" class="headerlink" title="部署到Github上"></a>部署到Github上</h2><h3 id="建立Repository"><a href="#建立Repository" class="headerlink" title="建立Repository"></a>建立Repository</h3><p>建立与你用户名对应的仓库，仓库名必须为[your_user_name.github.io]，固定写法。</p>
-<h3 id="修改配置文件-1"><a href="#修改配置文件-1" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>部署之前先修改<code>Blog/_config.yml</code>文件，注意<code>: 后面要有空格</code>：</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">deploy</span>:</div><div class="line">    <span class="attribute">type</span>: git</div><div class="line">    <span class="attribute">repository</span>: <span class="attribute">https</span>:<span class="comment">//github.com/your_user_name/your_user_name.github.io.git </span></div><div class="line">    <span class="attribute">branch</span>: master</div></pre></td></tr></table></figure>
-<p>然后使用以下命令进行部署：</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>hexo deploy</div></pre></td></tr></table></figure>
-<p>如果执行上述命令报错，你可以试试下面这个命令再试：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm <span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></div></pre></td></tr></table></figure>
-<p>然后再浏览器中输入<a href="https://wenhuiyang-luck.github.io/">https://wenhuiyang-luck.github.io/</a>  就行了。把wenhuiyang-luck换成你的名字即可。</p>
-<h3 id="后期部署步骤"><a href="#后期部署步骤" class="headerlink" title="后期部署步骤"></a>后期部署步骤</h3><p>搭建完成之后，通过以下简单命令，就可以维护自己的博客：</p>
-<figure class="highlight verilog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ hexo <span class="keyword">new</span>(n) xxx    <span class="comment">//写文章</span></div><div class="line">$ hexo clean         <span class="comment">//清除缓存</span></div><div class="line">$ hexo <span class="keyword">generate</span>(g)   <span class="comment">//把文章生成页面</span></div><div class="line">$ hexo server(s)     <span class="comment">//启动本地服务调试</span></div><div class="line">$ hexo deploy(d)     <span class="comment">//部署到github 可与hexo g合并为 hexo d -g</span></div></pre></td></tr></table></figure>
-<p>##### </p>
-<hr>
-<h3 id="遇到的问题：标签和分类无法显示，怎么解决？"><a href="#遇到的问题：标签和分类无法显示，怎么解决？" class="headerlink" title="**遇到的问题：标签和分类无法显示，怎么解决？"></a>**遇到的问题：标签和分类无法显示，怎么解决？</h3><ul>
-<li>新建一个页面，命名为tags。命令如下：会在blog\source\下生成一个名为tags的文件夹，打开里面的index.md，添加内容，如下：</li>
-</ul>
-<p><img src="../../../../images/标签.png" alt=""></p>
-<p>​    如果启用多说评论，默认页面会带有评论。需要关闭的话，就加上<code>comment: false</code>.注意：冒号后有一个空格。</p>
-<ul>
-<li>当<code>$ hexo new xxx</code>一篇新的文章，在新生成的.md文章默认格式title下添加tags字段，如下图:</li>
-</ul>
-<p><img src="../../../../images/tags.png" alt=""></p>
-<p>​    “Git”是你的标签名，若为多个标签，写成如下形式：<code>tags: [tag1,tag2,tag3]</code></p>
-<p>​    分类(categories)的设置与上面一样。</p>
-<p>更详细教程，请参考：<a href="http://www.jianshu.com/p/f4cc5866946b" target="_blank" rel="external">http://www.jianshu.com/p/f4cc5866946b</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;刚刚接触hexo，喜欢其简约的风格，因此想着自己也搭建一个。网上使用hexo搭建博客的教程很多，我自己也跟着别人的教程一步步的搭建了属于自己的博客。基本上只要是有点计算机基础的人，完全可以轻松的使用hexo搭建起自己的博客。记录一下自己的历程，算是个人笔记吧。&lt;/p&gt;
-&lt;p&gt;hexo是一款基于Node.js的静态博客框架, &lt;a href=&quot;https://github.com/hexojs/hexo&quot;&gt;hexo github链接&lt;/a&gt; ,这篇笔记主要是针对windows系统进行搭建的。  &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;​
-    
-    </summary>
-    
-      <category term="博客搭建" scheme="https://wenhuiyang-luck.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-    
-    
-      <category term="Hexo" scheme="https://wenhuiyang-luck.github.io/tags/Hexo/"/>
-    
-      <category term="Github" scheme="https://wenhuiyang-luck.github.io/tags/Github/"/>
     
   </entry>
   
