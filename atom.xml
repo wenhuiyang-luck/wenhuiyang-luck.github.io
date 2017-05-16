@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wenhuiyang-luck.github.io/"/>
-  <updated>2017-05-15T02:10:46.822Z</updated>
+  <updated>2017-05-16T14:40:24.374Z</updated>
   <id>https://wenhuiyang-luck.github.io/</id>
   
   <author>
@@ -16,11 +16,51 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>天猫仿站：分类页面——排序和价格</title>
-    <link href="https://wenhuiyang-luck.github.io/2017/05/14/%E5%A4%A9%E7%8C%AB%E4%BB%BF%E7%AB%99%EF%BC%9A%E5%88%86%E7%B1%BB%E9%A1%B5%E9%9D%A2%E2%80%94%E2%80%94%E6%8E%92%E5%BA%8F%E5%92%8C%E4%BB%B7%E6%A0%BC/"/>
-    <id>https://wenhuiyang-luck.github.io/2017/05/14/天猫仿站：分类页面——排序和价格/</id>
+    <title>天猫仿站：4产品页面——基本详情</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/05/16/%E5%A4%A9%E7%8C%AB%E4%BB%BF%E7%AB%99%EF%BC%9A4%E4%BA%A7%E5%93%81%E9%A1%B5%E9%9D%A2%E2%80%94%E2%80%94%E5%9F%BA%E6%9C%AC%E8%AF%A6%E6%83%85/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/05/16/天猫仿站：4产品页面——基本详情/</id>
+    <published>2017-05-16T13:51:37.769Z</published>
+    <updated>2017-05-16T14:40:24.374Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>产品页面之基本详情页中用到的“左边固定，右边自动占满”布局。相应的写一“左右固定，中间自适应”布局。</p>
+</blockquote>
+<a id="more"></a>
+<p><img src="../../../../images/23-1.png" alt=""></p>
+<p><a href="https://wenhuiyang-luck.github.io/Worklists/%E4%BB%BF%E7%AB%99/4-%E4%BA%A7%E5%93%81%E9%A1%B5%E9%9D%A2/4-%E4%BA%A7%E5%93%81%E9%A1%B5%E9%9D%A2_%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF.html">预览地址</a></p>
+<h4 id="1-左边固定，右边自动占满"><a href="#1-左边固定，右边自动占满" class="headerlink" title="1. 左边固定，右边自动占满"></a>1. 左边固定，右边自动占满</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></div><div class="line"><span class="selector-class">.left</span>&#123;</div><div class="line">   <span class="attribute">width</span>:<span class="number">200px</span>;</div><div class="line">   <span class="attribute">float</span>:left;</div><div class="line">   <span class="attribute">background-color</span>:pink</div><div class="line">  &#125;</div><div class="line"><span class="selector-class">.right</span>&#123;</div><div class="line">    <span class="attribute">overflow</span>:hidden;</div><div class="line">    <span class="attribute">background-color</span>:lightskyblue;</div><div class="line">  &#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span>左边固定宽度<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>右边自动填满<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><a href="http://js.jirengu.com/hegi/12/edit" target="_blank" rel="external">效果预览</a></p>
+<h4 id="2-左右固定，中间自适应的布局（浮动）"><a href="#2-左右固定，中间自适应的布局（浮动）" class="headerlink" title="2. 左右固定，中间自适应的布局（浮动）"></a>2. 左右固定，中间自适应的布局（浮动）</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></div><div class="line"><span class="selector-class">.left</span>&#123;</div><div class="line">   <span class="attribute">width</span>:<span class="number">200px</span>;</div><div class="line">   <span class="attribute">float</span>:left;</div><div class="line">   <span class="attribute">background-color</span>:pink</div><div class="line">  &#125;</div><div class="line"><span class="selector-class">.right</span>&#123;</div><div class="line">   <span class="attribute">width</span>:<span class="number">200px</span>;</div><div class="line">   <span class="attribute">float</span>:right;</div><div class="line">   <span class="attribute">background-color</span>:pink</div><div class="line">  &#125;</div><div class="line"><span class="selector-class">.center</span> &#123;</div><div class="line">   <span class="attribute">margin</span>:<span class="number">0</span> <span class="number">200px</span>;   </div><div class="line">   <span class="attribute">background-color</span>:lightblue</div><div class="line">&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span> </div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span>左边固定宽度<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>右边固定宽度<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"center"</span>&gt;</span>中间自适应<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><a href="http://js.jirengu.com/hegi/7/edit" target="_blank" rel="external">效果预览</a></p>
+<p>这里需要注意三个<code>div</code>的顺序：<code>左-右-中</code>，中间的<code>div</code>最后写，如果写在中间，会发生什么呢？</p>
+<p><a href="http://js.jirengu.com/hegi/14/edit" target="_blank" rel="external">我来瞧瞧发生了什么</a></p>
+<p>可以看见最后一个<code>div</code>掉下去了，这是因为中间的div没有设置浮动，放在中间div后面的div会换行。下面介绍用<code>position</code>定位实现这种布局。</p>
+<h4 id="3-左右固定，中间自适应的布局（定位）"><a href="#3-左右固定，中间自适应的布局（定位）" class="headerlink" title="3. 左右固定，中间自适应的布局（定位）"></a>3. 左右固定，中间自适应的布局（定位）</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></div><div class="line">* &#123;</div><div class="line">   <span class="attribute">padding</span>:<span class="number">0</span>;</div><div class="line">   <span class="attribute">margin</span>:<span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.left</span>&#123;</div><div class="line">   <span class="attribute">position</span>: absolute;</div><div class="line">   <span class="attribute">left</span>: <span class="number">0</span>;</div><div class="line">   <span class="attribute">top</span>: <span class="number">0</span>;</div><div class="line">   <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">   <span class="attribute">background-color</span>: pink;</div><div class="line"> &#125;</div><div class="line"><span class="selector-class">.center</span>&#123;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">200px</span>;</div><div class="line">    <span class="attribute">background-color</span>: lightblue;</div><div class="line"> &#125;</div><div class="line"><span class="selector-class">.right</span>&#123;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">    <span class="attribute">background-color</span>: pink;</div><div class="line"> &#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span> </div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span>左边固定宽度<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"center"</span>&gt;</span>中间自适应<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>右边固定宽度<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><a href="http://js.jirengu.com/hegi/16/edit" target="_blank" rel="external">效果预览</a></p>
+<p>这种布局就和div的顺序无关了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;产品页面之基本详情页中用到的“左边固定，右边自动占满”布局。相应的写一“左右固定，中间自适应”布局。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="仿站" scheme="https://wenhuiyang-luck.github.io/categories/%E4%BB%BF%E7%AB%99/"/>
+    
+    
+      <category term="仿站" scheme="https://wenhuiyang-luck.github.io/tags/%E4%BB%BF%E7%AB%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>天猫仿站：3分类页面——排序和价格</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/05/14/%E5%A4%A9%E7%8C%AB%E4%BB%BF%E7%AB%99%EF%BC%9A3%E5%88%86%E7%B1%BB%E9%A1%B5%E9%9D%A2%E2%80%94%E2%80%94%E6%8E%92%E5%BA%8F%E5%92%8C%E4%BB%B7%E6%A0%BC/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/05/14/天猫仿站：3分类页面——排序和价格/</id>
     <published>2017-05-14T14:04:56.516Z</published>
-    <updated>2017-05-15T02:10:46.822Z</updated>
+    <updated>2017-05-16T13:51:31.821Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>分类页面之排序和价格页面的布局。</p>
@@ -1279,57 +1319,6 @@
     
     
       <category term="Chrome" scheme="https://wenhuiyang-luck.github.io/tags/Chrome/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jQuery 选择器全解</title>
-    <link href="https://wenhuiyang-luck.github.io/2017/02/21/2017-02-21-jQuery%20%E9%80%89%E6%8B%A9%E5%99%A8%E5%85%A8%E8%A7%A3/"/>
-    <id>https://wenhuiyang-luck.github.io/2017/02/21/2017-02-21-jQuery 选择器全解/</id>
-    <published>2017-02-21T09:29:26.029Z</published>
-    <updated>2017-05-01T05:11:57.430Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>通俗的讲, Selector选择器就是”一个表示特殊语意的字符串”。只要把选择器字符串传入上面的方法中就能够选择不同的 Dom 对象并且以 jQuery 包装集的形式返回。</p>
-<p>jQuery 选择器按照功能主要分为”选择”和”过滤”，并且是配合使用的，可以同时使用组合成一个选择器字符串。 主要的区别是”过滤”作用的选择器是指定条件从前面匹配的内容中筛选,”过滤”选择器也可以单独使用, 表示从全部”*”中筛选.</p>
-<p>比如:<code>$(&quot;:[title]&quot;)</code>等同于<code>$(&quot;*:[title]&quot;)</code>,而”选择”功能的选择器则不会有默认的范围,因为作用是”选择”而不是”过滤”。</p>
-</blockquote>
-<a id="more"></a> 
-<p>​    下面的选择器分类中, 带有”过滤器”的分类表示是”过滤”选择器,否则就是”选择”功能的选择器。jQuery 选择器分为如下几类:</p>
-<p>  ● 基础选择器 Basics</p>
-<p><img src="../../../../images/clipboard1.png" alt=""></p>
-<p>  ● 层次选择器 Hierarchy</p>
-<p><img src="../../../../images/clipboard2.png" alt=""></p>
-<p>  ● 基本过滤器 Basic Filters</p>
-<p><img src="../../../../images/clipboard3.png" alt=""></p>
-<p>  ● 内容过滤器 Content Filters</p>
-<p><img src="../../../../images/clipboard4.png" alt=""></p>
-<p>  ● 可见性过滤器 Visibility Filters</p>
-<p><img src="../../../../images/clipboard5.png" alt=""></p>
-<p>  ● 属性过滤器 Attribute Filters</p>
-<p><img src="../../../../images/clipboard6.png" alt=""></p>
-<p>  ● 子元素过滤器 Child Filters</p>
-<p><img src="../../../../images/clipboard7.png" alt=""></p>
-<p>  ● 表单选择器 Forms</p>
-<p><img src="../../../../images/clipboard8.png" alt=""></p>
-<p>  ● 表单过滤器 Form Filters</p>
-<p><img src="../../../../images/clipboard9.png" alt=""></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;通俗的讲, Selector选择器就是”一个表示特殊语意的字符串”。只要把选择器字符串传入上面的方法中就能够选择不同的 Dom 对象并且以 jQuery 包装集的形式返回。&lt;/p&gt;
-&lt;p&gt;jQuery 选择器按照功能主要分为”选择”和”过滤”，并且是配合使用的，可以同时使用组合成一个选择器字符串。 主要的区别是”过滤”作用的选择器是指定条件从前面匹配的内容中筛选,”过滤”选择器也可以单独使用, 表示从全部”*”中筛选.&lt;/p&gt;
-&lt;p&gt;比如:&lt;code&gt;$(&amp;quot;:[title]&amp;quot;)&lt;/code&gt;等同于&lt;code&gt;$(&amp;quot;*:[title]&amp;quot;)&lt;/code&gt;,而”选择”功能的选择器则不会有默认的范围,因为作用是”选择”而不是”过滤”。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="jQuery笔记" scheme="https://wenhuiyang-luck.github.io/categories/jQuery%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="jQuery" scheme="https://wenhuiyang-luck.github.io/tags/jQuery/"/>
     
   </entry>
   
