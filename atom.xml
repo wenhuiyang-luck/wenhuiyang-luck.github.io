@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wenhuiyang-luck.github.io/"/>
-  <updated>2017-05-16T14:40:24.374Z</updated>
+  <updated>2017-05-18T03:12:05.442Z</updated>
   <id>https://wenhuiyang-luck.github.io/</id>
   
   <author>
@@ -16,11 +16,47 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>iframe 标签嵌套页面</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/05/18/iframe%E5%B5%8C%E5%A5%97%E9%A1%B5%E9%9D%A2/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/05/18/iframe嵌套页面/</id>
+    <published>2017-05-18T02:04:48.879Z</published>
+    <updated>2017-05-18T03:12:05.442Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>我们常常会希望将某种小效果可以直接在文档中显示，而不是通过一个预览外链来查看效果，<code>iframe</code> 元素就可以实现，它会创建包含另外一个文档的内联框架（即行内框架），<code>iframe</code>相当于浏览器里面有个小浏览器，在这个小浏览器中，打开另一个网页。可根据自己的需求自行设置<code>frameborder</code>及<code>scrolling</code>等属性。所有浏览器都支持<code>iframe</code>标签。</p>
+</blockquote>
+<a id="more"></a>
+<h4 id="1-属性"><a href="#1-属性" class="headerlink" title="1. 属性"></a>1. 属性</h4><p>有标记的是h5新属性</p>
+<p><img src="../../../../images/24-1.png" alt=""></p>
+<h4 id="2-实例"><a href="#2-实例" class="headerlink" title="2.实例"></a>2.实例</h4><p>代码：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">"https://wenhuiyang-luck.github.io/jquery-plugin/手风琴/index.html"</span> <span class="attr">width</span>=<span class="string">"800px"</span> <span class="attr">height</span>=<span class="string">"500px"</span> <span class="attr">frameborder</span>=<span class="string">"0"</span> <span class="attr">scrolling</span>=<span class="string">"yes"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>一些老的浏览器不支持 iframe。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>如果得不到支持，iframe 是不可见的。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">   <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<iframe src="https://wenhuiyang-luck.github.io/jquery-plugin/%E6%89%8B%E9%A3%8E%E7%90%B4/index.html" width="800px" height="400px" frameborder="0" scrolling="yes"></iframe>
+
+<p>在<code>markdown</code>中嵌入页面时，不需要加<code>html</code>和<code>body</code>标签，只需要写上<code>iframe</code>标签即可。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;我们常常会希望将某种小效果可以直接在文档中显示，而不是通过一个预览外链来查看效果，&lt;code&gt;iframe&lt;/code&gt; 元素就可以实现，它会创建包含另外一个文档的内联框架（即行内框架），&lt;code&gt;iframe&lt;/code&gt;相当于浏览器里面有个小浏览器，在这个小浏览器中，打开另一个网页。可根据自己的需求自行设置&lt;code&gt;frameborder&lt;/code&gt;及&lt;code&gt;scrolling&lt;/code&gt;等属性。所有浏览器都支持&lt;code&gt;iframe&lt;/code&gt;标签。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="HTML/HTML5笔记" scheme="https://wenhuiyang-luck.github.io/categories/HTML-HTML5%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="HTML" scheme="https://wenhuiyang-luck.github.io/tags/HTML/"/>
+    
+  </entry>
+  
+  <entry>
     <title>天猫仿站：4产品页面——基本详情</title>
     <link href="https://wenhuiyang-luck.github.io/2017/05/16/%E5%A4%A9%E7%8C%AB%E4%BB%BF%E7%AB%99%EF%BC%9A4%E4%BA%A7%E5%93%81%E9%A1%B5%E9%9D%A2%E2%80%94%E2%80%94%E5%9F%BA%E6%9C%AC%E8%AF%A6%E6%83%85/"/>
     <id>https://wenhuiyang-luck.github.io/2017/05/16/天猫仿站：4产品页面——基本详情/</id>
     <published>2017-05-16T13:51:37.769Z</published>
-    <updated>2017-05-16T14:40:24.374Z</updated>
+    <updated>2017-05-16T14:48:38.260Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>产品页面之基本详情页中用到的“左边固定，右边自动占满”布局。相应的写一“左右固定，中间自适应”布局。</p>
@@ -1272,53 +1308,6 @@
     
     
       <category term="编辑工具" scheme="https://wenhuiyang-luck.github.io/tags/%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于Chrome自带的开发者工具你不知道的事</title>
-    <link href="https://wenhuiyang-luck.github.io/2017/02/22/2017-02-22-%E5%85%B3%E4%BA%8EChrome%E8%87%AA%E5%B8%A6%E7%9A%84%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E4%BA%8B/"/>
-    <id>https://wenhuiyang-luck.github.io/2017/02/22/2017-02-22-关于Chrome自带的开发者工具你不知道的事/</id>
-    <published>2017-02-22T03:05:54.165Z</published>
-    <updated>2017-05-01T05:10:06.861Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>今天早上，在FreeCodeCamp公众号中看到了一篇关于Chrome自带开发者工具的文章。以前自己也只是知道一点点最简单的功能，看完觉得特别有用，记录一下。    </p>
-<p>原文链接：<a href="https://zhuanlan.zhihu.com/p/22665710" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/22665710</a>                                                                    </p>
-</blockquote>
-<a id="more"></a>
-<h2 id="选取DOM元素"><a href="#选取DOM元素" class="headerlink" title="选取DOM元素"></a>选取DOM元素</h2><p><code>jQuery</code>中，我们一般用 <code>(&#39;tagName&#39;)、 (&#39;.class&#39;)、$(&#39;#id&#39;)</code>等选择器选取DOM元素，它们都相当于原生js的<code>document.querySelector()</code>方法。返回的第一个匹配选择规则的DOM元素。</p>
-<p>在<code>Chrome</code>的控制台里，你可以通过 <code>$$(&#39;tagName&#39;)</code> 或者 <code>$$(&#39;.className&#39;)</code>， 即两个$$符号来选择所有匹配规则的DOM元素。返回的结果是一个数组，然后可以通过数组的方法来访问其中的单个元素。</p>
-<p>比如：<code>$$(&#39;className&#39;)</code> 会返回给你所有包含 <code>className</code> 类属性的元素，之后你可以通过 <code>$$(&#39;className&#39;)[0]</code> 和<code>$$(&#39;className&#39;)[1]</code> 来访问其中的某个元素。</p>
-<h2 id="直接在浏览器里更改网页的文本内容"><a href="#直接在浏览器里更改网页的文本内容" class="headerlink" title="直接在浏览器里更改网页的文本内容"></a>直接在浏览器里更改网页的文本内容</h2><p>以前，我也是右键审查元素，然后编辑源代码。但是现在，只需要在控制台中输入<code>document.body.contentEditable = true</code>, 就可以直接在网页中编辑文本内容。</p>
-<h2 id="获取某个DOM元素绑定的事件"><a href="#获取某个DOM元素绑定的事件" class="headerlink" title="获取某个DOM元素绑定的事件"></a>获取某个DOM元素绑定的事件</h2><p>通过<code>getEventListeners($(&#39;selector&#39;))</code> 方法以数组对象的格式返回某个元素绑定的所有事件。你可以在控              制台里展开对象查看详细的内容。</p>
-<p>选择其中的某个事件，可以通过下面的方法来访问：<code>getEventListeners($(&#39;selector&#39;)).eventName[0].listener</code>  ，这里的 <code>eventName</code> 表示某种事件类型。比如： <code>getEventListeners($(&#39;#firstName&#39;)).click[0].listener</code>会返回ID为<code>firstName</code>元素绑定的<code>click</code>事件。</p>
-<h2 id="监测事件"><a href="#监测事件" class="headerlink" title="监测事件"></a>监测事件</h2><p><code>monitorEvents($(&#39;selector&#39;))</code> 会监测某个元素上绑定的所有事件，一旦该元素的某个事件被触发就会在控制台里显示出来。</p>
-<p><code>monitorEvents($(&#39;selector&#39;),&#39;eventName&#39;)</code> 可以监听某个元素上绑定的具体事件。第二个参数代表事件类型的名称。例如 <code>monitorEvents($(&#39;#firstName&#39;),&#39;click&#39;)</code> 只监测<code>ID</code>为<code>firstName</code>的元素上的<code>click</code>事件。</p>
-<p><code>monitorEvents($(&#39;selector&#39;),[&#39;eventName1&#39;,&#39;eventName3&#39;,….])</code> 同上。可以同时检测具体指定的多个事件类型。</p>
-<p><code>unmonitorEvents($(&#39;selector&#39;))</code> 用来停止对某个元素的事件监测。</p>
-<h2 id="用计时器来获取某段代码块的运行时间"><a href="#用计时器来获取某段代码块的运行时间" class="headerlink" title="用计时器来获取某段代码块的运行时间"></a>用计时器来获取某段代码块的运行时间</h2><p>通过 <code>console.time(&#39;labelName&#39;)</code> 来设定一个计时器，其中的 <code>labelName</code>是计时器的名称。通过<code>console.timeEnd(&#39;labelName&#39;)</code>方法来停止并输出某个计时器的时间。</p>
-<p>​结合上述两种方法，可以计算代码块运行时间。</p>
-<h2 id="以表格的形式输出数组"><a href="#以表格的形式输出数组" class="headerlink" title="以表格的形式输出数组"></a>以表格的形式输出数组</h2><p>直接在控制台里输入数组的名称，Chrome会以文本的形式返回一个数组对象。但你完全可以通过<code>console.table(variableName)</code> 方法来以表格的形式输出每个元素的值。<code>variableName</code>是数组名。</p>
-<h2 id="通过控制台方法来检查元素"><a href="#通过控制台方法来检查元素" class="headerlink" title="通过控制台方法来检查元素"></a>通过控制台方法来检查元素</h2><p><code>inspect($(&#39;selector&#39;))</code> 会检查所有匹配选择器的DOM元素，并返回所有选择器选择的DOM对象。例如<code>inspect($(&#39;#firstName&#39;))</code>选择所有ID是 <code>firstName</code> 的元素，<code>inspect($$(&#39;p&#39;)[3])</code> 检查并返回页面上第四个<code>p</code>元素。</p>
-<p><code>$0, $1, $2</code>等等会返回你最近检查过的几个元素，例如<code>$1</code>会返回你最后检查的元素，<code>$2</code>则返回倒数第二个。</p>
-<h2 id="列出某个元素的所有属性"><a href="#列出某个元素的所有属性" class="headerlink" title="列出某个元素的所有属性"></a>列出某个元素的所有属性</h2><p><code>dir($(&#39;selector&#39;))</code>会返回匹配选择器的DOM元素的所有属性，你可以展开输出的结果查看详细内容。</p>
-<h2 id="获取最后计算结果的值"><a href="#获取最后计算结果的值" class="headerlink" title="获取最后计算结果的值"></a>获取最后计算结果的值</h2><p>在Chrome控制台里进行计算时，可以通过<code>$_</code>来获取最后的计算结果值。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;今天早上，在FreeCodeCamp公众号中看到了一篇关于Chrome自带开发者工具的文章。以前自己也只是知道一点点最简单的功能，看完觉得特别有用，记录一下。    &lt;/p&gt;
-&lt;p&gt;原文链接：&lt;a href=&quot;https://zhuanlan.zhihu.com/p/22665710&quot;&gt;https://zhuanlan.zhihu.com/p/22665710&lt;/a&gt;                                                                    &lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="开发工具" scheme="https://wenhuiyang-luck.github.io/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="Chrome" scheme="https://wenhuiyang-luck.github.io/tags/Chrome/"/>
     
   </entry>
   

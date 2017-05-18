@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[iframe 标签嵌套页面]]></title>
+      <url>%2F2017%2F05%2F18%2Fiframe%E5%B5%8C%E5%A5%97%E9%A1%B5%E9%9D%A2%2F</url>
+      <content type="text"><![CDATA[我们常常会希望将某种小效果可以直接在文档中显示，而不是通过一个预览外链来查看效果，iframe 元素就可以实现，它会创建包含另外一个文档的内联框架（即行内框架），iframe相当于浏览器里面有个小浏览器，在这个小浏览器中，打开另一个网页。可根据自己的需求自行设置frameborder及scrolling等属性。所有浏览器都支持iframe标签。 1. 属性有标记的是h5新属性 2.实例代码： 1234567&lt;html&gt; &lt;body&gt; &lt;iframe src="https://wenhuiyang-luck.github.io/jquery-plugin/手风琴/index.html" width="800px" height="500px" frameborder="0" scrolling="yes"&gt;&lt;/iframe&gt; &lt;p&gt;一些老的浏览器不支持 iframe。&lt;/p&gt; &lt;p&gt;如果得不到支持，iframe 是不可见的。&lt;/p&gt; &lt;/body&gt;&lt;/html&gt; 效果如下： 在markdown中嵌入页面时，不需要加html和body标签，只需要写上iframe标签即可。]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[天猫仿站：4产品页面——基本详情]]></title>
       <url>%2F2017%2F05%2F16%2F%E5%A4%A9%E7%8C%AB%E4%BB%BF%E7%AB%99%EF%BC%9A4%E4%BA%A7%E5%93%81%E9%A1%B5%E9%9D%A2%E2%80%94%E2%80%94%E5%9F%BA%E6%9C%AC%E8%AF%A6%E6%83%85%2F</url>
       <content type="text"><![CDATA[产品页面之基本详情页中用到的“左边固定，右边自动占满”布局。相应的写一“左右固定，中间自适应”布局。 预览地址 1. 左边固定，右边自动占满1234567891011121314&lt;style&gt;.left&#123; width:200px; float:left; background-color:pink &#125;.right&#123; overflow:hidden; background-color:lightskyblue; &#125;&lt;/style&gt;&lt;div class="left"&gt;左边固定宽度&lt;/div&gt;&lt;div class="right"&gt;右边自动填满&lt;/div&gt; 效果预览 2. 左右固定，中间自适应的布局（浮动）1234567891011121314151617181920&lt;style&gt;.left&#123; width:200px; float:left; background-color:pink &#125;.right&#123; width:200px; float:right; background-color:pink &#125;.center &#123; margin:0 200px; background-color:lightblue&#125;&lt;/style&gt; &lt;div class="left"&gt;左边固定宽度&lt;/div&gt;&lt;div class="right"&gt;右边固定宽度&lt;/div&gt;&lt;div class="center"&gt;中间自适应&lt;/div&gt; 效果预览 这里需要注意三个div的顺序：左-右-中，中间的div最后写，如果写在中间，会发生什么呢？ 我来瞧瞧发生了什么 可以看见最后一个div掉下去了，这是因为中间的div没有设置浮动，放在中间div后面的div会换行。下面介绍用position定位实现这种布局。 3. 左右固定，中间自适应的布局（定位）12345678910111213141516171819202122232425262728&lt;style&gt;* &#123; padding:0; margin:0;&#125;.left&#123; position: absolute; left: 0; top: 0; width: 200px; background-color: pink; &#125;.center&#123; margin: 0 200px; background-color: lightblue; &#125;.right&#123; position: absolute; top: 0; right: 0; width: 200px; background-color: pink; &#125;&lt;/style&gt; &lt;div class="left"&gt;左边固定宽度&lt;/div&gt;&lt;div class="center"&gt;中间自适应&lt;/div&gt;&lt;div class="right"&gt;右边固定宽度&lt;/div&gt; 效果预览 这种布局就和div的顺序无关了。]]></content>
