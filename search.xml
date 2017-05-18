@@ -5,7 +5,7 @@
     <entry>
       <title><![CDATA[iframe 标签嵌套页面]]></title>
       <url>%2F2017%2F05%2F18%2Fiframe%E5%B5%8C%E5%A5%97%E9%A1%B5%E9%9D%A2%2F</url>
-      <content type="text"><![CDATA[我们常常会希望将某种小效果可以直接在文档中显示，而不是通过一个预览外链来查看效果，iframe 元素就可以实现，它会创建包含另外一个文档的内联框架（即行内框架），iframe相当于浏览器里面有个小浏览器，在这个小浏览器中，打开另一个网页。可根据自己的需求自行设置frameborder及scrolling等属性。所有浏览器都支持iframe标签。 1. 属性有标记的是h5新属性 2.实例代码： 1234567&lt;html&gt; &lt;body&gt; &lt;iframe src="https://wenhuiyang-luck.github.io/jquery-plugin/手风琴/index.html" width="800px" height="500px" frameborder="0" scrolling="yes"&gt;&lt;/iframe&gt; &lt;p&gt;一些老的浏览器不支持 iframe。&lt;/p&gt; &lt;p&gt;如果得不到支持，iframe 是不可见的。&lt;/p&gt; &lt;/body&gt;&lt;/html&gt; 效果如下： 在markdown中嵌入页面时，不需要加html和body标签，只需要写上iframe标签即可。]]></content>
+      <content type="text"><![CDATA[我们常常会希望将某种小效果可以直接在文档中显示，而不是通过一个预览外链来查看效果，iframe 元素就可以实现，它会创建包含另外一个文档的内联框架（即行内框架），iframe相当于浏览器里面有个小浏览器，在这个小浏览器中，打开另一个网页。可根据自己的需求自行设置frameborder及scrolling等属性。 1. 属性有标记的是h5新属性 2.实例本博客使用markdown编写，只需要在内容中嵌入iframe标签即可。 123&lt;iframe src="https://wenhuiyang-luck.github.io/jquery-plugin/手风琴/index.html" width="750px" height="600px" frameborder="0" scrolling="no"&gt;&lt;/iframe&gt;&lt;p&gt;一些老的浏览器不支持 iframe。&lt;/p&gt;&lt;p&gt;如果得不到支持，iframe 是不可见的。&lt;/p&gt; 效果如下：点击试试手风琴效果吧]]></content>
     </entry>
 
     
