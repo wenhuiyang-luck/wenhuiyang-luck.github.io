@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wenhuiyang-luck.github.io/"/>
-  <updated>2017-05-18T03:34:47.182Z</updated>
+  <updated>2017-05-18T03:43:24.652Z</updated>
   <id>https://wenhuiyang-luck.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://wenhuiyang-luck.github.io/2017/05/18/iframe%E5%B5%8C%E5%A5%97%E9%A1%B5%E9%9D%A2/"/>
     <id>https://wenhuiyang-luck.github.io/2017/05/18/iframe嵌套页面/</id>
     <published>2017-05-18T02:04:48.879Z</published>
-    <updated>2017-05-18T03:34:47.182Z</updated>
+    <updated>2017-05-18T03:43:24.652Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>我们常常会希望将某种小效果可以直接在文档中显示，而不是通过一个预览外链来查看效果，<code>iframe</code> 元素就可以实现，它会创建包含另外一个文档的内联框架（即行内框架），<code>iframe</code>相当于浏览器里面有个小浏览器，在这个小浏览器中，打开另一个网页。可根据自己的需求自行设置<code>frameborder</code>及<code>scrolling</code>等属性。</p>
