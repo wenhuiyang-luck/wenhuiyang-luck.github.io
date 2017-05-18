@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wenhuiyang-luck.github.io/"/>
-  <updated>2017-05-18T03:43:24.652Z</updated>
+  <updated>2017-05-18T12:31:16.962Z</updated>
   <id>https://wenhuiyang-luck.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://wenhuiyang-luck.github.io/2017/05/18/iframe%E5%B5%8C%E5%A5%97%E9%A1%B5%E9%9D%A2/"/>
     <id>https://wenhuiyang-luck.github.io/2017/05/18/iframe嵌套页面/</id>
     <published>2017-05-18T02:04:48.879Z</published>
-    <updated>2017-05-18T03:43:24.652Z</updated>
+    <updated>2017-05-18T12:31:16.962Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>我们常常会希望将某种小效果可以直接在文档中显示，而不是通过一个预览外链来查看效果，<code>iframe</code> 元素就可以实现，它会创建包含另外一个文档的内联框架（即行内框架），<code>iframe</code>相当于浏览器里面有个小浏览器，在这个小浏览器中，打开另一个网页。可根据自己的需求自行设置<code>frameborder</code>及<code>scrolling</code>等属性。</p>
@@ -29,9 +29,9 @@
 <h4 id="1-属性"><a href="#1-属性" class="headerlink" title="1. 属性"></a>1. 属性</h4><p>有标记的是h5新属性</p>
 <p><img src="../../../../images/24-1.png" alt=""></p>
 <h4 id="2-实例"><a href="#2-实例" class="headerlink" title="2.实例"></a>2.实例</h4><p>本博客使用<code>markdown</code>编写，只需要在内容中嵌入<code>iframe</code>标签即可。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">"https://wenhuiyang-luck.github.io/jquery-plugin/手风琴/index.html"</span> <span class="attr">width</span>=<span class="string">"750px"</span> <span class="attr">height</span>=<span class="string">"600px"</span> <span class="attr">frameborder</span>=<span class="string">"0"</span> <span class="attr">scrolling</span>=<span class="string">"no"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>一些老的浏览器不支持 iframe。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>如果得不到支持，iframe 是不可见的。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">"https://wenhuiyang-luck.github.io/jquery-plugin/手风琴/index.html"</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">height</span>=<span class="string">"400px"</span> <span class="attr">frameborder</span>=<span class="string">"0"</span> <span class="attr">scrolling</span>=<span class="string">"no"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>一些老的浏览器不支持 iframe。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>如果得不到支持，iframe 是不可见的。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
 <p><strong>效果如下：</strong><br>点击试试手风琴效果吧</p>
-<iframe src="https://wenhuiyang-luck.github.io/jquery-plugin/%E6%89%8B%E9%A3%8E%E7%90%B4/index.html" width="800px" height="400px" frameborder="0" scrolling="no"></iframe>
+<iframe src="https://wenhuiyang-luck.github.io/jquery-plugin/%E6%89%8B%E9%A3%8E%E7%90%B4/index.html" width="100%" height="400px" frameborder="0" scrolling="no"></iframe>
 
 ]]></content>
     
