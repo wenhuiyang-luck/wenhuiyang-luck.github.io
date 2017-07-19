@@ -1,2 +1,2 @@
 # wenhuiyang-luck.github.io
-我的博客托管
+基于hexo + github 搭建的个人博客
