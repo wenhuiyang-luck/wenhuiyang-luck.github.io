@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wenhuiyang-luck.github.io/"/>
-  <updated>2017-05-18T12:31:16.962Z</updated>
+  <updated>2017-07-19T09:53:36.043Z</updated>
   <id>https://wenhuiyang-luck.github.io/</id>
   
   <author>
@@ -14,6 +14,64 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>腾讯课堂IMWeb前端求职训练营-Day01</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/07/19/%E8%85%BE%E8%AE%AF%E8%AF%BE%E5%A0%82IMWeb%E5%89%8D%E7%AB%AF%E6%B1%82%E8%81%8C%E8%AE%AD%E7%BB%83%E8%90%A5-Day01/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/07/19/腾讯课堂IMWeb前端求职训练营-Day01/</id>
+    <published>2017-07-19T09:31:12.389Z</published>
+    <updated>2017-07-19T09:53:36.043Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>知识点：盒子模型、src和href的区别、同步和异步、Dom节点操作。</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="一、经典面试题"><a href="#一、经典面试题" class="headerlink" title="一、经典面试题"></a>一、经典面试题</h1><h2 id="1-什么是盒子模型？"><a href="#1-什么是盒子模型？" class="headerlink" title="1. 什么是盒子模型？"></a>1. 什么是盒子模型？</h2><ul>
+<li><strong>盒模型</strong>： 内容(content)、填充(padding)、边界(margin)、 边框(border)</li>
+<li><strong>两种</strong>: 标准 W3C 盒子模型、IE 盒子模型</li>
+<li><strong>区别</strong>：IE的content部分包含了 border 和 padding</li>
+</ul>
+<p><img src="http://7tszky.com1.z0.glb.clouddn.com/FlbflSTD-RokStTYxHw1KlIzosBx" alt="img"></p>
+<p><img src="http://7tszky.com1.z0.glb.clouddn.com/FrYThnUmgmNJscbN6S9UQH8qMSQH" alt="img"></p>
+<h2 id="2-简述一下src与href的区别"><a href="#2-简述一下src与href的区别" class="headerlink" title="2. 简述一下src与href的区别?"></a>2. 简述一下src与href的区别?</h2><p><strong>href</strong>指向网络资源所在位置，建立和当前元素（锚点）或当前文档（链接）之间的链接，用于超链接。</p>
+<p><strong>src</strong>是指向外部资源的位置，指向的内容将会嵌入到文档中当前标签所在位置；在请求src资源时会将其指向的资源下载并应用到文档内，例如js脚本，img图片和frame等元素。当浏览器解析到该元素时，会暂停其他资源的下载和处理，直到将该资源加载、编译、执行完毕，图片和框架等元素也如此，类似于将所指向资源嵌入当前标签内。这也是为什么将js脚本放在底部而不是头部。</p>
+<h2 id="3-简述同步和异步的区别"><a href="#3-简述同步和异步的区别" class="headerlink" title="3. 简述同步和异步的区别?"></a>3. 简述同步和异步的区别?</h2><p>同步是阻塞模式，异步是非阻塞模式。</p>
+<p>同步就是指一个进程在执行某个请求的时候，若该请求需要一段时间才能返回信息，那么这个进程将会一直等待下去，直到收到返回信息才继续执行下去；</p>
+<p>异步是指进程不需要一直等下去，而是继续执行下面的操作，不管其他进程的状态。当有消息返回时系统会通知进程进行处理，这样可以提高执行的效率。</p>
+<p>举个例子：普通B/S模式（同步）AJAX技术（异步）  </p>
+<p>同步：提交请求 -&gt; 等待服务器处理（这个期间客户端浏览器不能干任何事）-&gt; 处理完毕返回</p>
+<p>异步：请求通过事件触发 -&gt; 服务器处理（这是浏览器仍然可以作其他事情）-&gt; 处理完</p>
+<h2 id="4-怎样添加、移除、移动、复制、创建和查找节点？"><a href="#4-怎样添加、移除、移动、复制、创建和查找节点？" class="headerlink" title="4. 怎样添加、移除、移动、复制、创建和查找节点？"></a>4. 怎样添加、移除、移动、复制、创建和查找节点？</h2><p>1）创建新节点</p>
+<pre><code>createDocumentFragment() //创建一个DOM片段
+createElement() //创建一个具体的元素
+createTextNode() //创建一个文本节点
+</code></pre><p>2）添加、移除、替换、插入</p>
+<pre><code>appendChild() //添加
+removeChild() //移除
+replaceChild() //替换
+insertBefore() //插入
+</code></pre><p>3）查找</p>
+<pre><code>getElementsByTagName() //通过标签名称
+getElementsByName() //通过元素的Name属性的值
+getElementById() //通过元素Id，唯一性
+</code></pre><h1 id="二、编程题"><a href="#二、编程题" class="headerlink" title="二、编程题"></a>二、编程题</h1><h2 id="1-查找数组元素位置"><a href="#1-查找数组元素位置" class="headerlink" title="1. 查找数组元素位置"></a>1. 查找数组元素位置</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">indexOf</span>(<span class="params">arr, item</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(<span class="built_in">Array</span>.prototype.indexOf)&#123;</div><div class="line">        <span class="keyword">return</span> arr.indexOf(item);</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>, len = arr.length; i &lt; len; i++)&#123;</div><div class="line">            <span class="keyword">if</span>(arr[i] === item)&#123;</div><div class="line">                <span class="keyword">return</span> i;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">     &#125;     </div><div class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="2-求和"><a href="#2-求和" class="headerlink" title="2. 求和"></a>2. 求和</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 递归</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span><span class="params">(arr)</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> len = arr.length;</div><div class="line">    <span class="keyword">if</span>(len == <span class="number">0</span>)&#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (len == <span class="number">1</span>)&#123;</div><div class="line">        <span class="keyword">return</span> arr[<span class="number">0</span>];</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span> arr[<span class="number">0</span>] + sum(arr.slice(<span class="number">1</span>));</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 常规循环</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span><span class="params">(arr)</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> s = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = arr.length<span class="number">-1</span>; i &gt;= <span class="number">0</span>; i--)&#123;</div><div class="line">        s += arr[i];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> s;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 函数式编程 map-reduce</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span><span class="params">(arr)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> arr.reduce(<span class="function"><span class="keyword">function</span><span class="params">(prev, curr, idx, arr)</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> prev + curr;</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// forEach遍历</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span><span class="params">(arr)</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> s = <span class="number">0</span>;</div><div class="line">    arr.<span class="keyword">forEach</span>(<span class="function"><span class="keyword">function</span><span class="params">(val, idx, arr)</span> </span>&#123;</div><div class="line">        s += val;</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">return</span> s;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// eval</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span><span class="params">(arr)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">eval</span>(arr.join(<span class="string">"+"</span>));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="3-移除数组中与item相等的元素"><a href="#3-移除数组中与item相等的元素" class="headerlink" title="3. 移除数组中与item相等的元素"></a>3. 移除数组中与item相等的元素</h2><figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 常规循环</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">remove</span></span>(arr,item)&#123;</div><div class="line">    <span class="keyword">var</span> <span class="keyword">new</span><span class="type">Arr</span> = [];</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>, len = arr.length; i &lt; len; i++)&#123;</div><div class="line">        <span class="keyword">if</span>(arr[i] != item)&#123;</div><div class="line">            <span class="keyword">new</span><span class="type">Arr</span>.push(arr[i]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span><span class="type">Arr</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// filter</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">remove</span></span>(arr,item)&#123;</div><div class="line">    <span class="keyword">return</span> arr.filter(<span class="function"><span class="keyword">function</span></span>(s)&#123;</div><div class="line">        <span class="keyword">if</span>(s != item)&#123;</div><div class="line">            <span class="keyword">return</span> s;</div><div class="line">        &#125;</div><div class="line">    &#125;)；</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;知识点：盒子模型、src和href的区别、同步和异步、Dom节点操作。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="面试题" scheme="https://wenhuiyang-luck.github.io/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+      <category term="面试题" scheme="https://wenhuiyang-luck.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title>iframe 标签嵌套页面</title>
@@ -1215,98 +1273,6 @@
       <category term="JavaScript" scheme="https://wenhuiyang-luck.github.io/tags/JavaScript/"/>
     
       <category term="正则" scheme="https://wenhuiyang-luck.github.io/tags/%E6%AD%A3%E5%88%99/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>总结一些Sublime Text3使用技巧</title>
-    <link href="https://wenhuiyang-luck.github.io/2017/02/26/2017-02-26-Sublime%20Text3%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
-    <id>https://wenhuiyang-luck.github.io/2017/02/26/2017-02-26-Sublime Text3使用技巧/</id>
-    <published>2017-02-26T09:35:54.270Z</published>
-    <updated>2017-05-01T05:10:50.676Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>Sublime Text 是很多人喜欢的代码编辑器，掌握一些快捷键，能让你打码更有效率。本篇笔记向大家介绍Sublime Text编辑器一些常用的快捷技巧，希望对大家有所帮助。                                                                    </p>
-</blockquote>
-<a id="more"></a>
-<h1 id="1-Goto-Anything：Ctrl-P"><a href="#1-Goto-Anything：Ctrl-P" class="headerlink" title="1. Goto Anything：Ctrl+P"></a>1. Goto Anything：Ctrl+P</h1><hr>
-<p><strong>功能1</strong>：Ctrl +P 快速查询文件（支持模糊匹配），如：public/index.html；</p>
-<p><strong>功能2</strong>：@可以快速查询css中的选择器或js中的函数；</p>
-<p><img src="http://images.cnitblog.com/i/446475/201407/032226221849590.jpg" alt="img"></p>
-<p><code>#</code>匹配页面标签</p>
-<p><img src="http://images.cnitblog.com/i/446475/201407/032205212307495.jpg" alt="img"></p>
-<p><strong>功能3</strong>：模糊匹配，如设置background-color属性，仅输入bgc即可。</p>
-<h1 id="2-多行游标"><a href="#2-多行游标" class="headerlink" title="2. 多行游标"></a>2. 多行游标</h1><hr>
-<p><strong>功能：</strong>快速替换，快速添加。</p>
-<p>(1) <strong>普通方法</strong>：</p>
-<p>Ctrl + H：Find what（想要替换），Replace what（替换成什么）中完成替换；</p>
-<p>(2) <strong>快捷方法：</strong></p>
-<p>​    选中第一个匹配项，使用Ctrl+D选中下一个，依次使用Ctrl +D选中所有想要替换的文本（Crtl + K 可跳过中间某一个不想选中的），可以看到每一个文本后面都有了闪动的光标，输入替换内容即可；</p>
-<p>​    也可用上述方法同时在不同的模块下添加多行新的配置项（Find Replace不能完成的功能）。</p>
-<p><strong>如何产生多行游标：</strong></p>
-<ul>
-<li>Ctrl +D（Ctrl+K跳过）；</li>
-<li>选中第一个，再按Alt+F3整页选中所有匹配项；</li>
-<li>拆行方式，先Ctrl + A，再Ctrl+Shift+L；</li>
-<li>拖动方式：按住Shift +鼠标右键，向下拖动产生多行游标；</li>
-</ul>
-<h1 id="3-命令模式：Ctrl-Shift-P（模糊匹配）"><a href="#3-命令模式：Ctrl-Shift-P（模糊匹配）" class="headerlink" title="3. 命令模式：Ctrl+Shift+P（模糊匹配）"></a>3. 命令模式：Ctrl+Shift+P（模糊匹配）</h1><hr>
-<p><strong>功能：</strong>修改编辑区的语法模式、安装插件、隐藏/显示minimap</p>
-<p><strong>修改语法模式</strong>：输入ss（Set Syntax）+语法模式，如ssJavaScript、ssphp、ssjava或JavaScript、java等，即可改变文件类型。</p>
-<h1 id="4-PackageControl安装插件"><a href="#4-PackageControl安装插件" class="headerlink" title="4. PackageControl安装插件"></a>4. PackageControl安装插件</h1><hr>
-<p>官网：<a href="https://sublime.wbond.net" target="_blank" rel="external">https://sublime.wbond.net</a></p>
-<ul>
-<li>复制代码</li>
-<li>View &gt; Show Console黏贴代码，重新启动</li>
-<li>Ctrl + Shift + P启动命令模式，输入pc（Package Control），选择Install Package安装插件</li>
-</ul>
-<h1 id="5-snippets以模板的方式编程（以js为例）"><a href="#5-snippets以模板的方式编程（以js为例）" class="headerlink" title="5. snippets以模板的方式编程（以js为例）"></a>5. snippets以模板的方式编程（以js为例）</h1><hr>
-<p><strong>功能1</strong>：快速生成函数</p>
-<p>第一步：Ctrl + Shift + P启动命令模式，输入ssjs切换语法模式；</p>
-<p><img src="../../../../images/ssjs.png" alt=""></p>
-<p>第二步：写一个函数，Ctrl + Shift + P启动命令模式，输入snip;</p>
-<p>​    <img src="../../../../images/snip.png" alt=""></p>
-<p>第三步：选择snippets:Function，回车，即可自动生成函数；</p>
-<p><img src="../../../../images/snip+fun.png" alt=""></p>
-<p>第四步：直接修改函数名，再使用tab键，即可看到光标在argument参数部分高亮显示，即可修改参数，再一次按tab键，就跳转到函数体部分。Tab键的使用减少了移动光标的操作。</p>
-<p><strong>功能2：</strong>自动补全</p>
-<p>例1：fun + Enter</p>
-<p><img src="../../../../images/fun+enter.png" alt=""></p>
-<p>例2：ife + Enter</p>
-<p><img src="../../../../images/ife+enter.png" alt=""></p>
-<p>例3：Prototypre</p>
-<p>定义一个构造函数Person：</p>
-<p><img src="../../../../images/person.png" alt=""></p>
-<p>Person类定义一个实例函数，使用原型链，只需要输入一个Prototype+Enter，修改相应内容即可。</p>
-<p><img src="../../../../images/prototype.png" alt=""></p>
-<h1 id="6-几个其他常用快捷键"><a href="#6-几个其他常用快捷键" class="headerlink" title="6. 几个其他常用快捷键"></a>6. 几个其他常用快捷键</h1><hr>
-<p>Ctrl+Shift+D ————复制光标所在整行，插入到下一行。</p>
-<p>Ctrl+Shift+V ————-粘贴过程中保持缩进</p>
-<p>Ctrl+Shift+K ————-删除整行。</p>
-<p>Ctrl+Shift+Enter——–在上一行插入新行</p>
-<p>Ctrl+Enter —————-在下一行插入新行。即使光标不在行尾，也能快速向下插入一行。</p>
-<p>Ctrl + W ——————-关闭当前文档</p>
-<p>Ctrl + ] ———————右缩进</p>
-<p>Ctrl + [ ———————左缩进</p>
-<p>Alt + . ———————-快速闭合标签</p>
-<p>!+Ctrl+E——————–快速生成html完整标记（Emmet插件）</p>
-<p>ul&gt;.item$*10 + Ctrl + E————-产生多个无序列表：</p>
-<p><img src="../../../../images/li.png" alt=""></p>
-<p>参考链接 ： <a href="http://blog.jobbole.com/82527/" target="_blank" rel="external">http://blog.jobbole.com/82527/</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;Sublime Text 是很多人喜欢的代码编辑器，掌握一些快捷键，能让你打码更有效率。本篇笔记向大家介绍Sublime Text编辑器一些常用的快捷技巧，希望对大家有所帮助。                                                                    &lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="开发工具" scheme="https://wenhuiyang-luck.github.io/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="编辑工具" scheme="https://wenhuiyang-luck.github.io/tags/%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
