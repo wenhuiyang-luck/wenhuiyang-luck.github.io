@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wenhuiyang-luck.github.io/"/>
-  <updated>2017-07-19T14:47:02.144Z</updated>
+  <updated>2017-07-20T13:38:33.990Z</updated>
   <id>https://wenhuiyang-luck.github.io/</id>
   
   <author>
@@ -14,6 +14,77 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>腾讯课堂IMWeb前端求职训练营-Day02</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/07/20/%E8%85%BE%E8%AE%AF%E8%AF%BE%E5%A0%82IMWeb%E5%89%8D%E7%AB%AF%E6%B1%82%E8%81%8C%E8%AE%AD%E7%BB%83%E8%90%A5-Day02/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/07/20/腾讯课堂IMWeb前端求职训练营-Day02/</id>
+    <published>2017-07-20T13:31:38.983Z</published>
+    <updated>2017-07-20T13:38:33.990Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>知识点：一个完整的<code>HTTP</code>事务、<code>Web</code>攻击技术、<code>Ajax</code>、优雅降级和渐进增强。</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="一、经典面试题"><a href="#一、经典面试题" class="headerlink" title="一、经典面试题"></a>一、经典面试题</h1><h2 id="5-一次完整的HTTP事务是怎样的一个过程？"><a href="#5-一次完整的HTTP事务是怎样的一个过程？" class="headerlink" title="5. 一次完整的HTTP事务是怎样的一个过程？"></a>5. 一次完整的HTTP事务是怎样的一个过程？</h2><p>基本流程：</p>
+<p>a. 域名解析</p>
+<p>b. 发起<code>TCP</code>的<code>3</code>次握手</p>
+<p>c. 建立<code>TCP</code>连接后发起<code>http</code>请求</p>
+<p>d. 服务器端响应<code>http</code>请求，浏览器得到<code>html</code>代码</p>
+<p>e. 浏览器解析<code>html</code>代码，并请求<code>html</code>代码中的资源</p>
+<p>f. 浏览器对页面进行渲染呈现给用户</p>
+<h2 id="6-你所了解到的Web攻击技术"><a href="#6-你所了解到的Web攻击技术" class="headerlink" title="6. 你所了解到的Web攻击技术?"></a>6. 你所了解到的Web攻击技术?</h2><p>1）<code>XSS</code>（Cross-Site Scripting，跨站脚本攻击）：指通过存在安全漏洞的Web网站注册用户的浏览器内运行非法的HTML标签或者JavaScript进行的一种攻击。</p>
+<p>2）<code>SQL</code>注入攻击。</p>
+<p>3）<code>CSRF</code>（Cross-Site Request Forgeries，跨站点请求伪造）：指攻击者通过设置好的陷阱，强制对已完成的认证用户进行非预期的个人信息或设定信息等某些状态更新。</p>
+<h2 id="7-Ajax是什么-Ajax的交互模型-同步和异步的区别-如何解决跨域问题"><a href="#7-Ajax是什么-Ajax的交互模型-同步和异步的区别-如何解决跨域问题" class="headerlink" title="7. Ajax是什么? Ajax的交互模型? 同步和异步的区别? 如何解决跨域问题?"></a>7. Ajax是什么? Ajax的交互模型? 同步和异步的区别? 如何解决跨域问题?</h2><p><strong>1）Ajax是什么</strong></p>
+<p><code>ajax</code>是异步的 <code>JavaScript</code> 和 <code>XML</code>。通过在后台与服务器进行少量数据交换，<code>AJAX</code> 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。</p>
+<p><strong>2）Ajax的交互模型</strong></p>
+<ul>
+<li>1–启动  获取<code>XMlHttpRequest</code>对象</li>
+<li>2–<code>open</code> 打开<code>url</code>通道，并设置异步传输 </li>
+<li>3–<code>send</code> 发送数据到服务器</li>
+<li>4–服务器接受数据并处理，处理完成后返回结果 </li>
+<li>5–客户端接收服务器端返回</li>
+</ul>
+<p><strong>3）同步和异步的区别</strong></p>
+<p>同步：脚本会停留并等待服务器发送回复然后再继续</p>
+<p>异步：脚本允许页面继续其进程并处理可能的回复</p>
+<p><strong>4）Ajax跨域的解决方法</strong></p>
+<p>如果在A网站中，我们希望使用<code>Ajax</code>来获得B网站中的特定内容，如果A网站与B网站不在同一个域中，那么就出现了跨域访问问题。</p>
+<p><code>IE</code>对于跨域访问的处理是，弹出警告框，提醒用户。如果用户将该网站纳入可信任网站，或者调低安全级别，那么这个问题IE就不会在提醒你。</p>
+<p><code>FireFox</code>等其它非微软的浏览器遇到跨域访问，则解决方案统一是拒绝访问。几个可行的方案：</p>
+<ul>
+<li><code>Web</code>代理的方式。</li>
+<li><code>on-Demand</code>方式</li>
+<li><code>iframe</code>方式。</li>
+<li>用户本地转储方式</li>
+</ul>
+<h2 id="8-什么叫优雅降级和渐进增强？"><a href="#8-什么叫优雅降级和渐进增强？" class="headerlink" title="8.什么叫优雅降级和渐进增强？"></a>8.什么叫优雅降级和渐进增强？</h2><p><strong>“都关注于同一网站在不同设备里不同浏览器下的表现程度。”</strong></p>
+<p>渐进增强 ( progressive enhancement )： 针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验。</p>
+<p>优雅降级( graceful degradation )： 一开始就构建完整的功能，然后再针对低版本浏览器进行兼容。</p>
+<p><strong>区别：</strong> </p>
+<p>a. 优雅降级是从复杂的现状开始，并试图减少用户体验的供给 ；</p>
+<p>b. 渐进增强则是从一个非常基础的，能够起作用的版本开始，并不断扩充，以适应未来环境的需要 ；</p>
+<p>c. 降级（功能衰减）意味着往回看；而渐进增强则意味着朝前看，同时保证其根基处于安全地带；</p>
+<h1 id="二、编程题"><a href="#二、编程题" class="headerlink" title="二、编程题"></a>二、编程题</h1><h2 id="4-末尾添加元素"><a href="#4-末尾添加元素" class="headerlink" title="4. 末尾添加元素"></a>4. 末尾添加元素</h2><p><strong>题目</strong>：在数组 <code>arr</code> 末尾添加元素 <code>item</code>。不要直接修改数组 <code>arr</code>，结果返回新的数组。<br><figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* 常规方法 */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">append</span></span>(arr, item) &#123;</div><div class="line">    <span class="keyword">var</span> <span class="keyword">new</span><span class="type">Arr</span> = [];</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>, len = arr.length; i &lt; len; i++)&#123;</div><div class="line">        <span class="keyword">new</span><span class="type">Arr</span>.push(arr[i]);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">new</span><span class="type">Arr</span>.push(item);</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span><span class="type">Arr</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/* slice 方法*/</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">append</span></span>(arr, item) &#123;</div><div class="line">    <span class="keyword">var</span> <span class="keyword">new</span><span class="type">Arr</span> = arr.slice(<span class="number">0</span>);    <span class="comment">// slice(start, end（可选）); 返回部分数组，不修改原数组。</span></div><div class="line">    <span class="keyword">new</span><span class="type">Arr</span>.push(item);</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span><span class="type">Arr</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/* concat 方法*/</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">append</span></span>(arr, item) &#123;</div><div class="line">    <span class="keyword">return</span> arr.concat(item);     <span class="comment">// 数组合并，不改变原数组。</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="5-删除数组的第一个元素"><a href="#5-删除数组的第一个元素" class="headerlink" title="5. 删除数组的第一个元素"></a>5. 删除数组的第一个元素</h2><p><strong>题目</strong>：删除数组 <code>arr</code> 第一个元素。不要直接修改数组 <code>arr</code>，结果返回新的数组。<br><figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">curtail</span></span>(arr) &#123;</div><div class="line">	<span class="keyword">var</span> <span class="keyword">new</span><span class="type">Arr</span> = arr.slice(<span class="number">0</span>);</div><div class="line">    <span class="keyword">new</span><span class="type">Arr</span>.shift();         <span class="comment">// unshift：头部添加；shift：头部删除。</span></div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span><span class="type">Arr</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="6-根据idx和item添加元素"><a href="#6-根据idx和item添加元素" class="headerlink" title="6. 根据idx和item添加元素"></a>6. 根据idx和item添加元素</h2><p><strong>题目</strong>：在数组 <code>arr</code> 的 <code>index</code> 处添加元素 <code>item</code>。不要直接修改数组 <code>arr</code>，结果返回新的数组。<br><figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* </span></div><div class="line"> * splice(idx, num, item)；idx：要删除的起始位置；num（可选）：要删除的个数；</div><div class="line"> * item（可选）：要添加的项；返回被删除的元素；修改原数组。</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">insert</span></span>(arr, item, index) &#123;</div><div class="line">    <span class="keyword">var</span> <span class="keyword">new</span><span class="type">Arr</span> = arr.slice(<span class="number">0</span>);</div><div class="line">    <span class="keyword">new</span><span class="type">Arr</span>.splice(index, <span class="number">0</span>, item);    </div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span><span class="type">Arr</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;知识点：一个完整的&lt;code&gt;HTTP&lt;/code&gt;事务、&lt;code&gt;Web&lt;/code&gt;攻击技术、&lt;code&gt;Ajax&lt;/code&gt;、优雅降级和渐进增强。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="面试题" scheme="https://wenhuiyang-luck.github.io/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+      <category term="面试题" scheme="https://wenhuiyang-luck.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title>ES5中新增的Array方法——forEach()</title>
@@ -1019,120 +1090,6 @@ getElementById() //通过元素Id，唯一性
       <category term="HTML5" scheme="https://wenhuiyang-luck.github.io/tags/HTML5/"/>
     
       <category term="Canvas" scheme="https://wenhuiyang-luck.github.io/tags/Canvas/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript中的call()和apply()方法</title>
-    <link href="https://wenhuiyang-luck.github.io/2017/03/04/2017-03-04-JavaScript%E4%B8%AD%E7%9A%84call()%20%E5%92%8Capply()%E8%AF%A6%E8%A7%A3/"/>
-    <id>https://wenhuiyang-luck.github.io/2017/03/04/2017-03-04-JavaScript中的call() 和apply()详解/</id>
-    <published>2017-03-04T06:51:30.056Z</published>
-    <updated>2017-05-01T05:11:31.856Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p><code>JavaScript</code>中的<code>call()</code>和<code>apply()</code>都是用于调用当前函数<code>functionObject</code>，并可同时使用指定对象<code>thisObj</code>作为本次执行时<code>functionObject</code>函数内部的<code>this</code>指针引用。</p>
-<p>它们都输属于<code>Function</code>对象，所有主流浏览器均支持。</p>
-</blockquote>
-<a id="more"></a>
-<h2 id="1-call-和apply-的定义"><a href="#1-call-和apply-的定义" class="headerlink" title="1. call()和apply()的定义"></a>1. call()和apply()的定义</h2><h3 id="1-1-call-方法"><a href="#1-1-call-方法" class="headerlink" title="1.1 call()方法"></a>1.1 call()方法</h3><p><strong>定义</strong>：调用一个对象的一个方法，以另一个对象替换当前对象。</p>
-<p><strong>语法</strong>：<br><code>functionObject.call( [ thisObj [, arg1 [, arg2 [, args...]]]] )</code></p>
-<p><strong>参数</strong>：</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>thisObj</code></td>
-<td><code>可选/Object类型</code>，指定执行<code>functionObject</code>函数时，函数内部<code>this</code>指针引用的对象。</td>
-</tr>
-<tr>
-<td><code>arg1</code></td>
-<td><code>可选/任意类型</code>，调用<code>functionObject</code>函数时传入的第1个参数。</td>
-</tr>
-<tr>
-<td><code>arg2</code></td>
-<td><code>可选/任意类型</code>，调用<code>functionObject</code>函数时传入的第2个参数。</td>
-</tr>
-<tr>
-<td><code>args</code></td>
-<td><code>可选/任意类型</code>，调用<code>functionObject</code>函数时传入的更多参数，可以有多个。</td>
-</tr>
-</tbody>
-</table>
-<h3 id="1-2-apply-方法"><a href="#1-2-apply-方法" class="headerlink" title="1.2 apply()方法"></a>1.2 apply()方法</h3><p><strong>定义</strong>：应用一个对象的一个方法，用另一个对象替换当前对象。</p>
-<p><strong>语法</strong>：<br><code>functionObject.apply( [ thisObj [, argsArray ]] )</code></p>
-<p><strong>参数</strong>：</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>thisObj</code></td>
-<td><code>可选/Object类型</code>，指定执行<code>functionObject</code>函数时，函数内部<code>this</code>指针引用的对象。</td>
-</tr>
-<tr>
-<td><code>argsArray</code></td>
-<td><code>可选/Array或arguments</code>对象，调用<code>functionObject</code>时传入的参数数组或arguments对象。</td>
-</tr>
-</tbody>
-</table>
-<h3 id="1-3-call-和apply-的异同"><a href="#1-3-call-和apply-的异同" class="headerlink" title="1.3 call()和apply()的异同"></a>1.3 call()和apply()的异同</h3><p><strong>相同点：</strong></p>
-<p>都可以用来代替另一个对象调用一个方法，将一个函数的对象上下文从初始的上下文改变为由<code>thisObj</code>指定的新对象。</p>
-<p><strong>不同点</strong>：</p>
-<ul>
-<li><code>call()</code>:则是直接的参数列表，主要用在<code>js</code>对象各方法互相调用的时候，使当前<code>this</code>实例指针保持一致,或在特殊情况下需要改变<code>this</code>指针。如果没有提供 <code>thisObj</code> 参数，那么 <code>Global</code> 对象被用作 <code>thisObj</code>。</li>
-<li><code>apply()</code>：最多只能有两个参数———新<code>this</code>对象和一个数组<code>argsArray</code>。如果给该方法传递多个参数，则把参数都写进这个数组里面，当然，即使只有一个参数，也要写进数组里面。如果 argArray 不是一个有效的数组或者不是 <code>arguments</code> 对象，那么将导致一个 <code>TypeError</code>。如果没有提供<code>argsArray</code> 和<code>thisObj</code>任何一个参数，那么<code>Global</code>对象将被用作<code>thisObj</code>，并且无法被传递任何参数。 </li>
-</ul>
-<p><strong>总结：</strong></p>
-<ul>
-<li><code>call()</code>和<code>apply()</code>都可以用来代替另一个对象调用一个方法，将一个函数的对象上下文从初始的上下文改变为由<code>thisObj</code>指定的新对象。</li>
-<li><code>call()</code>函数是将<code>FunctionObject</code>的参数一个个分别传入，如<code>functionObject.call(thisObj,arg1,arg2,arg3)</code>；</li>
-<li><code>apply()</code>函数是将<code>FunctionObject</code>对象的参数以一个数组或<code>arguments</code>对象的形式整体传入,如<code>functionObject.apply(func1,[arg1,arg2,arg3])</code>。</li>
-</ul>
-<h2 id="2-call-和apply-实例"><a href="#2-call-和apply-实例" class="headerlink" title="2. call()和apply()实例"></a>2. call()和apply()实例</h2><h3 id="2-1-实例一"><a href="#2-1-实例一" class="headerlink" title="2.1 实例一"></a>2.1 实例一</h3><figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function add(a, b) &#123;</div><div class="line">    alert(a + b);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function <span class="function"><span class="keyword">sub</span>(<span class="title">a</span>, <span class="title">b</span>) </span>&#123;</div><div class="line">    alert(a - b);</div><div class="line">&#125;</div><div class="line"></div><div class="line">add.call(<span class="function"><span class="keyword">sub</span>, 3,1)</span>;</div><div class="line">//add.apply(<span class="function"><span class="keyword">sub</span>, [3,1])</span>;</div></pre></td></tr></table></figure>
-<p><strong>说明：</strong></p>
-<p>例子中用<code>add</code>来替换<code>sub</code>，<code>add.call(sub,3,1) == add(3,1)</code>，所以运行结果为：<code>4</code>; </p>
-<p>需要注意的是，这里直接用了函数名<code>sub</code>，而不是<code>sub()</code>,因为在<code>js</code>中的函数其实是对象，函数名是对<code>Function</code> 对象的引用。 </p>
-<h3 id="2-1-实例二"><a href="#2-1-实例二" class="headerlink" title="2.1 实例二"></a>2.1 实例二</h3><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span><span class="params">(name)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">    <span class="keyword">this</span>.showName = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</div><div class="line">        alert(<span class="keyword">this</span>.name);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span><span class="params">(name)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = <span class="string">"Cat"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> animal = <span class="keyword">new</span> Animal();</div><div class="line"><span class="keyword">var</span> cat = <span class="keyword">new</span> Cat();</div><div class="line"></div><div class="line">animal.showName.call(cat,<span class="string">","</span>)</div><div class="line"><span class="comment">//animal.showName.apply(cat,[]);</span></div></pre></td></tr></table></figure>
-<p><strong>说明</strong></p>
-<p>通过<code>call</code>或<code>apply</code>方法，将原本属于<code>Animal</code>对象的<code>showName()</code>方法交给对象<code>cat</code>来使用了。因此输入结果为<code>&quot;Cat&quot;</code>。</p>
-<h3 id="2-3-实例三（实现继承）"><a href="#2-3-实例三（实现继承）" class="headerlink" title="2.3 实例三（实现继承）"></a>2.3 实例三（实现继承）</h3><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span><span class="params">(name)</span> </span>&#123;    </div><div class="line">    <span class="keyword">this</span>.name = name;    </div><div class="line">    <span class="keyword">this</span>.showName = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;    </div><div class="line">        alert(<span class="keyword">this</span>.name);    </div><div class="line">    &#125;    </div><div class="line">&#125;    </div><div class="line">   </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span><span class="params">(name)</span> </span>&#123;  </div><div class="line">    Animal.call(<span class="keyword">this</span>, name); </div><div class="line">    <span class="comment">//Animal.apply(this, [name]);</span></div><div class="line">&#125;    </div><div class="line">   </div><div class="line"><span class="keyword">var</span> cat = <span class="keyword">new</span> Cat(<span class="string">"Black Cat"</span>);   </div><div class="line">cat.showName();</div></pre></td></tr></table></figure>
-<p><strong>说明：</strong></p>
-<p><code>Animal.call(this, name)</code> 的意思就是使用 <code>Animal</code>对象代替<code>this</code>对象，那么<code>Cat</code>对象就能够直接调用<code>Animal</code>的方法以及属性了。</p>
-<h3 id="2-4-实例四（多重继承）"><a href="#2-4-实例四（多重继承）" class="headerlink" title="2.4 实例四（多重继承）"></a>2.4 实例四（多重继承）</h3><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Class10</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.showSub = <span class="function"><span class="keyword">function</span><span class="params">(a,b)</span> </span>&#123;</div><div class="line">        alert(a-b);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Class11</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.showAdd = <span class="function"><span class="keyword">function</span><span class="params">(a,b)</span> </span>&#123;</div><div class="line">        alert(a+b);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Class2</span><span class="params">()</span> </span>&#123;</div><div class="line">    Class10.call(<span class="keyword">this</span>);</div><div class="line">    Class11.call(<span class="keyword">this</span>);</div><div class="line">    <span class="comment">//Class10.apply(this);</span></div><div class="line">    <span class="comment">//Class11.apply(this);</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> c2=<span class="keyword">new</span> Class2();</div><div class="line">c2.showSub(<span class="number">3</span>,<span class="number">1</span>);</div><div class="line">c2.showAdd(<span class="number">3</span>,<span class="number">1</span>); <span class="comment">//使用两个 call 就实现多重继承</span></div></pre></td></tr></table></figure>
-<h2 id="3-apply-的其他妙用"><a href="#3-apply-的其他妙用" class="headerlink" title="3. apply()的其他妙用"></a>3. apply()的其他妙用</h2><p>既然apply和call的用法差不多，那么为什么还同时存在呢？</p>
-<p>——这是因为apply所传的参数类型（数组）还有其他妙用。</p>
-<h3 id="3-1-Math-max可以实现得到数组中最大的一项"><a href="#3-1-Math-max可以实现得到数组中最大的一项" class="headerlink" title="3.1 Math.max可以实现得到数组中最大的一项"></a>3.1 Math.max可以实现得到数组中最大的一项</h3><p>因为<code>Math.max</code>参数不支持数组传递，但是它支持列表传递，即<code>Math.max(param1,param2,param3…)</code>,所以可以根据<code>apply</code>的特点来解决 <code>var max=Math.max.apply(null,array)</code>，这样轻易的可以得到一个数组中最大的一项。(<code>apply</code>会将一个数组转换为一个参数接一个参数的传递给方法)。 </p>
-<p><strong>注意</strong>：调用的时候第一个参数给了一个<code>null</code>，是因为没有对象去调用这个方法，只需要用这个方法帮助运算，得到返回的结果就行，所以直接传递了一个<code>null</code>过去。</p>
-<h3 id="3-2-Array-min-可以实现得到数组中最小的一项"><a href="#3-2-Array-min-可以实现得到数组中最小的一项" class="headerlink" title="3.2 Array.min 可以实现得到数组中最小的一项"></a>3.2 Array.min 可以实现得到数组中最小的一项</h3><p>同样和<code>max</code>是一个思想 <code>var min=Math.min.apply(null,array)</code>。 </p>
-<h3 id="3-3-Array-prototype-push-可以实现两个数组合并"><a href="#3-3-Array-prototype-push-可以实现两个数组合并" class="headerlink" title="3.3 Array.prototype.push 可以实现两个数组合并"></a>3.3 Array.prototype.push 可以实现两个数组合并</h3><p>同样<code>push</code>方法没有提供<code>push</code>一个数组，但是它提供了<code>push(param1,param,…paramN)</code> 所以同样也可以通过<code>apply</code>来转换一下这个数组，即: </p>
-<figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr1=<span class="keyword">new</span> <span class="type">Array</span>(<span class="string">"1"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>); </div><div class="line"><span class="keyword">var</span> arr2=<span class="keyword">new</span> <span class="type">Array</span>(<span class="string">"4"</span>,<span class="string">"5"</span>,<span class="string">"6"</span>); </div><div class="line"><span class="keyword">Array</span>.prototype.push.apply(arr1,arr2);</div></pre></td></tr></table></figure>
-<p>也可以这样理解，<code>arr1</code>调用了<code>push</code>方法，参数是通过<code>apply</code>将数组装换为参数列表的集合。 </p>
-<p><strong>总结：</strong></p>
-<p>当目标函数只需要<code>n</code>个参数列表,而不接收一个数组的形式<code>（[param1[,param2[,…[,paramN]]]]）</code>，可以通过<code>apply</code>的方式巧妙地解决这个问题。 </p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;&lt;code&gt;JavaScript&lt;/code&gt;中的&lt;code&gt;call()&lt;/code&gt;和&lt;code&gt;apply()&lt;/code&gt;都是用于调用当前函数&lt;code&gt;functionObject&lt;/code&gt;，并可同时使用指定对象&lt;code&gt;thisObj&lt;/code&gt;作为本次执行时&lt;code&gt;functionObject&lt;/code&gt;函数内部的&lt;code&gt;this&lt;/code&gt;指针引用。&lt;/p&gt;
-&lt;p&gt;它们都输属于&lt;code&gt;Function&lt;/code&gt;对象，所有主流浏览器均支持。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="JavaScript笔记" scheme="https://wenhuiyang-luck.github.io/categories/JavaScript%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="JavaScript" scheme="https://wenhuiyang-luck.github.io/tags/JavaScript/"/>
     
   </entry>
   
