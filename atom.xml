@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wenhuiyang-luck.github.io/"/>
-  <updated>2017-07-21T13:04:08.358Z</updated>
+  <updated>2017-07-23T13:49:02.224Z</updated>
   <id>https://wenhuiyang-luck.github.io/</id>
   
   <author>
@@ -14,6 +14,59 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>腾讯课堂IMWeb备战秋招-Day04</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/07/23/%E8%85%BE%E8%AE%AF%E8%AF%BE%E5%A0%82IMWeb%E5%89%8D%E7%AB%AF%E6%B1%82%E8%81%8C%E8%AE%AD%E7%BB%83%E8%90%A5-Day04/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/07/23/腾讯课堂IMWeb前端求职训练营-Day04/</id>
+    <published>2017-07-23T13:40:50.458Z</published>
+    <updated>2017-07-23T13:49:02.224Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>知识点：<code>null</code>和<code>undefined</code>、<code>new</code>操作符、内存泄漏、<code>Node</code>的优缺点。</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="一、经典面试题"><a href="#一、经典面试题" class="headerlink" title="一、经典面试题"></a>一、经典面试题</h1><h2 id="13-null和undefined的区别？"><a href="#13-null和undefined的区别？" class="headerlink" title="13. null和undefined的区别？"></a>13. null和undefined的区别？</h2><p><code>null</code>用来表示尚未存在的对象，常用来表示函数企图返回一个不存在的对象, 转为数值时为<code>0</code>；<code>undefined</code>是一个表示”无”的原始值，转为数值时为<code>NaN</code>。当声明的变量还未被初始化时，变量的默认值为<code>undefined</code>。</p>
+<p>1.<code>null</code>表示”没有对象”，即该处不应该有值。典型用法是：<br>① 作为函数的参数，表示该函数的参数不是对象。<br>② 作为对象原型链的终点。</p>
+<p>2.<code>undefined</code>表示”缺少值”，就是此处应该有一个值，但是还没有定义。典型用法是：<br>① 变量被声明了，但没有赋值时，就等于<code>undefined</code>。<br>② 调用函数时，应该提供的参数没有提供，该参数等于<code>undefined</code>。<br>③ 对象没有赋值的属性，该属性的值为<code>undefined</code>。<br>④ 函数没有返回值时，默认返回<code>undefined</code>。</p>
+<h2 id="14-new操作符具体干了什么呢"><a href="#14-new操作符具体干了什么呢" class="headerlink" title="14. new操作符具体干了什么呢?"></a>14. new操作符具体干了什么呢?</h2><p>① 创建一个空对象，并且<code>this</code> 变量引用该对象，同时还继承了该函数的原型。<br>② 属性和方法被加入到 <code>this</code> 引用的对象中。<br>③ 新创建的对象由 <code>this</code> 所引用，并且最后隐式的返回<code>this</code> 。</p>
+<h2 id="15-哪些操作会造成内存泄漏？"><a href="#15-哪些操作会造成内存泄漏？" class="headerlink" title="15. 哪些操作会造成内存泄漏？"></a>15. 哪些操作会造成内存泄漏？</h2><p>内存泄漏指任何对象在不再拥有或需要它之后仍然存在。垃圾回收器定期扫描对象，并计算引用了每个对象的其他对象的数量。如果一个对象的引用数量为<code>0</code>（没有其他对象引用过该对象），或对该对象的惟一引用是循环的，那么该对象的内存即可回收。</p>
+<ul>
+<li><code>setTimeout</code>的第一个参数使用字符串而非函数的话，会引发内存泄漏。</li>
+<li>闭包、控制台日志、循环（在两个对象彼此引用且彼此保留时，就会产生一个循环）。</li>
+</ul>
+<h2 id="16-对Node的优点和缺点提出了自己的看法？"><a href="#16-对Node的优点和缺点提出了自己的看法？" class="headerlink" title="16. 对Node的优点和缺点提出了自己的看法？"></a>16. 对Node的优点和缺点提出了自己的看法？</h2><p><strong>优点</strong>：因为<code>Node</code>是基于事件驱动和无阻塞的，所以非常适合处理并发请求， 因此构建在<code>Node</code>上的代理服务器相比其他技术实现（如<code>Ruby</code>）的服务器表现要好得多。 此外，与<code>Node</code>代理服务器交互的客户端代码是由<code>javascript</code>语言编写的， 因此客户端和服务器端都用同一种语言编写，这是非常美妙的事情。</p>
+<p><strong>缺点</strong>：<code>Node</code>是一个相对新的开源项目，所以不太稳定，它总是一直在变， 而且缺少足够多的第三方库支持。看起来，就像是<code>Ruby/Rails</code>当年的样子。</p>
+<h1 id="二、编程题"><a href="#二、编程题" class="headerlink" title="二、编程题"></a>二、编程题</h1><h2 id="1-颜色字符串转换"><a href="#1-颜色字符串转换" class="headerlink" title="1. 颜色字符串转换"></a>1. 颜色字符串转换</h2><p><strong>题目</strong>：将 rgb 颜色字符串转换为十六进制的形式，如 rgb(255, 255, 255) 转为 #ffffff；</p>
+<ol>
+<li>rgb 中每个 , 后面的空格数量不固定</li>
+<li>十六进制表达式使用六位小写字母</li>
+<li>如果输入不符合 rgb 格式，返回原始输入</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">rgb2hex</span>(<span class="params">sRGB</span>) </span>&#123;</div><div class="line">   <span class="keyword">return</span> sRGB.replace(<span class="regexp">/^rgb\((\d+)\s*,\s*(\d+)\s*,\s*(\d+)\)$/</span>,<span class="function"><span class="keyword">function</span>(<span class="params">$<span class="number">0</span>,$<span class="number">1</span>,$<span class="number">2</span>,$<span class="number">3</span></span>)</span>&#123;</div><div class="line">      <span class="keyword">return</span> <span class="string">'#'</span>+toHex($<span class="number">1</span>)+toHex($<span class="number">2</span>)+toHex($<span class="number">3</span>);    <span class="comment">// $0:正则匹配的整个字符串; $1, $2, $3:捕获项</span></div><div class="line">   &#125;);</div><div class="line">   <span class="function"><span class="keyword">function</span> <span class="title">toHex</span>(<span class="params">str</span>)</span>&#123;</div><div class="line">      <span class="keyword">return</span> (<span class="string">'0'</span>+(+str).toString(<span class="number">16</span>)).slice(<span class="number">-2</span>);</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="2-将字符串转为驼峰格式"><a href="#2-将字符串转为驼峰格式" class="headerlink" title="2. 将字符串转为驼峰格式"></a>2. 将字符串转为驼峰格式</h2><p><strong>题目</strong>：将类似 background-image 这种通过 - 连接的字符，转换成 backgroundImage 驼峰格式。</p>
+<ol>
+<li>以 - 为分隔符，将第二个起的非空单词首字母转为大写</li>
+<li>-webkit-border-image 转换后的结果为 webkitBorderImage</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">cssStyle2DomStyle</span>(<span class="params">sName</span>) </span>&#123;</div><div class="line">   <span class="keyword">var</span> result = sName.replace(<span class="regexp">/^-/</span>,<span class="string">''</span>).split(<span class="string">'-'</span>);</div><div class="line">   <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>, len = result.length; i &lt; len; i++) &#123;</div><div class="line">      result[i] = result[i].replace(<span class="regexp">/^\w/</span>, <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</div><div class="line">         <span class="keyword">return</span> s.toUpperCase();</div><div class="line">      &#125;)</div><div class="line">   &#125;</div><div class="line">   <span class="keyword">return</span> result.join(<span class="string">''</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">cssStyle2DomStyle</span>(<span class="params">sName</span>) </span>&#123;</div><div class="line">   <span class="keyword">var</span> arr = sName.split(<span class="string">''</span>);     </div><div class="line">   <span class="keyword">if</span>(arr.indexOf(<span class="string">'-'</span>) == <span class="number">0</span>)  <span class="comment">// 判断第一个是不是 '-'，是的话就删除 </span></div><div class="line">      arr.splice(<span class="number">0</span>,<span class="number">1</span>);</div><div class="line">   <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;arr.length; i++)&#123;   <span class="comment">// 处理剩余的'-'</span></div><div class="line">      <span class="keyword">if</span>(arr[i] == <span class="string">'-'</span>)&#123;</div><div class="line">         arr.splice(i,<span class="number">1</span>);</div><div class="line">         arr[i] = arr[i].toUpperCase();</div><div class="line">      &#125;</div><div class="line">   &#125;</div><div class="line">   <span class="keyword">return</span> arr.join(<span class="string">''</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="3-求二次方"><a href="#3-求二次方" class="headerlink" title="3. 求二次方"></a>3. 求二次方</h2><p><strong>题目</strong>：为数组 arr 中的每个元素求二次方。不要直接修改数组 arr，结果返回新的数组<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* map 方法 */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">square</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">   <span class="keyword">if</span>(<span class="built_in">Array</span>.prototype.map) &#123;</div><div class="line">      <span class="keyword">return</span> arr.map(<span class="function"><span class="keyword">function</span>(<span class="params">item, index, array</span>) </span>&#123;</div><div class="line">         <span class="keyword">return</span> item * item;</div><div class="line">      &#125;)</div><div class="line">   &#125;<span class="keyword">else</span> &#123;</div><div class="line">      <span class="keyword">var</span> newArr = [];</div><div class="line">      <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>, len = arr.length; i &lt; len; i++) &#123;</div><div class="line">         newArr.push(arr[i] * arr[i]);</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">return</span> newArr;</div><div class="line">   &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/* forEach 方法 */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">square</span>(<span class="params">arr</span>) </span>&#123;   </div><div class="line">   <span class="keyword">var</span> a = [];  <span class="comment">//声明一个新的数组存放结果</span></div><div class="line">   arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;      </div><div class="line">      a.push(e*e);  <span class="comment">//将arr中的每一个元素求平方后，加入到a数组中</span></div><div class="line">   &#125;);</div><div class="line">   <span class="keyword">return</span> a;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;知识点：&lt;code&gt;null&lt;/code&gt;和&lt;code&gt;undefined&lt;/code&gt;、&lt;code&gt;new&lt;/code&gt;操作符、内存泄漏、&lt;code&gt;Node&lt;/code&gt;的优缺点。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="面试题" scheme="https://wenhuiyang-luck.github.io/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+      <category term="面试题" scheme="https://wenhuiyang-luck.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title>腾讯课堂IMWeb备战秋招-Day03</title>
@@ -1020,81 +1073,6 @@ getElementById() //通过元素Id，唯一性
       <category term="CSS" scheme="https://wenhuiyang-luck.github.io/tags/CSS/"/>
     
       <category term="Flex" scheme="https://wenhuiyang-luck.github.io/tags/Flex/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>页面重绘（repaint）和页面回流（reflow）</title>
-    <link href="https://wenhuiyang-luck.github.io/2017/03/14/%E9%A1%B5%E9%9D%A2%E9%87%8D%E7%BB%98%E5%92%8C%E9%A1%B5%E9%9D%A2%E5%9B%9E%E6%B5%81/"/>
-    <id>https://wenhuiyang-luck.github.io/2017/03/14/页面重绘和页面回流/</id>
-    <published>2017-03-14T11:42:31.607Z</published>
-    <updated>2017-05-01T05:17:17.653Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>如果你的HTML变得很大很复杂，那么影响你javaScript性能的可能并不是javaScript代码的复杂度，而是页面的回流和重绘。</p>
-</blockquote>
-<a id="more"></a>
-<h2 id="1-页面的渲染过程"><a href="#1-页面的渲染过程" class="headerlink" title="1. 页面的渲染过程"></a>1. 页面的渲染过程</h2><h3 id="1-1-解析HTML文件，创建DOM树"><a href="#1-1-解析HTML文件，创建DOM树" class="headerlink" title="1.1 解析HTML文件，创建DOM树"></a>1.1 解析HTML文件，创建DOM树</h3><p>浏览器将获取到的html代码解析成1个DOM树，html中的每个tag都是DOM树中的节点，根节点是document对象（即<html>标签)。DOM树包含了所有的html标签，包括<code>display: none</code> 的元素，还有js动态添加的元素等。</html></p>
-<p><img src="http://www.w3school.com.cn/i/ct_htmltree.gif" alt="HTML DOM Node Tree"></p>
-<h3 id="1-2-解析CSS"><a href="#1-2-解析CSS" class="headerlink" title="1.2 解析CSS"></a>1.2 解析CSS</h3><p>浏览器把所有样式（主要包括css和浏览器的样式设置）解析成样式结构体，在解析中去掉不能识别的样式，比如IE会去掉-moz开头的样式，而firefox会去掉_开头的样式。</p>
-<h3 id="1-3-将CSS和DOM合并，构建渲染树（render-tree）"><a href="#1-3-将CSS和DOM合并，构建渲染树（render-tree）" class="headerlink" title="1.3 将CSS和DOM合并，构建渲染树（render tree）"></a>1.3 将CSS和DOM合并，构建渲染树（render tree）</h3><ul>
-<li>render tree和dom tree类似，但其实区别很大，render tree能识别样式，render tree中的每个节点都有自己的样式，而且render tree忽略诸如head、diaplay: none的元素，因为这些样式不会影响页面的呈现。</li>
-<li><strong>注意：</strong>visiability: hidden隐藏的元素还是会包含，因为它会影响布局，会占有空间。</li>
-</ul>
-<h3 id="1-4-布局和绘制"><a href="#1-4-布局和绘制" class="headerlink" title="1.4 布局和绘制"></a>1.4 布局和绘制</h3><p>一旦render tree构建完毕后，浏览器就可以根据render tree来绘制页面了。浏览器在绘制页面的过程中不断的进行着重绘和回流。</p>
-<h2 id="2-重绘和回流"><a href="#2-重绘和回流" class="headerlink" title="2. 重绘和回流"></a>2. 重绘和回流</h2><h3 id="2-1-重绘和回流"><a href="#2-1-重绘和回流" class="headerlink" title="2.1 重绘和回流"></a>2.1 重绘和回流</h3><p><strong>重绘(repaint)：</strong>当render tree中的一些元素需要更新属性，单这些属性只会影响元素的外观，风格，而不会影响到元素的布局，此类的页面渲染叫作页面重绘。</p>
-<p><strong>回流(reflow)：</strong>当render tree中的一部分（或全部）因为元素的规模尺寸，布局，隐藏等改变而引起的页面重新渲染。</p>
-<p>可以看出，回流必将引起重绘，而重绘不一定会引起回流。</p>
-<h3 id="2-2-引发回流的范例"><a href="#2-2-引发回流的范例" class="headerlink" title="2.2 引发回流的范例"></a>2.2 引发回流的范例</h3><p>当页面布局和几何属性改变时就需要回流。下述情况会发生浏览器回流：</p>
-<ul>
-<li>DOM树发生变化——如：增加一个元素或删除一个元素（元素为可见元素）；</li>
-<li>通过style控制元素的位置变化——典型的碰壁反弹；</li>
-<li>元素尺寸的改变——盒模型的每种尺寸均算在其内；</li>
-<li>内容改变引发的尺寸改变——如：文本文本改变或者图片大小改变而引起的计算值宽度和高度改变；</li>
-<li>浏览器窗口尺寸改变——resize事件发生时。</li>
-</ul>
-<h3 id="2-3-改善由于dom操作产生的回流"><a href="#2-3-改善由于dom操作产生的回流" class="headerlink" title="2.3 改善由于dom操作产生的回流"></a>2.3 改善由于dom操作产生的回流</h3><p>减少回流、重绘其实就是需要减少对render tree的操作，并减少对一些style信息的请求，尽量利用好浏览器的优化策略。具体方法有：</p>
-<p><strong>（1）不要一个一个改变元素的样式属性，直接改变className，如果动态改变样式，则使用cssText。</strong></p>
-<p><strong>如下面代码：</strong></p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//不好的写法</span></div><div class="line"><span class="keyword">var</span> <span class="keyword">left</span> = <span class="number">1</span>;</div><div class="line"><span class="keyword">var</span> top = <span class="number">1</span>;</div><div class="line">el.style.<span class="keyword">left</span> = <span class="keyword">left</span> + <span class="string">"px"</span>;</div><div class="line">el.style.<span class="keyword">right</span> = <span class="keyword">right</span> + <span class="string">"px"</span>;</div><div class="line"></div><div class="line"><span class="comment">//比较好的写法</span></div><div class="line">el.className += <span class="string">"className1"</span>;</div><div class="line"></div><div class="line"><span class="comment">//动态改变样式，比较好的写法</span></div><div class="line">el.style.cssText += <span class="string">";left:"</span> + <span class="keyword">left</span> + <span class="string">"px; top:"</span> + top + <span class="string">"px;"</span>;</div></pre></td></tr></table></figure>
-<p><strong>（2）让要操作的元素进行“离线处理”，处理完后一起更新。这里所谓的”离线处理”即让元素不存在于render tree中，比如：</strong></p>
-<ul>
-<li>使用DocumentFragment进行缓存操作,引发一次回流和重绘；<ul>
-<li>这个主要用于添加元素的时候，就是先把所有要添加到元素添加到1个div中(这个div也是新加的)，最后才把这个div append到body中。</li>
-</ul>
-</li>
-<li>使用display:none技术，只引发两次回流和重绘；<ul>
-<li>先display:none 隐藏元素，然后对该元素进行所有的操作，最后再显示该元素。因对display:none的元素进行操作不会引起回流、重绘。所以只要操作只会有2次回流。</li>
-</ul>
-</li>
-<li>使用cloneNode(true or false) 和 replaceChild 技术，引发一次回流和重绘。</li>
-</ul>
-<p><strong>（3）不要经常访问会引起浏览器flush队列的属性，如果你确实要访问，利用缓存。</strong></p>
-<figure class="highlight coq"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//不好的写法</div><div class="line"><span class="keyword">for</span>(循环) &#123;</div><div class="line">     el.style.<span class="built_in">left</span> = el.offsetLeft + <span class="number">5</span> + <span class="string">"px"</span>;</div><div class="line">     el.style.<span class="built_in">top</span> = el.offsetTop + <span class="number">5</span> + <span class="string">"px"</span>;</div><div class="line"> &#125;</div><div class="line"></div><div class="line">// 比较好的写法</div><div class="line">var <span class="built_in">left</span> = el.offsetLeft,</div><div class="line">	<span class="built_in">top</span> = el.offsetTop,</div><div class="line">	s = el.style;</div><div class="line"><span class="keyword">for</span>(循环) &#123;</div><div class="line">     <span class="built_in">left</span> += <span class="number">10</span>;</div><div class="line">     <span class="built_in">top</span> += <span class="number">10</span>;</div><div class="line">     s.<span class="built_in">left</span> = <span class="built_in">left</span> + <span class="string">"px"</span>;</div><div class="line">     s.<span class="built_in">top</span> = <span class="built_in">top</span> + <span class="string">"px"</span>;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<p><strong>（4）让元素脱离动画流，减少回流的Render Tree的规模。</strong></p>
-<p>​    假设block1是position: absolute的元素，block2是position: relative的元素。当使用jquery的animate()方法移动元素来展示一些动画效果时：</p>
-<p><code>$(&quot;#block1&quot;).animate({left:50});</code></p>
-<p>​    block1移动，会影响到它父元素下的所有子元素。因为在移动过程中，所有子元素需要判断block1的z-index是否在自己的上面，如果是在自己的上面，则需要重绘，这里不会引起回流。</p>
-<p><code>$(&quot;#block2&quot;).animate({marginLeft:50});</code></p>
-<p>​    block2是相对定位的元素，影响的元素与block1一样，但是因为block2非绝对定位，而且改变的是marginLeft属性，所以这里每次改变不但会重绘，还会引起父元素及其下元素的回流。</p>
-<p>​    所以，动画效果应用到position属性为absolute或fixed的元素上，它们不影响其他元素的布局，所它他们只会导致重新绘制，而不是一个完整回流。这样消耗会更低。</p>
-<p><strong>参考链接：</strong></p>
-<p><a href="http://www.zhangxinxu.com/wordpress/2010/01/%E5%9B%9E%E6%B5%81%E4%B8%8E%E9%87%8D%E7%BB%98%EF%BC%9Acss%E6%80%A7%E8%83%BD%E8%AE%A9javascript%E5%8F%98%E6%85%A2%EF%BC%9F/" target="_blank" rel="external">回流与重绘：CSS性能让JavaScript变慢？</a></p>
-<p><a href="http://www.blogjava.net/BearRui/archive/2010/05/10/web_performance_repaint_relow.html" target="_blank" rel="external">高性能WEB开发(8) - 页面呈现、重绘、回流</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;如果你的HTML变得很大很复杂，那么影响你javaScript性能的可能并不是javaScript代码的复杂度，而是页面的回流和重绘。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="页面渲染" scheme="https://wenhuiyang-luck.github.io/categories/%E9%A1%B5%E9%9D%A2%E6%B8%B2%E6%9F%93/"/>
-    
-    
-      <category term="DOM" scheme="https://wenhuiyang-luck.github.io/tags/DOM/"/>
     
   </entry>
   
