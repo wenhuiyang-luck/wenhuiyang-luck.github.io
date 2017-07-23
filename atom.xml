@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wenhuiyang-luck.github.io/"/>
-  <updated>2017-07-23T13:49:02.224Z</updated>
+  <updated>2017-07-23T14:50:29.724Z</updated>
   <id>https://wenhuiyang-luck.github.io/</id>
   
   <author>
@@ -14,6 +14,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《剑指offer》JavaScript版——(1)二维数组中的查找</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/07/23/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E2%80%94%20JavaScript%EF%BC%881%EF%BC%89%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/07/23/《剑指offer》— JavaScript（1）二维数组中的查找/</id>
+    <published>2017-07-23T14:50:52.261Z</published>
+    <updated>2017-07-23T14:50:29.724Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p><strong>题目：</strong>在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p>
+</blockquote>
+<a id="more"></a>
+<p>思路：</p>
+<p>有序矩阵，从左下角的元素开始，如果数组元素比target小，则上移；如果比target大，则右移。</p>
+<p>AC代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Find</span>(<span class="params">target, array</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> row = array.length;</div><div class="line">    <span class="keyword">var</span> col = array[<span class="number">0</span>].length;</div><div class="line">     </div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = row<span class="number">-1</span>,j = <span class="number">0</span>;(i &gt;= <span class="number">0</span>)&amp;&amp;(j &lt; col);)&#123;</div><div class="line">        <span class="keyword">if</span>(target &gt; array[i][j])&#123;</div><div class="line">            j++;</div><div class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(target &lt; array[i][j])&#123;</div><div class="line">            i--;</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;题目：&lt;/strong&gt;在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="算法题" scheme="https://wenhuiyang-luck.github.io/categories/%E7%AE%97%E6%B3%95%E9%A2%98/"/>
+    
+    
+      <category term="算法题" scheme="https://wenhuiyang-luck.github.io/tags/%E7%AE%97%E6%B3%95%E9%A2%98/"/>
+    
+      <category term="剑指offer" scheme="https://wenhuiyang-luck.github.io/tags/%E5%89%91%E6%8C%87offer/"/>
+    
+  </entry>
   
   <entry>
     <title>腾讯课堂IMWeb备战秋招-Day04</title>
@@ -935,144 +969,6 @@ getElementById() //通过元素Id，唯一性
       <category term="Hexo" scheme="https://wenhuiyang-luck.github.io/tags/Hexo/"/>
     
       <category term="Github" scheme="https://wenhuiyang-luck.github.io/tags/Github/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Flex布局</title>
-    <link href="https://wenhuiyang-luck.github.io/2017/03/29/Flex%E5%B8%83%E5%B1%80/"/>
-    <id>https://wenhuiyang-luck.github.io/2017/03/29/Flex布局/</id>
-    <published>2017-03-29T13:29:16.330Z</published>
-    <updated>2017-05-01T05:14:07.139Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p><code>Flex</code>布局——W3C于2009年提出的一种新的布局方案。相比于传统的布局方式，即基于盒模型，依赖<code>display + position + float</code> 属性，<code>Flex</code>布局可以简便、完整、响应式地完成各种页面布局，而且目前已经得到了所有浏览器的支持。</p>
-</blockquote>
-<a id="more"></a>
-<h2 id="1-Flex容器"><a href="#1-Flex容器" class="headerlink" title="1. Flex容器"></a>1. Flex容器</h2><p>采用Flex布局的元素，称为Flex容器（flex container），简称”容器”。它的所有子元素自动成为容器成员，称为Flex项目（flex item），简称”项目”。</p>
-<p><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071004.png" alt=""></p>
-<p>容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做<code>main start</code>，结束位置叫做<code>main end</code>；交叉轴的开始位置叫做<code>cross start</code>，结束位置叫做<code>cross end</code>。</p>
-<p>项目默认沿主轴排列。单个项目占据的主轴空间叫做<code>main size</code>，占据的交叉轴空间叫做<code>cross size</code>。</p>
-<h2 id="2-容器的属性"><a href="#2-容器的属性" class="headerlink" title="2. 容器的属性"></a>2. 容器的属性</h2><p>共有6个容器属性：</p>
-<ul>
-<li>flex-direction</li>
-<li>flex-wrap</li>
-<li>flex-flow</li>
-<li>justify-content</li>
-<li>align-items</li>
-<li>align-content</li>
-</ul>
-<h3 id="2-1-flex-direction属性"><a href="#2-1-flex-direction属性" class="headerlink" title="2.1 flex-direction属性"></a>2.1 flex-direction属性</h3><p><code>flex-direction</code>属性决定主轴的方向（即项目的排列方向）。</p>
-<p><code>flex-direction:row | row-reverse | column | column-reverse;</code></p>
-<p>它可能有4个值:</p>
-<ul>
-<li><code>row</code>（默认值）：主轴为水平方向，起点在左端。</li>
-<li><code>row-reverse</code>：主轴为水平方向，起点在右端。</li>
-<li><code>column</code>：主轴为垂直方向，起点在上沿。</li>
-<li><code>column-reverse</code>：主轴为垂直方向，起点在下沿。</li>
-</ul>
-<h3 id="2-2-flex-wrap属性"><a href="#2-2-flex-wrap属性" class="headerlink" title="2.2 flex-wrap属性"></a>2.2 flex-wrap属性</h3><p>默认情况下，项目都排在一条线（又称”轴线”）上。<code>flex-wrap</code>属性定义，如果一条轴线排不下，如何换行。</p>
-<p><code>flex-wrap: nowrap | wrap | wrap-reverse;</code></p>
-<p>它可能有3个值:</p>
-<ul>
-<li><code>nowrap</code>（默认）：不换行。</li>
-<li><code>wrap</code>：换行，第一行在上方。</li>
-<li><code>wrap-reverse</code>：换行，第一行在下方。</li>
-</ul>
-<h3 id="2-3-flex-flow属性"><a href="#2-3-flex-flow属性" class="headerlink" title="2.3 flex-flow属性"></a>2.3 flex-flow属性</h3><p><code>flex-flow</code>属性是<code>flex-direction</code>属性和<code>flex-wrap</code>属性的简写形式，默认值为<code>row nowrap</code>。</p>
-<p><code>flex-flow: &lt;flex-direction&gt; || &lt;flex-wrap&gt;;</code></p>
-<h3 id="2-4-justify-content属性"><a href="#2-4-justify-content属性" class="headerlink" title="2.4 justify-content属性"></a>2.4 justify-content属性</h3><p><code>justify-content</code>属性定义了项目在主轴上的对齐方式。</p>
-<p><code>justify-content: flex-start | flex-end | center | space-between | space-around;</code></p>
-<p>它可能取5个值，具体对齐方式与轴的方向有关。下面假设主轴为从左到右。</p>
-<ul>
-<li><code>flex-start</code>（默认值）：左对齐</li>
-<li><code>flex-end</code>：右对齐</li>
-<li><code>center</code>： 居中</li>
-<li><code>space-between</code>：两端对齐，项目之间的间隔都相等。</li>
-<li><code>space-around</code>：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。</li>
-</ul>
-<h3 id="2-5-align-items属性"><a href="#2-5-align-items属性" class="headerlink" title="2.5 align-items属性"></a>2.5 align-items属性</h3><p><code>align-items</code>属性定义项目在交叉轴上如何对齐。</p>
-<p><code>align-items: flex-start | flex-end | center | baseline | stretch;</code></p>
-<p>它可能取5个值。具体的对齐方式与交叉轴的方向有关，下面假设交叉轴从上到下。</p>
-<ul>
-<li><code>flex-start</code>：交叉轴的起点对齐。</li>
-<li><code>flex-end</code>：交叉轴的终点对齐。</li>
-<li><code>center</code>：交叉轴的中点对齐。</li>
-<li><code>baseline</code>: 项目的第一行文字的基线对齐。</li>
-<li><code>stretch</code>（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。</li>
-</ul>
-<h3 id="2-6-align-content属性"><a href="#2-6-align-content属性" class="headerlink" title="2.6 align-content属性"></a>2.6 align-content属性</h3><p><code>align-content</code>属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</p>
-<p><code>align-content: flex-start | flex-end | center | space-between | space-around | stretch;</code></p>
-<p>该属性可能取6个值。</p>
-<ul>
-<li><code>flex-start</code>：与交叉轴的起点对齐。</li>
-<li><code>flex-end</code>：与交叉轴的终点对齐。</li>
-<li><code>center</code>：与交叉轴的中点对齐。</li>
-<li><code>space-between</code>：与交叉轴两端对齐，轴线之间的间隔平均分布。</li>
-<li><code>space-around</code>：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。</li>
-<li><code>stretch</code>（默认值）：轴线占满整个交叉轴。</li>
-</ul>
-<p>以上。</p>
-<h2 id="3-项目的属性"><a href="#3-项目的属性" class="headerlink" title="3. 项目的属性"></a>3. 项目的属性</h2><p>以下6个属性设置在项目上。</p>
-<ul>
-<li><code>order</code></li>
-<li><code>flex-grow</code></li>
-<li><code>flex-shrink</code></li>
-<li><code>flex-basis</code></li>
-<li><code>flex</code></li>
-<li><code>align-self</code></li>
-</ul>
-<h3 id="3-1-order属性"><a href="#3-1-order属性" class="headerlink" title="3.1 order属性"></a>3.1 order属性</h3><p><code>order</code>属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。</p>
-<p><code>order: &lt;integer&gt;;</code></p>
-<h3 id="3-2-flex-grow属性"><a href="#3-2-flex-grow属性" class="headerlink" title="3.2 flex-grow属性"></a>3.2 flex-grow属性</h3><p><code>flex-grow</code>属性定义项目的放大比例，默认为<code>0</code>，即如果存在剩余空间，也不放大。</p>
-<p><code>flex-grow: &lt;number&gt;; /* default 0 */</code></p>
-<p>如果所有项目的<code>flex-grow</code>属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的<code>flex-grow</code>属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。</p>
-<h3 id="3-3-flex-shrink属性"><a href="#3-3-flex-shrink属性" class="headerlink" title="3.3 flex-shrink属性"></a>3.3 flex-shrink属性</h3><p><code>flex-shrink</code>属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。</p>
-<p><code>flex-shrink: &lt;number&gt;; /* default 1 */</code></p>
-<p>如果所有项目的<code>flex-shrink</code>属性都为1，当空间不足时，都将等比例缩小。如果一个项目的<code>flex-shrink</code>属性为0，其他项目都为1，则空间不足时，前者不缩小。</p>
-<p>负值对该属性无效。</p>
-<h3 id="3-4-flex-basis属性"><a href="#3-4-flex-basis属性" class="headerlink" title="3.4 flex-basis属性"></a>3.4 flex-basis属性</h3><p><code>flex-basis</code>属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为<code>auto</code>，即项目的本来大小。</p>
-<p><code>flex-basis: &lt;length&gt; | auto; /* default auto */</code></p>
-<p>它可以设为跟<code>width</code>或<code>height</code>属性一样的值（比如350px），则项目将占据固定空间。</p>
-<h3 id="3-5-flex属性"><a href="#3-5-flex属性" class="headerlink" title="3.5 flex属性"></a>3.5 flex属性</h3><p><code>flex</code>属性是<code>flex-grow</code>, <code>flex-shrink</code> 和 <code>flex-basis</code>的简写，默认值为<code>0 1 auto</code>。后两个属性可选。</p>
-<p><code>flex: none | [ &lt;&#39;flex-grow&#39;&gt; &lt;&#39;flex-shrink&#39;&gt;? || &lt;&#39;flex-basis&#39;&gt; ]</code></p>
-<p>该属性有两个快捷值：<code>auto</code> (<code>1 1 auto</code>) 和 none (<code>0 0 auto</code>)。</p>
-<p>建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。</p>
-<h3 id="3-6-align-self属性"><a href="#3-6-align-self属性" class="headerlink" title="3.6 align-self属性"></a>3.6 align-self属性</h3><p><code>align-self</code>属性允许单个项目有与其他项目不一样的对齐方式，可覆盖<code>align-items</code>属性。默认值为<code>auto</code>，表示继承父元素的<code>align-items</code>属性，如果没有父元素，则等同于<code>stretch</code>。</p>
-<p><code>align-self: auto | flex-start | flex-end | center | baseline | stretch;</code></p>
-<p>该属性可能取6个值，除了<code>auto</code>，其他都与<code>align-items</code>属性完全一致。</p>
-<h2 id="4-Flex实现水平、垂直居中"><a href="#4-Flex实现水平、垂直居中" class="headerlink" title="4. Flex实现水平、垂直居中"></a>4. Flex实现水平、垂直居中</h2><h3 id="4-1-单个元素水平居中"><a href="#4-1-单个元素水平居中" class="headerlink" title="4.1 单个元素水平居中"></a>4.1 单个元素水平居中</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* CSS 代码 */</span></div><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">  <span class="attribute">display</span>: flex;</div><div class="line">  <span class="attribute">justify-content</span>: center;</div><div class="line">  <span class="attribute">background</span>: <span class="number">#0099cc</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">h1</span> &#123;</div><div class="line">  <span class="attribute">color</span>:<span class="number">#fff</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//HTML 代码</span></div><div class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"box"</span>&gt;</div><div class="line">    &lt;h1&gt;单个元素水平居中&lt;/h1&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<p><a href="http://js.jirengu.com/toyaquzaqe/1/edit" target="_blank" rel="external">效果预览</a></p>
-<p>​    我们只需要给h1标签的父元素添加两个属性就可以了，<code>justify-content</code>其作用就是 让<code>class</code>类为<code>box</code>的div盒子居中。盒子居中了，盒子里面的元素就自然居中了，他的好处就是不需要对需居中的元素（h1）设置任何样式，如果：<code>width，margin</code>。</p>
-<h3 id="4-2-多个h1元素水平居中"><a href="#4-2-多个h1元素水平居中" class="headerlink" title="4.2 多个h1元素水平居中"></a>4.2 多个h1元素水平居中</h3><figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// HTML 代码</span></div><div class="line"><span class="params">&lt;div class="box"&gt;</span></div><div class="line">    <span class="params">&lt;h1&gt;</span>多个h1元素水平居中<span class="params">&lt;/h1&gt;</span></div><div class="line">    <span class="params">&lt;h1&gt;</span>多个h1元素水平居中<span class="params">&lt;/h1&gt;</span></div><div class="line">    <span class="params">&lt;h1&gt;</span>多个h1元素水平居中<span class="params">&lt;/h1&gt;</span></div><div class="line"><span class="params">&lt;/div&gt;</span></div><div class="line"></div><div class="line"><span class="comment">/* CSS代码 */</span></div><div class="line">.box&#123;</div><div class="line"><span class="symbol">    display:</span> flex;</div><div class="line">    justify-content: center;</div><div class="line"><span class="symbol">    width:</span> <span class="number">100</span>%;</div><div class="line"><span class="symbol">    background:</span> <span class="meta">#0099cc</span></div><div class="line">&#125;</div><div class="line">h1&#123;</div><div class="line">    font-size: <span class="number">1</span>rem;</div><div class="line"><span class="symbol">    padding:</span> <span class="number">1</span>rem;</div><div class="line"><span class="symbol">    border:</span> <span class="number">1</span>px dashed <span class="meta">#FFF;</span></div><div class="line"><span class="symbol">    color:</span> <span class="meta">#fff;</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><a href="http://js.jirengu.com/makuyuvobe/2/edit" target="_blank" rel="external">效果预览</a></p>
-<p>​    在Flex有两个东西，一个是<code>Flex</code>容器（子项目父元素），另一个是子项目（Flex容器子元素）。如果不给<code>.box</code>添加样式， 一个<code>h1</code>标签占一行，也就是页面会显示三行文字 “多个h1元素水平居中”。如果我们给<code>.box</code>添加了<code>display: flex;</code>那么三个<code>h1</code>标签就妥妥地在一行里排列了，相当于浮动，只不过他不会因为超出了<code>.box</code>的宽度而换行，他总是会在一行内显示。</p>
-<h3 id="4-3-单个h1标签垂直居中"><a href="#4-3-单个h1标签垂直居中" class="headerlink" title="4.3 单个h1标签垂直居中"></a>4.3 单个h1标签垂直居中</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// HTML 代码</span></div><div class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"box"</span>&gt;</div><div class="line">    &lt;h1&gt;单个h1标签垂直居中&lt;/h1&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line"><span class="comment">/* CSS代码 */</span></div><div class="line">.box&#123;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">width</span>: <span class="number">980px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">30rem</span>;</div><div class="line">    <span class="attribute">align-items</span>:center;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#0099cc</span></div><div class="line">&#125;</div><div class="line">h1&#123;</div><div class="line">    <span class="attribute">font-size</span>: <span class="number">1rem</span>;</div><div class="line">    <span class="attribute">padding</span>: <span class="number">1rem</span>;</div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> dashed <span class="number">#FFF</span>;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#FFF</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><a href="http://js.jirengu.com/biyovanere/3/edit" target="_blank" rel="external">效果预览</a></p>
-<h3 id="4-4-多个h1标签垂直居中"><a href="#4-4-多个h1标签垂直居中" class="headerlink" title="4.4 多个h1标签垂直居中"></a>4.4 多个h1标签垂直居中</h3><figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// HTML 代码</span></div><div class="line"><span class="params">&lt;div class="box"&gt;</span></div><div class="line">    <span class="params">&lt;h1&gt;</span>单个h1标签垂直居中<span class="params">&lt;/h1&gt;</span></div><div class="line">    <span class="params">&lt;h1&gt;</span>单个h1标签垂直居中<span class="params">&lt;/h1&gt;</span></div><div class="line">    <span class="params">&lt;h1&gt;</span>单个h1标签垂直居中<span class="params">&lt;/h1&gt;</span></div><div class="line"><span class="params">&lt;/div&gt;</span></div><div class="line"></div><div class="line"><span class="comment">/* CSS代码 */</span></div><div class="line">.box&#123;</div><div class="line"><span class="symbol">    display:</span> flex;</div><div class="line"><span class="symbol">    width:</span> <span class="number">980</span>px;</div><div class="line"><span class="symbol">    height:</span> <span class="number">30</span>rem;</div><div class="line">    align-items:center;</div><div class="line"><span class="symbol">    background:</span> <span class="meta">#0099cc</span></div><div class="line">&#125;</div><div class="line">h1&#123;</div><div class="line">    font-size: <span class="number">1</span>rem;</div><div class="line"><span class="symbol">    padding:</span> <span class="number">1</span>rem;</div><div class="line"><span class="symbol">    border:</span> <span class="number">1</span>px dashed <span class="meta">#FFF;</span></div><div class="line"><span class="symbol">    color:</span> <span class="meta">#FFF</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><a href="http://js.jirengu.com/biyovanere/4/edit" target="_blank" rel="external">效果预览</a></p>
-<h3 id="4-5-多个h1标签水平垂直居中"><a href="#4-5-多个h1标签水平垂直居中" class="headerlink" title="4.5 多个h1标签水平垂直居中"></a>4.5 多个h1标签水平垂直居中</h3><figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// HTML 代码</span></div><div class="line"><span class="params">&lt;div class="box"&gt;</span></div><div class="line">    <span class="params">&lt;h1&gt;</span>多个h1标签水平垂直居中<span class="params">&lt;/h1&gt;</span></div><div class="line">    <span class="params">&lt;h1&gt;</span>多个h1标签水平垂直居中<span class="params">&lt;/h1&gt;</span></div><div class="line">    <span class="params">&lt;h1&gt;</span>多个h1标签水平垂直居中<span class="params">&lt;/h1&gt;</span></div><div class="line">    <span class="params">&lt;h1&gt;</span>多个h1标签水平垂直居中<span class="params">&lt;/h1&gt;</span></div><div class="line"><span class="params">&lt;/div&gt;</span></div><div class="line"></div><div class="line"><span class="comment">/* CSS代码 */</span></div><div class="line">body&#123;display: flex;justify-content:center&#125;</div><div class="line">.box&#123;</div><div class="line"><span class="symbol">    display:</span> flex;</div><div class="line"><span class="symbol">    width:</span> <span class="number">980</span>px;</div><div class="line"><span class="symbol">    height:</span> <span class="number">30</span>rem;</div><div class="line"><span class="symbol">    background:</span> <span class="meta">#0099cc;</span></div><div class="line">    justify-content:center;</div><div class="line">    flex-direction:column;</div><div class="line">    align-items:center;</div><div class="line">&#125;</div><div class="line">h1&#123;</div><div class="line"><span class="symbol">    display:</span> flex;</div><div class="line">    justify-content:center;</div><div class="line">    font-size: <span class="number">1</span>rem;</div><div class="line"><span class="symbol">    padding:</span> <span class="number">1</span>rem;</div><div class="line"><span class="symbol">    border:</span> <span class="number">1</span>px dashed <span class="meta">#FFF;</span></div><div class="line"><span class="symbol">    color:</span> <span class="meta">#FFF;</span></div><div class="line"><span class="symbol">    width:</span> <span class="number">28</span>rem；</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><a href="http://js.jirengu.com/nizateqoru/5/edit" target="_blank" rel="external">效果预览</a></p>
-<p>​    为了让h1里的文字居中，我们给h1添加了<code>display:flex;</code> 以及<code>justify-content:center</code>，同样的为了让h1在<code>.box</code>里垂直居中，我们给<code>.box</code>也加上 <code>display:flex;</code>以及<code>justify-content:center</code>属性。而<code>.box</code>里的<code>align-items:center</code>就 是让h1水平居中的。这个属性的作用是：定义项目在交叉轴上的对齐方式。由于我们使用了 <code>flex-direction:column;</code>所以垂直方向作为主轴，交叉轴自然就是水平方向了。为了让<code>.box</code>也水平居中，我们同时也定义了<code>body{display:flex;justify- content:center}</code>。</p>
-<p><strong>学习链接：</strong></p>
-<p><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool" target="_blank" rel="external">Flex布局教程：语法篇</a></p>
-<p><a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank" rel="external">Flex布局教程：实例篇</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;&lt;code&gt;Flex&lt;/code&gt;布局——W3C于2009年提出的一种新的布局方案。相比于传统的布局方式，即基于盒模型，依赖&lt;code&gt;display + position + float&lt;/code&gt; 属性，&lt;code&gt;Flex&lt;/code&gt;布局可以简便、完整、响应式地完成各种页面布局，而且目前已经得到了所有浏览器的支持。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="CSS/CSS3笔记" scheme="https://wenhuiyang-luck.github.io/categories/CSS-CSS3%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="CSS" scheme="https://wenhuiyang-luck.github.io/tags/CSS/"/>
-    
-      <category term="Flex" scheme="https://wenhuiyang-luck.github.io/tags/Flex/"/>
     
   </entry>
   
