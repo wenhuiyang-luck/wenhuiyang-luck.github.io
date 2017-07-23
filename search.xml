@@ -5,7 +5,7 @@
     <entry>
       <title><![CDATA[《剑指offer》JavaScript版——(2)替换空格]]></title>
       <url>%2F2017%2F07%2F23%2F%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E2%80%94%20JavaScript%EF%BC%882%EF%BC%89%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC%2F</url>
-      <content type="text"><![CDATA[题目：请实现一个函数，将一个字符串中的空格替换成%20。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。 思路： 使用正则表达式，调用replace函数。 \s匹配任何不可见字符，包括空格、制表符、换页符等等。等价于[\f\n\r\t\v]。 AC代码： 12345function replaceSpace(str)&#123; //return str.replace(/\s+?/g, "%20"); // \s+? 非贪婪匹配 return str.replace(/\s/g, "%20");&#125; 演示：]]></content>
+      <content type="text"><![CDATA[题目：请实现一个函数，将一个字符串中的空格替换成%20。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。 思路：使用正则表达式，调用replace函数。\s匹配任何不可见字符，包括空格、制表符、换页符等等。等价于[\f\n\r\t\v]。 AC代码： 12345function replaceSpace(str)&#123; //return str.replace(/\s+?/g, "%20"); // \s+? 非贪婪匹配 return str.replace(/\s/g, "%20");&#125; 演示：]]></content>
     </entry>
 
     
