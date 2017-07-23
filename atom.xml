@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wenhuiyang-luck.github.io/"/>
-  <updated>2017-07-23T14:50:29.724Z</updated>
+  <updated>2017-07-23T15:08:13.534Z</updated>
   <id>https://wenhuiyang-luck.github.io/</id>
   
   <author>
@@ -14,6 +14,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《剑指offer》JavaScript版——(2)替换空格</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/07/23/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E2%80%94%20JavaScript%EF%BC%882%EF%BC%89%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/07/23/《剑指offer》— JavaScript（2）替换空格/</id>
+    <published>2017-07-23T14:55:57.574Z</published>
+    <updated>2017-07-23T15:08:13.534Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p><strong>题目：</strong>请实现一个函数，将一个字符串中的空格替换成<code>%20</code>。例如，当字符串为<code>We Are Happy</code>.则经过替换之后的字符串为<code>We%20Are%20Happy</code>。</p>
+</blockquote>
+<a id="more"></a>
+<p>思路：</p>
+<p>使用正则表达式，调用<code>replace</code>函数。</p>
+<p><code>\s</code>匹配任何不可见字符，包括空格、制表符、换页符等等。等价于<code>[\f\n\r\t\v]</code>。</p>
+<p>AC代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">replaceSpace</span>(<span class="params">str</span>)</span></div><div class="line">&#123;</div><div class="line">    <span class="comment">//return str.replace(/\s+?/g, "%20");  // \s+? 非贪婪匹配 </span></div><div class="line">    <span class="keyword">return</span> str.replace(<span class="regexp">/\s/g</span>, <span class="string">"%20"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>演示：</p>
+<p><img src="../../../../images/offer2.png" alt=""></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;题目：&lt;/strong&gt;请实现一个函数，将一个字符串中的空格替换成&lt;code&gt;%20&lt;/code&gt;。例如，当字符串为&lt;code&gt;We Are Happy&lt;/code&gt;.则经过替换之后的字符串为&lt;code&gt;We%20Are%20Happy&lt;/code&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="算法题" scheme="https://wenhuiyang-luck.github.io/categories/%E7%AE%97%E6%B3%95%E9%A2%98/"/>
+    
+    
+      <category term="算法题" scheme="https://wenhuiyang-luck.github.io/tags/%E7%AE%97%E6%B3%95%E9%A2%98/"/>
+    
+      <category term="剑指offer" scheme="https://wenhuiyang-luck.github.io/tags/%E5%89%91%E6%8C%87offer/"/>
+    
+  </entry>
   
   <entry>
     <title>《剑指offer》JavaScript版——(1)二维数组中的查找</title>
@@ -929,46 +966,6 @@ getElementById() //通过元素Id，唯一性
     
     
       <category term="Http" scheme="https://wenhuiyang-luck.github.io/tags/Http/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo个人博客后期部署</title>
-    <link href="https://wenhuiyang-luck.github.io/2017/03/30/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%90%8E%E6%9C%9F%E9%83%A8%E7%BD%B2/"/>
-    <id>https://wenhuiyang-luck.github.io/2017/03/30/Hexo个人博客后期部署/</id>
-    <published>2017-03-30T08:05:38.740Z</published>
-    <updated>2017-05-01T05:18:10.414Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>Hexo+Github个人博客后期部署的另一种方法。</p>
-</blockquote>
-<a id="more"></a>
-<p>之前部署博客都是采用下面的方式：</p>
-<figure class="highlight verilog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ hexo <span class="keyword">new</span>(n) xxx    <span class="comment">//写文章</span></div><div class="line">$ hexo clean         <span class="comment">//清除缓存</span></div><div class="line">$ hexo <span class="keyword">generate</span>(g)   <span class="comment">//把文章生成页面</span></div><div class="line">$ hexo server(s)     <span class="comment">//启动本地服务调试</span></div><div class="line">$ hexo deploy(d)     <span class="comment">//部署到github 可与hexo g合并为 hexo d -g</span></div></pre></td></tr></table></figure>
-<p>这种方式的commit记录：</p>
-<p><img src="../../../../images/11-1.png" alt=""></p>
-<p>另一种方式：</p>
-<p>当我新增文章或者修改内容以后，先<code>hexo generate</code>生成静态页面，然后我每一次只需要将<code>public</code>文件夹<code>git push</code>到我的<code>github</code>上对应的博客仓库里即可。不需要再清除缓存。</p>
-<p>可以通过<code>git status</code>查看文件状态，通过<code>git commit -m &quot;message&quot;</code>提交记录。</p>
-<p>这种方式的commit记录：</p>
-<p><img src="../../../../images/11-2.png" alt=""></p>
-<p>是不是看起来清晰很多呢？嘻嘻 ^_^</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;Hexo+Github个人博客后期部署的另一种方法。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="博客搭建" scheme="https://wenhuiyang-luck.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-    
-    
-      <category term="Hexo" scheme="https://wenhuiyang-luck.github.io/tags/Hexo/"/>
-    
-      <category term="Github" scheme="https://wenhuiyang-luck.github.io/tags/Github/"/>
     
   </entry>
   
