@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wenhuiyang-luck.github.io/"/>
-  <updated>2017-07-24T13:22:09.127Z</updated>
+  <updated>2017-07-24T13:28:49.222Z</updated>
   <id>https://wenhuiyang-luck.github.io/</id>
   
   <author>
@@ -14,6 +14,41 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《剑指offer》JavaScript版——(5)用两个栈实现队列</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/07/24/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E2%80%94%20JavaScript%EF%BC%885%EF%BC%89%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/07/24/《剑指offer》— JavaScript（5）用两个栈实现队列/</id>
+    <published>2017-07-24T13:33:53.965Z</published>
+    <updated>2017-07-24T13:28:49.222Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p> <strong>题目：</strong>用两个栈来实现一个队列，完成队列的<code>Push</code>和<code>Pop</code>操作。 队列中的元素为<code>int</code>类型。</p>
+</blockquote>
+<a id="more"></a>
+<p><strong>基础知识点：</strong></p>
+<p><code>栈（stack）</code>又名堆栈，它是一种运算受限的线性表。其限制是仅允许在表的一端进行插入和删除运算。这一端被称为栈顶，相对地，把另一端称为栈底。向一个栈插入新元素又称作进栈、入栈或压栈，它是把新元素放到栈顶元素的上面，使之成为新的栈顶元素；从一个栈删除元素又称作出栈或退栈，它是把栈顶元素删除掉，使其相邻的元素成为新的栈顶元素。</p>
+<p><code>队列</code>是一种特殊的线性表，特殊之处在于它只允许在表的前端（front）进行删除操作，而在表的后端（rear）进行插入操作。进行插入操作的端称为队尾，进行删除操作的端称为队头。</p>
+<p><strong>思路：</strong><br>入队：将元素进栈1;<br>出队：判断栈2是否为空，如果为空，则将栈1中所有元素<code>pop</code>，并<code>push</code>进栈<code>2</code>，栈<code>2</code>出栈； 如果不为空，栈<code>2</code>直接出栈。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> stack1 = [];</div><div class="line"><span class="keyword">var</span> stack2 = [];</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">push</span>(<span class="params">node</span>)</span>&#123;</div><div class="line">   stack1.push(node);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">pop</span>(<span class="params"></span>)</span>&#123;</div><div class="line">   <span class="keyword">if</span>(stack2.length == <span class="number">0</span>)&#123;</div><div class="line">      <span class="keyword">while</span>(stack1.length &gt; <span class="number">0</span>)&#123;</div><div class="line">         stack2.push(stack1.pop());</div><div class="line">      &#125;</div><div class="line">   &#125;</div><div class="line">   <span class="keyword">return</span> stack2.pop();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt; &lt;strong&gt;题目：&lt;/strong&gt;用两个栈来实现一个队列，完成队列的&lt;code&gt;Push&lt;/code&gt;和&lt;code&gt;Pop&lt;/code&gt;操作。 队列中的元素为&lt;code&gt;int&lt;/code&gt;类型。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="算法题" scheme="https://wenhuiyang-luck.github.io/categories/%E7%AE%97%E6%B3%95%E9%A2%98/"/>
+    
+    
+      <category term="算法题" scheme="https://wenhuiyang-luck.github.io/tags/%E7%AE%97%E6%B3%95%E9%A2%98/"/>
+    
+      <category term="剑指offer" scheme="https://wenhuiyang-luck.github.io/tags/%E5%89%91%E6%8C%87offer/"/>
+    
+  </entry>
   
   <entry>
     <title>《剑指offer》JavaScript版——(4)重建二叉树</title>
@@ -871,73 +906,6 @@ getElementById() //通过元素Id，唯一性
     
     
       <category term="CSS" scheme="https://wenhuiyang-luck.github.io/tags/CSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>事件绑定</title>
-    <link href="https://wenhuiyang-luck.github.io/2017/04/11/%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A/"/>
-    <id>https://wenhuiyang-luck.github.io/2017/04/11/事件绑定/</id>
-    <published>2017-04-11T12:56:31.683Z</published>
-    <updated>2017-05-01T05:15:04.926Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<ol>
-<li>如何在选定的元素上绑定一个或多个事件处理函数;</li>
-<li>绑定鼠标滚轮事件;</li>
-<li>如何判断鼠标滚轮方向;</li>
-<li>绑定键盘方向键.</li>
-</ol>
-</blockquote>
-<a id="more"></a>
-<h4 id="1-如何在选定的元素上绑定一个或多个事件处理函数？"><a href="#1-如何在选定的元素上绑定一个或多个事件处理函数？" class="headerlink" title="1. 如何在选定的元素上绑定一个或多个事件处理函数？"></a>1. 如何在选定的元素上绑定一个或多个事件处理函数？</h4><p>语法：<code>on(events[,selector][,data],handler(eventObject))</code></p>
-<p>描述：</p>
-<ul>
-<li><code>events</code>: 一个或多空格分隔的事件类型，例如 click keydown。</li>
-<li><code>selector</code>: 一个选择器字符串，用于过滤出被选中的元素中能触发事件的后代元素，如果为 null，那么被选中的元素总是能触发事件。</li>
-<li><code>data</code>: 事件触发时，要传递给处理函数的 event.data。</li>
-<li><code>handler(eventObject)</code>: 事件触发时，执行的函数。</li>
-</ul>
-<h4 id="2-绑定鼠标滚轮事件"><a href="#2-绑定鼠标滚轮事件" class="headerlink" title="2. 绑定鼠标滚轮事件"></a>2. 绑定鼠标滚轮事件</h4><ol>
-<li>包括IE6浏览器在内都使用 mouseWheel, 而只有火狐浏览器使用 DOMMouseScroll;</li>
-<li><code>$(document).on(&quot;mouseWheel DOMMouseScroll&quot;,handler)</code>.</li>
-</ol>
-<h4 id="3-如何判断鼠标滚轮方向"><a href="#3-如何判断鼠标滚轮方向" class="headerlink" title="3. 如何判断鼠标滚轮方向"></a>3. 如何判断鼠标滚轮方向</h4><ol>
-<li>其他浏览器通过 wheeldalta 属性来判断，但是火狐浏览器没有这个属性，可以通过 detail 属性判断；</li>
-<li>开发中发现每次向下滚动时，wheeldalta 都是-120，但是detail确是3，火狐浏览器方向判断的数值正负与其他浏览器是相反的。</li>
-</ol>
-<h4 id="4-绑定键盘方向键"><a href="#4-绑定键盘方向键" class="headerlink" title="4. 绑定键盘方向键"></a>4. 绑定键盘方向键</h4><ul>
-<li>IE：只有<code>keyCode</code>属性;</li>
-<li>Firefox：有<code>which</code>和<code>charCode</code>属性;</li>
-<li>Opera：有<code>keyCode</code>和<code>which</code>属性;</li>
-</ul>
-<p>但是 jQuery 已经解决了这个兼容问题，通过<code>.witch</code>属性和<code>.keyCode</code>属性来确定按下了哪个键：</p>
-<ul>
-<li>arrow up：37</li>
-<li>arrow left：38</li>
-<li>arrow right：39</li>
-<li>arrow down：40</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$(<span class="built_in">window</span>).on(<span class="string">"keydown"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> keyCode = e.keyCode;</div><div class="line">    <span class="keyword">if</span>(keyCode == <span class="number">37</span> || keyCode == <span class="number">38</span>)&#123;</div><div class="line">    	...</div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(keyCode == <span class="number">39</span> || keyCode == <span class="number">40</span>)&#123;</div><div class="line">		...</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;ol&gt;
-&lt;li&gt;如何在选定的元素上绑定一个或多个事件处理函数;&lt;/li&gt;
-&lt;li&gt;绑定鼠标滚轮事件;&lt;/li&gt;
-&lt;li&gt;如何判断鼠标滚轮方向;&lt;/li&gt;
-&lt;li&gt;绑定键盘方向键.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="JavaScript笔记" scheme="https://wenhuiyang-luck.github.io/categories/JavaScript%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="JavaScript" scheme="https://wenhuiyang-luck.github.io/tags/JavaScript/"/>
     
   </entry>
   
