@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wenhuiyang-luck.github.io/"/>
-  <updated>2017-07-23T15:11:18.485Z</updated>
+  <updated>2017-07-24T13:22:09.127Z</updated>
   <id>https://wenhuiyang-luck.github.io/</id>
   
   <author>
@@ -14,6 +14,71 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《剑指offer》JavaScript版——(4)重建二叉树</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/07/24/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E2%80%94%20JavaScript%EF%BC%884%EF%BC%89%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/07/24/《剑指offer》— JavaScript（4）重建二叉树/</id>
+    <published>2017-07-24T13:19:53.090Z</published>
+    <updated>2017-07-24T13:22:09.127Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p> <strong>题目：</strong>输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列<code>{1,2,4,7,3,5,6,8}</code>和中序遍历序列<code>{4,7,2,1,5,3,8,6}</code>，则重建二叉树并返回。</p>
+</blockquote>
+<a id="more"></a>
+<p>思路：<br>前序遍历的第一个节点就是根节点，中序遍历根节点的左边在根节点的左子树，右边在根节点的右子树。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* function TreeNode(x) &#123;</span></div><div class="line">   this.val = x;</div><div class="line">   this.left = null;</div><div class="line">   this.right = null;</div><div class="line">&#125; */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">reConstructBinaryTree</span>(<span class="params">pre, vin</span>) </span>&#123;</div><div class="line">   <span class="keyword">if</span>(pre.length == <span class="number">0</span> || vin.length == <span class="number">0</span>) &#123;</div><div class="line">      <span class="keyword">return</span> <span class="literal">null</span>;</div><div class="line">   &#125;</div><div class="line">   <span class="keyword">var</span> idx = vin.indexOf(pre[<span class="number">0</span>]);    <span class="comment">// 根节点的索引  </span></div><div class="line">   </div><div class="line">   <span class="keyword">var</span> vinleft = vin.slice(<span class="number">0</span>, idx);  <span class="comment">// 中序左子树</span></div><div class="line">   <span class="keyword">var</span> vinright = vin.slice(idx+<span class="number">1</span>);  <span class="comment">// 中序右子树  </span></div><div class="line">   </div><div class="line">   <span class="keyword">var</span> preleft = pre.slice(<span class="number">1</span>,idx+<span class="number">1</span>); <span class="comment">// 前序左子树</span></div><div class="line">   <span class="keyword">var</span> preright = pre.slice(idx+<span class="number">1</span>);  <span class="comment">// 前序右子树    </span></div><div class="line">   <span class="keyword">return</span> &#123;</div><div class="line">      <span class="attr">val</span>: pre[<span class="number">0</span>],</div><div class="line">      <span class="attr">left</span>: reConstructBinaryTree(preleft, vinleft),  <span class="comment">// 递归</span></div><div class="line">      right: reConstructBinaryTree(preright, vinright)</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt; &lt;strong&gt;题目：&lt;/strong&gt;输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列&lt;code&gt;{1,2,4,7,3,5,6,8}&lt;/code&gt;和中序遍历序列&lt;code&gt;{4,7,2,1,5,3,8,6}&lt;/code&gt;，则重建二叉树并返回。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="算法题" scheme="https://wenhuiyang-luck.github.io/categories/%E7%AE%97%E6%B3%95%E9%A2%98/"/>
+    
+    
+      <category term="算法题" scheme="https://wenhuiyang-luck.github.io/tags/%E7%AE%97%E6%B3%95%E9%A2%98/"/>
+    
+      <category term="剑指offer" scheme="https://wenhuiyang-luck.github.io/tags/%E5%89%91%E6%8C%87offer/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《剑指offer》JavaScript版——(3)从尾到头打印链表</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/07/24/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E2%80%94%20JavaScript%EF%BC%883%EF%BC%89%E4%BB%8E%E5%B0%BE%E5%88%B0%E5%A4%B4%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/07/24/《剑指offer》— JavaScript（3）从尾到头打印链表/</id>
+    <published>2017-07-24T13:19:24.453Z</published>
+    <updated>2017-07-24T13:17:44.531Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p> <strong>题目：</strong>输入一个链表，从尾到头打印链表每个节点的值。</p>
+</blockquote>
+<a id="more"></a>
+<p><strong>基础知识点：</strong><br>链表是一种物理存储单元上非连续、非顺序的存储结构，数据元素的逻辑顺序是通过链表中的指针链接次序实现的。链表由一系列结点（链表中每一个元素称为结点）组成，结点可以在运行时动态生成。每个结点包括两个部分：一个是存储数据元素的数据域，另一个是存储下一个结点地址的指针域。</p>
+<p><strong>思路：</strong><br>定义一个数组，将链表的节点依次从头部<code>unshift</code>进数组，将数组输出。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*function ListNode(x)&#123;</span></div><div class="line">   this.val = x;</div><div class="line">   this.next = null;</div><div class="line">&#125;*/</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">printListFromTailToHead</span>(<span class="params">head</span>) </span>&#123;</div><div class="line">   <span class="keyword">var</span> arr = [];</div><div class="line">   <span class="keyword">if</span>(!head) <span class="keyword">return</span> <span class="literal">false</span>;   </div><div class="line">   <span class="keyword">while</span>(head) &#123;</div><div class="line">      arr.unshift(head.val);</div><div class="line">      head = head.next;</div><div class="line">   &#125;</div><div class="line">   <span class="keyword">return</span> arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt; &lt;strong&gt;题目：&lt;/strong&gt;输入一个链表，从尾到头打印链表每个节点的值。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="算法题" scheme="https://wenhuiyang-luck.github.io/categories/%E7%AE%97%E6%B3%95%E9%A2%98/"/>
+    
+    
+      <category term="算法题" scheme="https://wenhuiyang-luck.github.io/tags/%E7%AE%97%E6%B3%95%E9%A2%98/"/>
+    
+      <category term="剑指offer" scheme="https://wenhuiyang-luck.github.io/tags/%E5%89%91%E6%8C%87offer/"/>
+    
+  </entry>
   
   <entry>
     <title>《剑指offer》JavaScript版——(2)替换空格</title>
@@ -873,97 +938,6 @@ getElementById() //通过元素Id，唯一性
     
     
       <category term="JavaScript" scheme="https://wenhuiyang-luck.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何解决failed to push some refs to git</title>
-    <link href="https://wenhuiyang-luck.github.io/2017/04/06/%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3failed%20to%20push%20some%20refs%20to%20git/"/>
-    <id>https://wenhuiyang-luck.github.io/2017/04/06/如何解决failed to push some refs to git/</id>
-    <published>2017-04-06T09:38:20.341Z</published>
-    <updated>2017-05-01T05:16:08.397Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>由于Github中的README.md文件不在本地代码目录中，导致执行git push -u origin master 时出现错误。</p>
-</blockquote>
-<a id="more"></a>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git init</div><div class="line">git commit -m <span class="string">"first commit"</span></div><div class="line">git remote <span class="keyword">add</span><span class="bash"> origin your Github repository</span></div><div class="line">git push -u origin master</div></pre></td></tr></table></figure>
-<h5 id="1-在使用git-对源代码进行push到Github时出现如下错误信息："><a href="#1-在使用git-对源代码进行push到Github时出现如下错误信息：" class="headerlink" title="1. 在使用git 对源代码进行push到Github时出现如下错误信息："></a>1. 在使用git 对源代码进行push到Github时出现如下错误信息：</h5><p><code>error: failed to push some refs to</code></p>
-<p><img src="../../../../images/13-1.png" alt=""></p>
-<h5 id="2-出现错误的主要原因是Github中的README-md文件不在本地代码目录中"><a href="#2-出现错误的主要原因是Github中的README-md文件不在本地代码目录中" class="headerlink" title="2. 出现错误的主要原因是Github中的README.md文件不在本地代码目录中."></a>2. 出现错误的主要原因是Github中的README.md文件不在本地代码目录中.</h5><p>可以通过如下命令进行代码合并[ 注：pull=fetch+merge]</p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git pull <span class="comment">--rebase origin master</span></div></pre></td></tr></table></figure>
-<h5 id="3-执行上面代码后可以看到本地代码库中多了README-md文件"><a href="#3-执行上面代码后可以看到本地代码库中多了README-md文件" class="headerlink" title="3. 执行上面代码后可以看到本地代码库中多了README.md文件."></a>3. 执行上面代码后可以看到本地代码库中多了README.md文件.</h5><p>此时再执行以下语句即可完成代码上传到Github.</p>
-<figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">push</span> -u <span class="built_in">origin</span> master</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;由于Github中的README.md文件不在本地代码目录中，导致执行git push -u origin master 时出现错误。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="错误整理" scheme="https://wenhuiyang-luck.github.io/categories/%E9%94%99%E8%AF%AF%E6%95%B4%E7%90%86/"/>
-    
-    
-      <category term="Git" scheme="https://wenhuiyang-luck.github.io/tags/Git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>一个页面从输入URL到页面显示完成的过程</title>
-    <link href="https://wenhuiyang-luck.github.io/2017/04/02/%E4%B8%80%E4%B8%AA%E9%A1%B5%E9%9D%A2%E4%BB%8E%E8%BE%93%E5%85%A5URL%E5%88%B0%E9%A1%B5%E9%9D%A2%E6%98%BE%E7%A4%BA%E5%AE%8C%E6%88%90%E7%9A%84%E8%BF%87%E7%A8%8B/"/>
-    <id>https://wenhuiyang-luck.github.io/2017/04/02/一个页面从输入URL到页面显示完成的过程/</id>
-    <published>2017-04-02T05:50:51.378Z</published>
-    <updated>2017-05-01T05:17:38.544Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>一个页面从输入url到页面加载显示完成，这个过程都发生了什么？</p>
-</blockquote>
-<a id="more"></a>
-<h6 id="一个页面从输入url到页面加载显示完成的过程，大致分为以下几步："><a href="#一个页面从输入url到页面加载显示完成的过程，大致分为以下几步：" class="headerlink" title="一个页面从输入url到页面加载显示完成的过程，大致分为以下几步："></a>一个页面从输入url到页面加载显示完成的过程，大致分为以下几步：</h6><ol>
-<li><p>浏览器地址栏输入url；</p>
-</li>
-<li><p>浏览器会先查看浏览器缓存–系统缓存–路由缓存，如有存在缓存，就直接显示。如果没有，接着第三步</p>
-</li>
-<li><p>DNS解析、查找该域名对应的IP地址、重定向（301）、发出第二个GET请求；</p>
-</li>
-<li><p>进行HTTP协议会话；</p>
-</li>
-<li><p>客户端发送报头（请求报头）；</p>
-</li>
-<li><p>服务器回馈报头（响应报头）；</p>
-</li>
-<li><p>html文档开始下载；</p>
-</li>
-<li><p>文档树建立，根据标记请求所需指定MIME类型的文件；</p>
-</li>
-<li><p>文件显示。</p>
-</li>
-</ol>
-<hr>
-<h6 id="浏览器这边做的工作大致分为以下几步："><a href="#浏览器这边做的工作大致分为以下几步：" class="headerlink" title="浏览器这边做的工作大致分为以下几步："></a>浏览器这边做的工作大致分为以下几步：</h6><ul>
-<li><p>加载：根据请求的URL进行域名解析，向服务器发起请求，接收文件（HTML,  JS, CSS, Image等）。</p>
-</li>
-<li><p>解析：对加载到的资源（HTML,  JS, CSS, Image等）进行语法解析，建立响应的内部数据结构（比如HTML的DOM树，JS的（对象）属性表，CSS的样式规则等）。</p>
-<p>​</p>
-</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;一个页面从输入url到页面加载显示完成，这个过程都发生了什么？&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Http" scheme="https://wenhuiyang-luck.github.io/categories/Http/"/>
-    
-    
-      <category term="Http" scheme="https://wenhuiyang-luck.github.io/tags/Http/"/>
     
   </entry>
   
