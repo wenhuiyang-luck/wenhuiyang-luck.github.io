@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wenhuiyang-luck.github.io/"/>
-  <updated>2017-07-24T13:28:49.222Z</updated>
+  <updated>2017-08-18T12:46:40.567Z</updated>
   <id>https://wenhuiyang-luck.github.io/</id>
   
   <author>
@@ -14,6 +14,63 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript 中常见的几种排序算法</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/08/18/js%E5%B8%B8%E8%A7%81%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/08/18/js常见排序算法/</id>
+    <published>2017-08-18T09:07:35.423Z</published>
+    <updated>2017-08-18T12:46:40.567Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>本文学习自《JavaScript数据结构与算法》，记录JavaScript 中常见的几种排序算法，包括冒泡排序，选择排序，插入排序，归并排序和快速排序。详细介绍算法思想，复杂度，算法代码以及示意图演示。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="1-冒泡排序"><a href="#1-冒泡排序" class="headerlink" title="1. 冒泡排序"></a>1. 冒泡排序</h3><p>【算法思想】：比较任何两个相邻的项，如果第一个比第二个大，则交换它们。元素项向上移动至正确的顺序，就好像气泡升至表面一样。<br>【O复杂度】：O(n^2)，它在排序算法中最简单，但从运行时间的角度来看，冒泡排序是最差的。<br>【实现代码】：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">   <span class="keyword">var</span> len = arr.length;</div><div class="line">   <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</div><div class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; len<span class="number">-1</span>-i; j++) &#123;</div><div class="line">         <span class="keyword">if</span>(arr[j] &gt; arr[j+<span class="number">1</span>]) &#123;</div><div class="line">            <span class="keyword">var</span> temp = arr[j];</div><div class="line">            arr[j] = arr[j+<span class="number">1</span>];</div><div class="line">            arr[j+<span class="number">1</span>] = temp;</div><div class="line">         &#125;</div><div class="line">      &#125;</div><div class="line">   &#125;</div><div class="line">   <span class="keyword">return</span> arr;	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>【排序示意图】：[5, 4, 3, 2, 1]</p>
+<p><img src="../../../../images/35-1.png" alt=""></p>
+<h3 id="2-选择排序"><a href="#2-选择排序" class="headerlink" title="2. 选择排序"></a>2. 选择排序</h3><p>【算法思想】：原址比较排序算法，找到数据结构中的最小值并将其放置在第一位，接着找到第二小的值并将其放在第二位，以此类推。<br>【O复杂度】：O(n^2)，和冒泡排序一样，它包含嵌套的两个循环，这导致了二次方的复杂度。<br>【实现代码】：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">selectionSort</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">   <span class="keyword">var</span> len = arr.length;</div><div class="line">   <span class="keyword">var</span> indexMin;</div><div class="line">   <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; len<span class="number">-1</span>; i++) &#123;</div><div class="line">      indexMin = i;</div><div class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> j = i; j &lt; len; j++) &#123;</div><div class="line">         <span class="keyword">if</span>(arr[indexMin] &gt; arr[j]) &#123;</div><div class="line">            indexMin = j;</div><div class="line">         &#125;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      <span class="keyword">if</span> (i != indexMin) &#123;</div><div class="line">         <span class="keyword">var</span> temp = arr[i];</div><div class="line">         arr[i] = arr[indexMin];</div><div class="line">         arr[indexMin] = temp;</div><div class="line">      &#125;</div><div class="line">   &#125;</div><div class="line">   <span class="keyword">return</span> arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>【排序示意图】：[5, 4, 3, 2, 1]</p>
+<p><img src="../../../../images/35-2.png" alt=""></p>
+<p>数组底部的箭头指示出当前迭代轮寻找最小值的数组范围，示意图中的每一步则表示外循环。</p>
+<h3 id="3-插入排序"><a href="#3-插入排序" class="headerlink" title="3. 插入排序"></a>3. 插入排序</h3><p>【算法思想】：每次排一个数组项，以此方式构建最后的排序数组。假定第一项已经排序了，接着，它和第二项进行比较，第二项是应该待在原位还是插到第一项之前呢？这样，头两项就已正确排序，接着和第三项比较（它是该插入到第一、第二还是第三的位置呢？），以此类推。<br>【O复杂度】：排序小型数组时，此算法比选择排序和冒泡排序性能要好。。<br>【实现代码】：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertionSort</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">   <span class="keyword">var</span> len = arr.length;</div><div class="line">   <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;  <span class="comment">// i从1开始，默认第一项已排好序</span></div><div class="line">      <span class="keyword">var</span> j = i;           </div><div class="line">      <span class="keyword">var</span> temp = arr[i];           <span class="comment">// 保存待插入项</span></div><div class="line">      <span class="keyword">while</span>(j &gt; <span class="number">0</span> &amp;&amp; arr[j<span class="number">-1</span>] &gt; temp) &#123;</div><div class="line">         arr[j] = arr[j<span class="number">-1</span>];</div><div class="line">         j--;</div><div class="line">      &#125;</div><div class="line">      arr[j] = temp;</div><div class="line">   &#125;</div><div class="line">   <span class="keyword">return</span> arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>【排序示意图】：[3, 5, 1, 4, 2]</p>
+<p><img src="../../../../images/35-3.png" alt=""></p>
+<p>(1) 3 已被排序，所以我们从数组第二个值5开始。3比5小，所以5待在原位（数组的第二位）。3和5排序完毕。<br>(2)  下一个待排序和插到正确位置上去的值是1（目前在数组的第三位）。5比1大，所以5被移至第三位去了。我们得分析1是否应该被插入到第二位——1比3大吗？不，所以3被移到第二位去了。接着，我们得证明1 应该插入到数组的第一位上。因为0是第一个位置且没有负数位，所以1必须被插入到第一位。1、3、5三个数字已经排序。<br>(3) 4应该在当前位置（索引3 ）还是要移动到索引较低的位置上呢？4 比5 小，所以5 移动到索引3 位置上去。那么应该把4 插到索引2 的位置上去吗？4 要比3 大，所以4 插入到数组的位置3 上。<br>(4)  下一个待插入的数字是2 （数组的位置4）。5比2大，所以5移动至索引4。4比2 大，所以4也得移动（位置3）。3也比2大，所以3还得移动。1比2小，所以2插入到数组的第二位置上。至此，数组已排序完成。</p>
+<h3 id="4-归并排序"><a href="#4-归并排序" class="headerlink" title="4. 归并排序"></a>4. 归并排序</h3><p>【算法思想】：是一种分治算法。其思想是将原始数组切分成较小的数组，直到每个小数组只有一个位置，接着将小数组归并成较大的数组，直到最后只有一个排序完毕的大数组。<br>【O复杂度】：O(nlog^n)，归并排序性能不错。<br>【实现代码】：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">mergeSort</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">   <span class="keyword">return</span> mergeSortRec(arr);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">mergeSortRec</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">   <span class="keyword">var</span> len = arr.length;</div><div class="line">   <span class="keyword">if</span> (len == <span class="number">1</span>) &#123;<span class="keyword">return</span> arr;&#125;</div><div class="line"></div><div class="line">   <span class="keyword">var</span> mid = <span class="built_in">Math</span>.floor(len / <span class="number">2</span>),  <span class="comment">// 中值</span></div><div class="line">      left = arr.slice(<span class="number">0</span>, mid),   <span class="comment">// 左数组</span></div><div class="line">      right = arr.slice(mid, len);<span class="comment">// 右数组</span></div><div class="line">   <span class="keyword">return</span> merge(mergeSortRec(left), mergeSortRec(right));</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">merge</span>(<span class="params">left, right</span>) </span>&#123;</div><div class="line">   <span class="keyword">var</span> res = [],</div><div class="line">      lenLeft = left.length,</div><div class="line">      lenRight = right.length,</div><div class="line">      il = <span class="number">0</span>, ir = <span class="number">0</span>;</div><div class="line">   <span class="keyword">while</span>(il &lt; lenLeft &amp;&amp; ir &lt; lenRight) &#123;</div><div class="line">      <span class="keyword">if</span>(left[il] &lt; right[ir]) &#123;</div><div class="line">         res.push(left[il++]);</div><div class="line">      &#125;<span class="keyword">else</span>&#123;</div><div class="line">         res.push(right[ir++]);</div><div class="line">      &#125;</div><div class="line">   &#125;</div><div class="line">   <span class="keyword">while</span>(il &lt; lenLeft) &#123;</div><div class="line">      res.push(left[il]);</div><div class="line">   &#125;</div><div class="line">   <span class="keyword">while</span>(ir &lt; lenRight) &#123;</div><div class="line">      res.push(right[ir]);</div><div class="line">   &#125;</div><div class="line">   <span class="keyword">return</span> res;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>【排序示意图】：[8, 7, 6, 5, 4, 3, 2, 1]</p>
+<p><img src="../../../../images/35-5.png" alt=""></p>
+<p>可以看到，算法首先将原始数组分割直至只有一个元素的子数组，然后开始归并。归并过程也会完成排序，直至原始数组完全合并并完成排序。</p>
+<h3 id="5-快速排序"><a href="#5-快速排序" class="headerlink" title="5. 快速排序"></a>5. 快速排序</h3><p>【算法思想】：快速排序也许是最常用的排序算法了。和归并排序一样，快速排序也使用分治的方法，将原始数组分为较小的数组（但它没有像归并排序那样将它们分割开）。<br>【O复杂度】：它的复杂度为O(nlog^n) ，且它的性能通常比其他的复杂度为O(nlog^n) 的排序算法要好。<br>【具体做法】：<br>(1)  首先，从数组中选择中间一项作为主元。<br>(2)  创建两个指针，左边一个指向数组第一个项，右边一个指向数组最后一个项。移动左指针直到我们找到一个比主元大的元素，接着，移动右指针直到找到一个比主元小的元素，然后交换它们，重复这个过程，直到左指针超过了右指针。这个过程将使得比主元小的值都排在主元之前，而比主元大的值都排在主元之后。这一步叫作划分操作。<br>(3)  接着，算法对划分后的小数组（较主元小的值组成的子数组，以及较主元大的值组成的子数组）重复之前的两个步骤，直至数组已完全排序。 </p>
+<p>【实现代码】：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">quickSort</span>(<span class="params">arr</span>)</span>&#123; </div><div class="line">   <span class="keyword">return</span> quick(arr, <span class="number">0</span>, arr.length<span class="number">-1</span>); </div><div class="line">&#125;; </div><div class="line"></div><div class="line"><span class="comment">// 声明一个主方法来调用递归函数,传递待排序数组，以及索引0及其最末的位置</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">quick</span>(<span class="params">arr, left, right</span>)</span>&#123; </div><div class="line">   <span class="keyword">var</span> index;  <span class="comment">// 将子数组分离为较小值数组和较大值数组的索引</span></div><div class="line">   <span class="keyword">if</span> (arr.length &gt; <span class="number">1</span>) &#123;   <span class="comment">// 如果数组的长度比1大（因为只有一个元素的数组必然是已排序了的)</span></div><div class="line">      index = partition(arr, left, right); <span class="comment">// 执行partition操作（第一次调用是针对整个数组）</span></div><div class="line">      </div><div class="line">      <span class="comment">// 划分后的子数组（较主元小的值组成的子数组，以及较主元大的值组成的子数组）递归调用quick函数 </span></div><div class="line">      <span class="keyword">if</span> (left &lt; index - <span class="number">1</span>) &#123; </div><div class="line">          quick(arr, left, index - <span class="number">1</span>);     </div><div class="line">      &#125;  </div><div class="line">      <span class="keyword">if</span> (index &lt; right) &#123;   </div><div class="line">          quick(arr, index, right);        </div><div class="line">      &#125; </div><div class="line">   &#125; </div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// 划分过程</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">partition</span>(<span class="params">arr, left, right</span>) </span>&#123; </div><div class="line">   <span class="keyword">var</span> pivot = arr[<span class="built_in">Math</span>.floor((right + left) / <span class="number">2</span>)],  <span class="comment">// 选择中间项作为主元</span></div><div class="line">      i = left,                                      <span class="comment">// left指针</span></div><div class="line">      j = right;                                     <span class="comment">// right指针</span></div><div class="line"> </div><div class="line">   <span class="keyword">while</span> (i &lt;= j) &#123;                   <span class="comment">// 只要left和right 指针没有相互交错，就执行划分操作</span></div><div class="line">      <span class="keyword">while</span> (arr[i] &lt; pivot) &#123;       <span class="comment">// 移动left指针直到找到一个元素比主元大</span></div><div class="line">          i++; </div><div class="line">      &#125; </div><div class="line">      <span class="keyword">while</span> (arr[j] &gt; pivot) &#123;       <span class="comment">// 移动right指针直到我们找到一个元素比主元小</span></div><div class="line">          j--; </div><div class="line">      &#125; </div><div class="line">      <span class="comment">// 当左指针指向的元素比主元大且右指针指向的元素比主元小，并且此时左指针索引没有右指针索引大</span></div><div class="line">      <span class="keyword">if</span> (i &lt;= j) &#123; </div><div class="line">          swapQuickStort(arr, i, j); <span class="comment">// 交换它们，然后移动两个指针，并重复此过程</span></div><div class="line">          i++; </div><div class="line">          j--; </div><div class="line">      &#125; </div><div class="line">   &#125; </div><div class="line">   <span class="keyword">return</span> i; <span class="comment">// 在划分操作结束后，返回左指针的索引</span></div><div class="line">&#125;; </div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">swapQuickStort</span>(<span class="params">arr, index1, index2</span>)</span>&#123; </div><div class="line">   <span class="keyword">var</span> aux = arr[index1]; </div><div class="line">   arr[index1] = arr[index2]; </div><div class="line">   arr[index2] = aux; </div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>【排序示意图】：[3, 5, 1, 6, 4, 7, 2]</p>
+<p><img src="../../../../images/35-6-1.png" alt=""></p>
+<p><img src="../../../../images/35-6-2.png" alt=""></p>
+<p><img src="../../../../images/35-6-3.png" alt=""></p>
+<p><img src="../../../../images/35-6-4.png" alt=""></p>
+<p><img src="../../../../images/35-6-5.png" alt=""></p>
+<p>注：文中图片引自《JavaScript数据结构与算法》</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文学习自《JavaScript数据结构与算法》，记录JavaScript 中常见的几种排序算法，包括冒泡排序，选择排序，插入排序，归并排序和快速排序。详细介绍算法思想，复杂度，算法代码以及示意图演示。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="算法" scheme="https://wenhuiyang-luck.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="算法" scheme="https://wenhuiyang-luck.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>《剑指offer》JavaScript版——(5)用两个栈实现队列</title>
@@ -859,45 +916,6 @@ getElementById() //通过元素Id，唯一性
     
       &lt;blockquote&gt;
 &lt;p&gt;a 标签书写顺序：&lt;code&gt;:link&lt;/code&gt;, &lt;code&gt;:visited&lt;/code&gt;,  &lt;code&gt;:hover&lt;/code&gt;,  &lt;code&gt;:active&lt;/code&gt;;  简记：&lt;code&gt;lvha&lt;/code&gt;。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="CSS/CSS3笔记" scheme="https://wenhuiyang-luck.github.io/categories/CSS-CSS3%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="CSS" scheme="https://wenhuiyang-luck.github.io/tags/CSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>七种隐藏元素的方法</title>
-    <link href="https://wenhuiyang-luck.github.io/2017/04/19/%E4%B8%83%E7%A7%8D%E9%9A%90%E8%97%8F%E5%85%83%E7%B4%A0%E7%9A%84%E6%96%B9%E6%B3%95/"/>
-    <id>https://wenhuiyang-luck.github.io/2017/04/19/七种隐藏元素的方法/</id>
-    <published>2017-04-19T13:46:02.177Z</published>
-    <updated>2017-05-01T05:14:21.359Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>列举七种隐藏元素的方法。</p>
-</blockquote>
-<a id="more"></a>
-<ol>
-<li><code>visiable:hidden;</code>这个属性只是简单的隐藏某个元素，但是元素占用文档空间。<ol>
-<li><code>opacity:0;</code>CSS3属性，可以使一个元素完全透明，与<code>visiable:hidden</code>效果相同。与<code>visiable</code>相比，它可以设置transition和animate。</li>
-</ol>
-</li>
-<li><code>position:absolute;</code>使元素脱离文档流，处于普通文档之上，给它设置一个很大的<code>left</code>负值定位，使元素定位在可见区域之外。</li>
-<li><code>display:none;</code>元素变得不可见，与<code>visiable:hidden</code>不同的是不会占用文档空间。</li>
-<li><code>transform:scale(0);</code>将一个元素设置为无限小，这个元素将不可见，但是元素占用的空间仍然保留。</li>
-<li><code>height:0;overflow:hidden;</code>将元素的高度设置为0，只要元素没有可见的边框，就可以使元素消失。</li>
-<li><code>filter:blur(0);</code>将元素的模糊度设为0，从而使这个元素“消失”在页面中。</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;列举七种隐藏元素的方法。&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
