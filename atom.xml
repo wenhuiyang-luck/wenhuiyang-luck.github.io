@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wenhuiyang-luck.github.io/"/>
-  <updated>2017-08-18T12:46:40.567Z</updated>
+  <updated>2017-08-21T12:21:23.485Z</updated>
   <id>https://wenhuiyang-luck.github.io/</id>
   
   <author>
@@ -14,6 +14,41 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>文字超出长度显示省略号</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/08/21/%E6%96%87%E5%AD%97%E8%B6%85%E5%87%BA%E7%94%A8%E7%9C%81%E7%95%A5%E5%8F%B7%E8%A1%A8%E7%A4%BA/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/08/21/文字超出用省略号表示/</id>
+    <published>2017-08-21T11:46:24.707Z</published>
+    <updated>2017-08-21T12:21:23.485Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>为了保证页面的整洁美观，在很多的时候，我们常需要隐藏超出长度的文字。</p>
+</blockquote>
+<a id="more"></a>
+<p>以下是超出定宽容器显示省略号的设置方法，原理都一样。</p>
+<p>HTML代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"line-limit"</span>&gt;</span>亲，一行文字太多，显示不下，接下来的文字我要用省略号代替。我可能是超出长度被隐藏的文字<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>CSS代码：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.item</span> &#123;</div><div class="line">   <span class="attribute">background-color</span>: <span class="number">#9cc9ef</span>;</div><div class="line">   <span class="attribute">max-width</span>: <span class="number">470px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.line-limit</span> &#123;           </div><div class="line">   <span class="attribute">overflow</span>: hidden;           <span class="comment">/*超出隐藏*/</span></div><div class="line">   <span class="attribute">text-overflow</span>: ellipsis;    <span class="comment">/*文本隐藏部分显示为省略*/</span></div><div class="line">   <span class="attribute">white-space</span>: nowrap;        <span class="comment">/*文本不换行，这样超出一行的部分被截取，显示...*/</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>效果截图：</p>
+<p><img src="../../../../images/37-1.png" alt=""></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;为了保证页面的整洁美观，在很多的时候，我们常需要隐藏超出长度的文字。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="CSS" scheme="https://wenhuiyang-luck.github.io/categories/CSS/"/>
+    
+    
+      <category term="CSS" scheme="https://wenhuiyang-luck.github.io/tags/CSS/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript 中常见的几种排序算法</title>
@@ -882,40 +917,6 @@ getElementById() //通过元素Id，唯一性
     
       &lt;blockquote&gt;
 &lt;p&gt;介绍position定位属性，绝对/固定定位的定位原理以及绝对/相对定位的区别。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="CSS/CSS3笔记" scheme="https://wenhuiyang-luck.github.io/categories/CSS-CSS3%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="CSS" scheme="https://wenhuiyang-luck.github.io/tags/CSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>a标签伪类的书写顺序及原因</title>
-    <link href="https://wenhuiyang-luck.github.io/2017/04/19/a%E6%A0%87%E7%AD%BE%E4%BC%AA%E7%B1%BB%E7%9A%84%E4%B9%A6%E5%86%99%E9%A1%BA%E5%BA%8F%E5%8F%8A%E5%8E%9F%E5%9B%A0/"/>
-    <id>https://wenhuiyang-luck.github.io/2017/04/19/a标签伪类的书写顺序及原因/</id>
-    <published>2017-04-19T14:10:52.322Z</published>
-    <updated>2017-05-01T05:18:24.010Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>a 标签书写顺序：<code>:link</code>, <code>:visited</code>,  <code>:hover</code>,  <code>:active</code>;  简记：<code>lvha</code>。</p>
-</blockquote>
-<a id="more"></a>
-<ol>
-<li>链接未进行访问时，显示 link 样式，也就是链接的默认样式；</li>
-<li>当访问过了该链接，显示 visited 样式，由于两种选择器的优先级相等，必须让 visited 样式覆盖 link 样式，因此要先写 link 样式；</li>
-<li>当鼠标移动到链接上时，可能是未访问也可能是已经访问， hover 样式要能够覆盖另外两种样式，因此 hover 要放在 visited 的后面；</li>
-<li>当鼠标按下时，鼠标处于 a 标签之上（ hover 效果也处于激活状态），为了能够区分悬停和按下，需要让 active 样式覆盖 hover 样式，即 active 的样式放置在最后。</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;a 标签书写顺序：&lt;code&gt;:link&lt;/code&gt;, &lt;code&gt;:visited&lt;/code&gt;,  &lt;code&gt;:hover&lt;/code&gt;,  &lt;code&gt;:active&lt;/code&gt;;  简记：&lt;code&gt;lvha&lt;/code&gt;。&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
