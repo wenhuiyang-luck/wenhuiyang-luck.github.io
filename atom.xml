@@ -277,199 +277,6 @@
   </entry>
   
   <entry>
-    <title>腾讯课堂IMWeb备战秋招-Day04</title>
-    <link href="https://wenhuiyang-luck.github.io/2017/07/23/%E8%85%BE%E8%AE%AF%E8%AF%BE%E5%A0%82IMWeb%E5%89%8D%E7%AB%AF%E6%B1%82%E8%81%8C%E8%AE%AD%E7%BB%83%E8%90%A5-Day04/"/>
-    <id>https://wenhuiyang-luck.github.io/2017/07/23/腾讯课堂IMWeb前端求职训练营-Day04/</id>
-    <published>2017-07-23T13:40:50.458Z</published>
-    <updated>2017-07-23T13:49:02.224Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>知识点：<code>null</code>和<code>undefined</code>、<code>new</code>操作符、内存泄漏、<code>Node</code>的优缺点。</p>
-</blockquote>
-<a id="more"></a>
-<h1 id="一、经典面试题"><a href="#一、经典面试题" class="headerlink" title="一、经典面试题"></a>一、经典面试题</h1><h2 id="13-null和undefined的区别？"><a href="#13-null和undefined的区别？" class="headerlink" title="13. null和undefined的区别？"></a>13. null和undefined的区别？</h2><p><code>null</code>用来表示尚未存在的对象，常用来表示函数企图返回一个不存在的对象, 转为数值时为<code>0</code>；<code>undefined</code>是一个表示”无”的原始值，转为数值时为<code>NaN</code>。当声明的变量还未被初始化时，变量的默认值为<code>undefined</code>。</p>
-<p>1.<code>null</code>表示”没有对象”，即该处不应该有值。典型用法是：<br>① 作为函数的参数，表示该函数的参数不是对象。<br>② 作为对象原型链的终点。</p>
-<p>2.<code>undefined</code>表示”缺少值”，就是此处应该有一个值，但是还没有定义。典型用法是：<br>① 变量被声明了，但没有赋值时，就等于<code>undefined</code>。<br>② 调用函数时，应该提供的参数没有提供，该参数等于<code>undefined</code>。<br>③ 对象没有赋值的属性，该属性的值为<code>undefined</code>。<br>④ 函数没有返回值时，默认返回<code>undefined</code>。</p>
-<h2 id="14-new操作符具体干了什么呢"><a href="#14-new操作符具体干了什么呢" class="headerlink" title="14. new操作符具体干了什么呢?"></a>14. new操作符具体干了什么呢?</h2><p>① 创建一个空对象，并且<code>this</code> 变量引用该对象，同时还继承了该函数的原型。<br>② 属性和方法被加入到 <code>this</code> 引用的对象中。<br>③ 新创建的对象由 <code>this</code> 所引用，并且最后隐式的返回<code>this</code> 。</p>
-<h2 id="15-哪些操作会造成内存泄漏？"><a href="#15-哪些操作会造成内存泄漏？" class="headerlink" title="15. 哪些操作会造成内存泄漏？"></a>15. 哪些操作会造成内存泄漏？</h2><p>内存泄漏指任何对象在不再拥有或需要它之后仍然存在。垃圾回收器定期扫描对象，并计算引用了每个对象的其他对象的数量。如果一个对象的引用数量为<code>0</code>（没有其他对象引用过该对象），或对该对象的惟一引用是循环的，那么该对象的内存即可回收。</p>
-<ul>
-<li><code>setTimeout</code>的第一个参数使用字符串而非函数的话，会引发内存泄漏。</li>
-<li>闭包、控制台日志、循环（在两个对象彼此引用且彼此保留时，就会产生一个循环）。</li>
-</ul>
-<h2 id="16-对Node的优点和缺点提出了自己的看法？"><a href="#16-对Node的优点和缺点提出了自己的看法？" class="headerlink" title="16. 对Node的优点和缺点提出了自己的看法？"></a>16. 对Node的优点和缺点提出了自己的看法？</h2><p><strong>优点</strong>：因为<code>Node</code>是基于事件驱动和无阻塞的，所以非常适合处理并发请求， 因此构建在<code>Node</code>上的代理服务器相比其他技术实现（如<code>Ruby</code>）的服务器表现要好得多。 此外，与<code>Node</code>代理服务器交互的客户端代码是由<code>javascript</code>语言编写的， 因此客户端和服务器端都用同一种语言编写，这是非常美妙的事情。</p>
-<p><strong>缺点</strong>：<code>Node</code>是一个相对新的开源项目，所以不太稳定，它总是一直在变， 而且缺少足够多的第三方库支持。看起来，就像是<code>Ruby/Rails</code>当年的样子。</p>
-<h1 id="二、编程题"><a href="#二、编程题" class="headerlink" title="二、编程题"></a>二、编程题</h1><h2 id="1-颜色字符串转换"><a href="#1-颜色字符串转换" class="headerlink" title="1. 颜色字符串转换"></a>1. 颜色字符串转换</h2><p><strong>题目</strong>：将 rgb 颜色字符串转换为十六进制的形式，如 rgb(255, 255, 255) 转为 #ffffff；</p>
-<ol>
-<li>rgb 中每个 , 后面的空格数量不固定</li>
-<li>十六进制表达式使用六位小写字母</li>
-<li>如果输入不符合 rgb 格式，返回原始输入</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">rgb2hex</span>(<span class="params">sRGB</span>) </span>&#123;</div><div class="line">   <span class="keyword">return</span> sRGB.replace(<span class="regexp">/^rgb\((\d+)\s*,\s*(\d+)\s*,\s*(\d+)\)$/</span>,<span class="function"><span class="keyword">function</span>(<span class="params">$<span class="number">0</span>,$<span class="number">1</span>,$<span class="number">2</span>,$<span class="number">3</span></span>)</span>&#123;</div><div class="line">      <span class="keyword">return</span> <span class="string">'#'</span>+toHex($<span class="number">1</span>)+toHex($<span class="number">2</span>)+toHex($<span class="number">3</span>);    <span class="comment">// $0:正则匹配的整个字符串; $1, $2, $3:捕获项</span></div><div class="line">   &#125;);</div><div class="line">   <span class="function"><span class="keyword">function</span> <span class="title">toHex</span>(<span class="params">str</span>)</span>&#123;</div><div class="line">      <span class="keyword">return</span> (<span class="string">'0'</span>+(+str).toString(<span class="number">16</span>)).slice(<span class="number">-2</span>);</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="2-将字符串转为驼峰格式"><a href="#2-将字符串转为驼峰格式" class="headerlink" title="2. 将字符串转为驼峰格式"></a>2. 将字符串转为驼峰格式</h2><p><strong>题目</strong>：将类似 background-image 这种通过 - 连接的字符，转换成 backgroundImage 驼峰格式。</p>
-<ol>
-<li>以 - 为分隔符，将第二个起的非空单词首字母转为大写</li>
-<li>-webkit-border-image 转换后的结果为 webkitBorderImage</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">cssStyle2DomStyle</span>(<span class="params">sName</span>) </span>&#123;</div><div class="line">   <span class="keyword">var</span> result = sName.replace(<span class="regexp">/^-/</span>,<span class="string">''</span>).split(<span class="string">'-'</span>);</div><div class="line">   <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>, len = result.length; i &lt; len; i++) &#123;</div><div class="line">      result[i] = result[i].replace(<span class="regexp">/^\w/</span>, <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</div><div class="line">         <span class="keyword">return</span> s.toUpperCase();</div><div class="line">      &#125;)</div><div class="line">   &#125;</div><div class="line">   <span class="keyword">return</span> result.join(<span class="string">''</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">cssStyle2DomStyle</span>(<span class="params">sName</span>) </span>&#123;</div><div class="line">   <span class="keyword">var</span> arr = sName.split(<span class="string">''</span>);     </div><div class="line">   <span class="keyword">if</span>(arr.indexOf(<span class="string">'-'</span>) == <span class="number">0</span>)  <span class="comment">// 判断第一个是不是 '-'，是的话就删除 </span></div><div class="line">      arr.splice(<span class="number">0</span>,<span class="number">1</span>);</div><div class="line">   <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;arr.length; i++)&#123;   <span class="comment">// 处理剩余的'-'</span></div><div class="line">      <span class="keyword">if</span>(arr[i] == <span class="string">'-'</span>)&#123;</div><div class="line">         arr.splice(i,<span class="number">1</span>);</div><div class="line">         arr[i] = arr[i].toUpperCase();</div><div class="line">      &#125;</div><div class="line">   &#125;</div><div class="line">   <span class="keyword">return</span> arr.join(<span class="string">''</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="3-求二次方"><a href="#3-求二次方" class="headerlink" title="3. 求二次方"></a>3. 求二次方</h2><p><strong>题目</strong>：为数组 arr 中的每个元素求二次方。不要直接修改数组 arr，结果返回新的数组<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* map 方法 */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">square</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">   <span class="keyword">if</span>(<span class="built_in">Array</span>.prototype.map) &#123;</div><div class="line">      <span class="keyword">return</span> arr.map(<span class="function"><span class="keyword">function</span>(<span class="params">item, index, array</span>) </span>&#123;</div><div class="line">         <span class="keyword">return</span> item * item;</div><div class="line">      &#125;)</div><div class="line">   &#125;<span class="keyword">else</span> &#123;</div><div class="line">      <span class="keyword">var</span> newArr = [];</div><div class="line">      <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>, len = arr.length; i &lt; len; i++) &#123;</div><div class="line">         newArr.push(arr[i] * arr[i]);</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">return</span> newArr;</div><div class="line">   &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/* forEach 方法 */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">square</span>(<span class="params">arr</span>) </span>&#123;   </div><div class="line">   <span class="keyword">var</span> a = [];  <span class="comment">//声明一个新的数组存放结果</span></div><div class="line">   arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;      </div><div class="line">      a.push(e*e);  <span class="comment">//将arr中的每一个元素求平方后，加入到a数组中</span></div><div class="line">   &#125;);</div><div class="line">   <span class="keyword">return</span> a;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;知识点：&lt;code&gt;null&lt;/code&gt;和&lt;code&gt;undefined&lt;/code&gt;、&lt;code&gt;new&lt;/code&gt;操作符、内存泄漏、&lt;code&gt;Node&lt;/code&gt;的优缺点。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="面试题" scheme="https://wenhuiyang-luck.github.io/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-    
-      <category term="面试题" scheme="https://wenhuiyang-luck.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>腾讯课堂IMWeb备战秋招-Day03</title>
-    <link href="https://wenhuiyang-luck.github.io/2017/07/21/%E8%85%BE%E8%AE%AF%E8%AF%BE%E5%A0%82IMWeb%E5%89%8D%E7%AB%AF%E6%B1%82%E8%81%8C%E8%AE%AD%E7%BB%83%E8%90%A5-Day03/"/>
-    <id>https://wenhuiyang-luck.github.io/2017/07/21/腾讯课堂IMWeb前端求职训练营-Day03/</id>
-    <published>2017-07-21T12:46:37.569Z</published>
-    <updated>2017-07-21T13:04:08.358Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>知识点：伪数组、浏览器本地存储、线程与进程、减少页面加载时间的方法。</p>
-</blockquote>
-<a id="more"></a>
-<h1 id="一、经典面试题"><a href="#一、经典面试题" class="headerlink" title="一、经典面试题"></a>一、经典面试题</h1><h2 id="9-什么是伪数组？如何将伪数组转化为标准数组？"><a href="#9-什么是伪数组？如何将伪数组转化为标准数组？" class="headerlink" title="9. 什么是伪数组？如何将伪数组转化为标准数组？"></a>9. 什么是伪数组？如何将伪数组转化为标准数组？</h2><p><strong>1）伪数组（类数组）一般具有以下特点：</strong></p>
-<ul>
-<li>按索引方式存储数据；</li>
-<li>具有<code>length</code>属性；</li>
-<li>没有数组的<code>push</code>、<code>shift</code>、<code>pop</code>等方法;</li>
-</ul>
-<p><code>function</code>的<code>arguments</code>对象，还有<code>getElementsByTagName</code>、<code>ele.childNodes</code>等返回的<code>NodeList</code>对象，或者自定义的某些对象，都可以是伪数组。</p>
-<p><strong>2）如何将伪数组转化为标准数组？</strong></p>
-<p>① 使用<code>Array.prototype.slice.call();</code></p>
-<p><img src="http://7tszky.com1.z0.glb.clouddn.com/FqeJuVfqpiBd2xX7JLxQV42x6FXD" alt=""></p>
-<p>② 使用<code>[].slice.call()</code>，本质上与第一种方法是一样的，但第一种方式效率更高。</p>
-<p><img src="http://7tszky.com1.z0.glb.clouddn.com/Foqd7K8VfQekgAvK95OOHbUfOdsF" alt=""></p>
-<p>③ 使用<code>ES6</code>中<code>Array.from</code>方法;</p>
-<p><img src="http://7tszky.com1.z0.glb.clouddn.com/Flg3XlvriDfvOBho4_luxGrrdM1e" alt=""></p>
-<h2 id="10-浏览器本地存储"><a href="#10-浏览器本地存储" class="headerlink" title="10. 浏览器本地存储?"></a>10. 浏览器本地存储?</h2><p>在较高版本的浏览器中，<code>js</code>提供了<code>sessionStorage</code>和<code>globalStorage</code>。在<code>HTML5</code>中提供<code>localStorage</code>来取代<code>globalStorage</code>。<code>html5</code>中的<code>Web Storage</code>包括了两种存储方式：<code>sessionStorage</code>和<code>localStorage</code>。</p>
-<p><strong>1. 会话级别的本地存储：sessionStorage</strong></p>
-<p>通过此对象可以直接操作存储在浏览器中的会话级别的<code>WebStorage</code>。存储在<code>sessionStorage</code>中的数据首先是<code>Key-Value</code>形式的，另外就是它跟浏览器当前会话相关，当会话结束后，数据会自动清除，跟未设置过期时间的<code>Cookie</code>类似。</p>
-<p><code>sessionStorage</code>提供了四个方法来辅助我们进行对本地存储做相关操作。</p>
-<ul>
-<li><code>setItem(key,value)</code>：添加本地存储数据。两个参数，非常简单就不说了。</li>
-<li><code>getItem(key)</code>：通过key获取相应的Value。</li>
-<li><code>removeItem(key)</code>：通过key删除本地数据。</li>
-<li><code>clear()</code>：清空数据。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">   <span class="comment">// 添加key-value 数据到 sessionStorage  </span></div><div class="line">   sessionStorage.setItem(<span class="string">"demokey"</span>, <span class="string">"http://blog.itjeek.com"</span>);   </div><div class="line">   <span class="keyword">var</span> dt = sessionStorage.getItem(<span class="string">"demokey"</span>);  <span class="comment">// 通过key来获取value</span></div><div class="line">   alert(dt);</div><div class="line">   sessionStorage.clear();                      <span class="comment">// 清空所有的key-value数据。</span></div><div class="line">   alert(sessionStorage.length);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<p><strong>2. 永久本地存储：localStorage</strong></p>
-<p>数据不会随着<code>Http</code>请求发送到后台服务器，而且存储数据的大小几乎不用考虑，因为在<code>HTML5</code>的标准中要求浏览器至少要支持到<code>4MB</code>。所以，这完全是颠覆了<code>Cookie</code>的限制，为<code>Web</code>应用在本地存储复杂的用户痕迹数据提供非常方便的技术支持。<code>localStorage</code>的常用的方法，基本上跟<code>sessionStorage</code>是一致的。</p>
-<h2 id="11-线程与进程的区别"><a href="#11-线程与进程的区别" class="headerlink" title="11. 线程与进程的区别?"></a>11. 线程与进程的区别?</h2><p>一个程序至少有一个进程,一个进程至少有一个线程；<br>线程的划分尺度小于进程，使得多线程程序的并发性高；<br>线程是独立调度的基本单位, 进程是拥有资源的基本单位；<br>进程在执行过程中拥有独立的内存单元，而多个线程共享内存，从而极大地提高了程序的运行效率；</p>
-<p><strong>线程在执行过程中与进程还是有区别的:</strong></p>
-<p>每个独立的线程有一个程序运行的入口、顺序执行序列和程序的出口。但是线程不能够独立执行，必须依存在应用程序中，由应用程序提供多个线程执行控制。从逻辑角度来看，多线程的意义在于一个应用程序中，有多个执行部分可以同时执行。但操作系统并没有将多个线程看做多个独立的应用，来实现进程的调度和管理以及资源分配。这就是进程和线程的重要区别。</p>
-<h2 id="12-请说出三种减少页面加载时间的方法。"><a href="#12-请说出三种减少页面加载时间的方法。" class="headerlink" title="12. 请说出三种减少页面加载时间的方法。"></a>12. 请说出三种减少页面加载时间的方法。</h2><ol>
-<li><strong>优化图片 </strong></li>
-<li><strong>图像格式的选择</strong>（<code>GIF</code>：提供的颜色较少，可用在一些对颜色要求不高的地方） </li>
-<li><strong>优化CSS</strong>（压缩合并<code>css</code>，如 <code>margin-top</code>, <code>margin-left</code>…) </li>
-<li><strong>网址后加斜杠</strong></li>
-<li><strong>标明图片的高度和宽度</strong>（如果浏览器没有找到这两个参数，它需要一边下载图片一边计算大小，如果图片很多，浏览器需要不断地调整页面。这不但影响速度，也影响浏览体验。 当浏览器知道了高度和宽度参数后，即使图片暂时无法显示，页面上也会腾出图片的空位，然后继续加载后面的内容。从而加载时间快了，浏览体验也更好了） </li>
-<li><strong>减少http请求</strong>（合并文件，合并图片）</li>
-</ol>
-<h1 id="二、编程题"><a href="#二、编程题" class="headerlink" title="二、编程题"></a>二、编程题</h1><h2 id="1-找出数组-arr-中重复出现过的元素"><a href="#1-找出数组-arr-中重复出现过的元素" class="headerlink" title="1. 找出数组 arr 中重复出现过的元素"></a>1. 找出数组 arr 中重复出现过的元素</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">duplicates</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">   <span class="keyword">var</span> a = [];</div><div class="line">   <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length<span class="number">-1</span>; i++) &#123;</div><div class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> j = i + <span class="number">1</span>; j &lt; arr.length; j++) &#123;</div><div class="line">         arr[i] == arr[j] &amp;&amp; a.indexOf(arr[i]) == <span class="number">-1</span> &amp;&amp; a.push(arr[i]);</div><div class="line">      &#125;</div><div class="line">   &#125;</div><div class="line">   <span class="keyword">return</span> a;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="2-时间格式化输出"><a href="#2-时间格式化输出" class="headerlink" title="2. 时间格式化输出"></a>2. 时间格式化输出</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatDate</span>(<span class="params">t,str</span>)</span>&#123;</div><div class="line">   <span class="keyword">var</span> obj = &#123;</div><div class="line">      <span class="attr">yyyy</span>:t.getFullYear(),</div><div class="line">      <span class="attr">yy</span>:(<span class="string">""</span>+ t.getFullYear()).slice(<span class="number">-2</span>),   </div><div class="line">      <span class="attr">M</span>:t.getMonth()+<span class="number">1</span>,</div><div class="line">      <span class="attr">MM</span>:(<span class="string">"0"</span>+ (t.getMonth()+<span class="number">1</span>)).slice(<span class="number">-2</span>),        </div><div class="line">      <span class="attr">d</span>:t.getDate(),</div><div class="line">      <span class="attr">dd</span>:(<span class="string">"0"</span> + t.getDate()).slice(<span class="number">-2</span>),        </div><div class="line">      <span class="attr">H</span>:t.getHours(),</div><div class="line">      <span class="attr">HH</span>:(<span class="string">"0"</span> + t.getHours()).slice(<span class="number">-2</span>),        </div><div class="line">      <span class="attr">h</span>:t.getHours() % <span class="number">12</span>,</div><div class="line">      <span class="attr">hh</span>:(<span class="string">"0"</span>+t.getHours() % <span class="number">12</span>).slice(<span class="number">-2</span>),        </div><div class="line">      <span class="attr">m</span>:t.getMinutes(),</div><div class="line">      <span class="attr">mm</span>:(<span class="string">"0"</span> + t.getMinutes()).slice(<span class="number">-2</span>),        </div><div class="line">      <span class="attr">s</span>:t.getSeconds(),</div><div class="line">      <span class="attr">ss</span>:(<span class="string">"0"</span> + t.getSeconds()).slice(<span class="number">-2</span>),        </div><div class="line">      <span class="attr">w</span>:[<span class="string">'日'</span>, <span class="string">'一'</span>, <span class="string">'二'</span>, <span class="string">'三'</span>, <span class="string">'四'</span>, <span class="string">'五'</span>, <span class="string">'六'</span>][t.getDay()]</div><div class="line">   &#125;;</div><div class="line">   <span class="keyword">return</span> str.replace(<span class="regexp">/([a-z]+)/ig</span>,<span class="function"><span class="keyword">function</span>(<span class="params">$<span class="number">1</span></span>)</span>&#123;<span class="keyword">return</span> obj[$<span class="number">1</span>]&#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="3-斐波那契数列"><a href="#3-斐波那契数列" class="headerlink" title="3. 斐波那契数列"></a>3. 斐波那契数列</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fibonacci</span>(<span class="params">n</span>) </span>&#123;</div><div class="line">   <span class="keyword">if</span> (n == <span class="number">1</span> || n == <span class="number">2</span>) &#123;</div><div class="line">       <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">   &#125;</div><div class="line">   <span class="keyword">return</span> fibonacci(n<span class="number">-1</span>)+fibonacci(n<span class="number">-2</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;知识点：伪数组、浏览器本地存储、线程与进程、减少页面加载时间的方法。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="面试题" scheme="https://wenhuiyang-luck.github.io/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-    
-      <category term="面试题" scheme="https://wenhuiyang-luck.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>腾讯课堂IMWeb前端求职训练营-Day02</title>
-    <link href="https://wenhuiyang-luck.github.io/2017/07/20/%E8%85%BE%E8%AE%AF%E8%AF%BE%E5%A0%82IMWeb%E5%89%8D%E7%AB%AF%E6%B1%82%E8%81%8C%E8%AE%AD%E7%BB%83%E8%90%A5-Day02/"/>
-    <id>https://wenhuiyang-luck.github.io/2017/07/20/腾讯课堂IMWeb前端求职训练营-Day02/</id>
-    <published>2017-07-20T13:31:38.983Z</published>
-    <updated>2017-07-20T13:38:33.990Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>知识点：一个完整的<code>HTTP</code>事务、<code>Web</code>攻击技术、<code>Ajax</code>、优雅降级和渐进增强。</p>
-</blockquote>
-<a id="more"></a>
-<h1 id="一、经典面试题"><a href="#一、经典面试题" class="headerlink" title="一、经典面试题"></a>一、经典面试题</h1><h2 id="5-一次完整的HTTP事务是怎样的一个过程？"><a href="#5-一次完整的HTTP事务是怎样的一个过程？" class="headerlink" title="5. 一次完整的HTTP事务是怎样的一个过程？"></a>5. 一次完整的HTTP事务是怎样的一个过程？</h2><p>基本流程：</p>
-<p>a. 域名解析</p>
-<p>b. 发起<code>TCP</code>的<code>3</code>次握手</p>
-<p>c. 建立<code>TCP</code>连接后发起<code>http</code>请求</p>
-<p>d. 服务器端响应<code>http</code>请求，浏览器得到<code>html</code>代码</p>
-<p>e. 浏览器解析<code>html</code>代码，并请求<code>html</code>代码中的资源</p>
-<p>f. 浏览器对页面进行渲染呈现给用户</p>
-<h2 id="6-你所了解到的Web攻击技术"><a href="#6-你所了解到的Web攻击技术" class="headerlink" title="6. 你所了解到的Web攻击技术?"></a>6. 你所了解到的Web攻击技术?</h2><p>1）<code>XSS</code>（Cross-Site Scripting，跨站脚本攻击）：指通过存在安全漏洞的Web网站注册用户的浏览器内运行非法的HTML标签或者JavaScript进行的一种攻击。</p>
-<p>2）<code>SQL</code>注入攻击。</p>
-<p>3）<code>CSRF</code>（Cross-Site Request Forgeries，跨站点请求伪造）：指攻击者通过设置好的陷阱，强制对已完成的认证用户进行非预期的个人信息或设定信息等某些状态更新。</p>
-<h2 id="7-Ajax是什么-Ajax的交互模型-同步和异步的区别-如何解决跨域问题"><a href="#7-Ajax是什么-Ajax的交互模型-同步和异步的区别-如何解决跨域问题" class="headerlink" title="7. Ajax是什么? Ajax的交互模型? 同步和异步的区别? 如何解决跨域问题?"></a>7. Ajax是什么? Ajax的交互模型? 同步和异步的区别? 如何解决跨域问题?</h2><p><strong>1）Ajax是什么</strong></p>
-<p><code>ajax</code>是异步的 <code>JavaScript</code> 和 <code>XML</code>。通过在后台与服务器进行少量数据交换，<code>AJAX</code> 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。</p>
-<p><strong>2）Ajax的交互模型</strong></p>
-<ul>
-<li>1–启动  获取<code>XMlHttpRequest</code>对象</li>
-<li>2–<code>open</code> 打开<code>url</code>通道，并设置异步传输 </li>
-<li>3–<code>send</code> 发送数据到服务器</li>
-<li>4–服务器接受数据并处理，处理完成后返回结果 </li>
-<li>5–客户端接收服务器端返回</li>
-</ul>
-<p><strong>3）同步和异步的区别</strong></p>
-<p>同步：脚本会停留并等待服务器发送回复然后再继续</p>
-<p>异步：脚本允许页面继续其进程并处理可能的回复</p>
-<p><strong>4）Ajax跨域的解决方法</strong></p>
-<p>如果在A网站中，我们希望使用<code>Ajax</code>来获得B网站中的特定内容，如果A网站与B网站不在同一个域中，那么就出现了跨域访问问题。</p>
-<p><code>IE</code>对于跨域访问的处理是，弹出警告框，提醒用户。如果用户将该网站纳入可信任网站，或者调低安全级别，那么这个问题IE就不会在提醒你。</p>
-<p><code>FireFox</code>等其它非微软的浏览器遇到跨域访问，则解决方案统一是拒绝访问。几个可行的方案：</p>
-<ul>
-<li><code>Web</code>代理的方式。</li>
-<li><code>on-Demand</code>方式</li>
-<li><code>iframe</code>方式。</li>
-<li>用户本地转储方式</li>
-</ul>
-<h2 id="8-什么叫优雅降级和渐进增强？"><a href="#8-什么叫优雅降级和渐进增强？" class="headerlink" title="8.什么叫优雅降级和渐进增强？"></a>8.什么叫优雅降级和渐进增强？</h2><p><strong>“都关注于同一网站在不同设备里不同浏览器下的表现程度。”</strong></p>
-<p>渐进增强 ( progressive enhancement )： 针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验。</p>
-<p>优雅降级( graceful degradation )： 一开始就构建完整的功能，然后再针对低版本浏览器进行兼容。</p>
-<p><strong>区别：</strong> </p>
-<p>a. 优雅降级是从复杂的现状开始，并试图减少用户体验的供给 ；</p>
-<p>b. 渐进增强则是从一个非常基础的，能够起作用的版本开始，并不断扩充，以适应未来环境的需要 ；</p>
-<p>c. 降级（功能衰减）意味着往回看；而渐进增强则意味着朝前看，同时保证其根基处于安全地带；</p>
-<h1 id="二、编程题"><a href="#二、编程题" class="headerlink" title="二、编程题"></a>二、编程题</h1><h2 id="4-末尾添加元素"><a href="#4-末尾添加元素" class="headerlink" title="4. 末尾添加元素"></a>4. 末尾添加元素</h2><p><strong>题目</strong>：在数组 <code>arr</code> 末尾添加元素 <code>item</code>。不要直接修改数组 <code>arr</code>，结果返回新的数组。<br><figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* 常规方法 */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">append</span></span>(arr, item) &#123;</div><div class="line">    <span class="keyword">var</span> <span class="keyword">new</span><span class="type">Arr</span> = [];</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>, len = arr.length; i &lt; len; i++)&#123;</div><div class="line">        <span class="keyword">new</span><span class="type">Arr</span>.push(arr[i]);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">new</span><span class="type">Arr</span>.push(item);</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span><span class="type">Arr</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/* slice 方法*/</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">append</span></span>(arr, item) &#123;</div><div class="line">    <span class="keyword">var</span> <span class="keyword">new</span><span class="type">Arr</span> = arr.slice(<span class="number">0</span>);    <span class="comment">// slice(start, end（可选）); 返回部分数组，不修改原数组。</span></div><div class="line">    <span class="keyword">new</span><span class="type">Arr</span>.push(item);</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span><span class="type">Arr</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/* concat 方法*/</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">append</span></span>(arr, item) &#123;</div><div class="line">    <span class="keyword">return</span> arr.concat(item);     <span class="comment">// 数组合并，不改变原数组。</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="5-删除数组的第一个元素"><a href="#5-删除数组的第一个元素" class="headerlink" title="5. 删除数组的第一个元素"></a>5. 删除数组的第一个元素</h2><p><strong>题目</strong>：删除数组 <code>arr</code> 第一个元素。不要直接修改数组 <code>arr</code>，结果返回新的数组。<br><figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">curtail</span></span>(arr) &#123;</div><div class="line">	<span class="keyword">var</span> <span class="keyword">new</span><span class="type">Arr</span> = arr.slice(<span class="number">0</span>);</div><div class="line">    <span class="keyword">new</span><span class="type">Arr</span>.shift();         <span class="comment">// unshift：头部添加；shift：头部删除。</span></div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span><span class="type">Arr</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="6-根据idx和item添加元素"><a href="#6-根据idx和item添加元素" class="headerlink" title="6. 根据idx和item添加元素"></a>6. 根据idx和item添加元素</h2><p><strong>题目</strong>：在数组 <code>arr</code> 的 <code>index</code> 处添加元素 <code>item</code>。不要直接修改数组 <code>arr</code>，结果返回新的数组。<br><figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* </span></div><div class="line"> * splice(idx, num, item)；idx：要删除的起始位置；num（可选）：要删除的个数；</div><div class="line"> * item（可选）：要添加的项；返回被删除的元素；修改原数组。</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">insert</span></span>(arr, item, index) &#123;</div><div class="line">    <span class="keyword">var</span> <span class="keyword">new</span><span class="type">Arr</span> = arr.slice(<span class="number">0</span>);</div><div class="line">    <span class="keyword">new</span><span class="type">Arr</span>.splice(index, <span class="number">0</span>, item);    </div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span><span class="type">Arr</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;知识点：一个完整的&lt;code&gt;HTTP&lt;/code&gt;事务、&lt;code&gt;Web&lt;/code&gt;攻击技术、&lt;code&gt;Ajax&lt;/code&gt;、优雅降级和渐进增强。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="面试题" scheme="https://wenhuiyang-luck.github.io/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-    
-      <category term="面试题" scheme="https://wenhuiyang-luck.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
     <title>ES5中新增的Array方法——forEach()</title>
     <link href="https://wenhuiyang-luck.github.io/2017/07/19/ES5%E4%B8%AD%E6%96%B0%E5%A2%9E%E7%9A%84Array%E6%96%B9%E6%B3%95/"/>
     <id>https://wenhuiyang-luck.github.io/2017/07/19/ES5中新增的Array方法/</id>
@@ -512,64 +319,6 @@
       <category term="Array" scheme="https://wenhuiyang-luck.github.io/tags/Array/"/>
     
       <category term="ES5" scheme="https://wenhuiyang-luck.github.io/tags/ES5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>腾讯课堂IMWeb前端求职训练营-Day01</title>
-    <link href="https://wenhuiyang-luck.github.io/2017/07/19/%E8%85%BE%E8%AE%AF%E8%AF%BE%E5%A0%82IMWeb%E5%89%8D%E7%AB%AF%E6%B1%82%E8%81%8C%E8%AE%AD%E7%BB%83%E8%90%A5-Day01/"/>
-    <id>https://wenhuiyang-luck.github.io/2017/07/19/腾讯课堂IMWeb前端求职训练营-Day01/</id>
-    <published>2017-07-19T09:31:12.389Z</published>
-    <updated>2017-07-19T09:53:36.043Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>知识点：盒子模型、src和href的区别、同步和异步、Dom节点操作。</p>
-</blockquote>
-<a id="more"></a>
-<h1 id="一、经典面试题"><a href="#一、经典面试题" class="headerlink" title="一、经典面试题"></a>一、经典面试题</h1><h2 id="1-什么是盒子模型？"><a href="#1-什么是盒子模型？" class="headerlink" title="1. 什么是盒子模型？"></a>1. 什么是盒子模型？</h2><ul>
-<li><strong>盒模型</strong>： 内容(content)、填充(padding)、边界(margin)、 边框(border)</li>
-<li><strong>两种</strong>: 标准 W3C 盒子模型、IE 盒子模型</li>
-<li><strong>区别</strong>：IE的content部分包含了 border 和 padding</li>
-</ul>
-<p><img src="http://7tszky.com1.z0.glb.clouddn.com/FlbflSTD-RokStTYxHw1KlIzosBx" alt="img"></p>
-<p><img src="http://7tszky.com1.z0.glb.clouddn.com/FrYThnUmgmNJscbN6S9UQH8qMSQH" alt="img"></p>
-<h2 id="2-简述一下src与href的区别"><a href="#2-简述一下src与href的区别" class="headerlink" title="2. 简述一下src与href的区别?"></a>2. 简述一下src与href的区别?</h2><p><strong>href</strong>指向网络资源所在位置，建立和当前元素（锚点）或当前文档（链接）之间的链接，用于超链接。</p>
-<p><strong>src</strong>是指向外部资源的位置，指向的内容将会嵌入到文档中当前标签所在位置；在请求src资源时会将其指向的资源下载并应用到文档内，例如js脚本，img图片和frame等元素。当浏览器解析到该元素时，会暂停其他资源的下载和处理，直到将该资源加载、编译、执行完毕，图片和框架等元素也如此，类似于将所指向资源嵌入当前标签内。这也是为什么将js脚本放在底部而不是头部。</p>
-<h2 id="3-简述同步和异步的区别"><a href="#3-简述同步和异步的区别" class="headerlink" title="3. 简述同步和异步的区别?"></a>3. 简述同步和异步的区别?</h2><p>同步是阻塞模式，异步是非阻塞模式。</p>
-<p>同步就是指一个进程在执行某个请求的时候，若该请求需要一段时间才能返回信息，那么这个进程将会一直等待下去，直到收到返回信息才继续执行下去；</p>
-<p>异步是指进程不需要一直等下去，而是继续执行下面的操作，不管其他进程的状态。当有消息返回时系统会通知进程进行处理，这样可以提高执行的效率。</p>
-<p>举个例子：普通B/S模式（同步）AJAX技术（异步）  </p>
-<p>同步：提交请求 -&gt; 等待服务器处理（这个期间客户端浏览器不能干任何事）-&gt; 处理完毕返回</p>
-<p>异步：请求通过事件触发 -&gt; 服务器处理（这是浏览器仍然可以作其他事情）-&gt; 处理完</p>
-<h2 id="4-怎样添加、移除、移动、复制、创建和查找节点？"><a href="#4-怎样添加、移除、移动、复制、创建和查找节点？" class="headerlink" title="4. 怎样添加、移除、移动、复制、创建和查找节点？"></a>4. 怎样添加、移除、移动、复制、创建和查找节点？</h2><p>1）创建新节点</p>
-<pre><code>createDocumentFragment() //创建一个DOM片段
-createElement() //创建一个具体的元素
-createTextNode() //创建一个文本节点
-</code></pre><p>2）添加、移除、替换、插入</p>
-<pre><code>appendChild() //添加
-removeChild() //移除
-replaceChild() //替换
-insertBefore() //插入
-</code></pre><p>3）查找</p>
-<pre><code>getElementsByTagName() //通过标签名称
-getElementsByName() //通过元素的Name属性的值
-getElementById() //通过元素Id，唯一性
-</code></pre><h1 id="二、编程题"><a href="#二、编程题" class="headerlink" title="二、编程题"></a>二、编程题</h1><h2 id="1-查找数组元素位置"><a href="#1-查找数组元素位置" class="headerlink" title="1. 查找数组元素位置"></a>1. 查找数组元素位置</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">indexOf</span>(<span class="params">arr, item</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(<span class="built_in">Array</span>.prototype.indexOf)&#123;</div><div class="line">        <span class="keyword">return</span> arr.indexOf(item);</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>, len = arr.length; i &lt; len; i++)&#123;</div><div class="line">            <span class="keyword">if</span>(arr[i] === item)&#123;</div><div class="line">                <span class="keyword">return</span> i;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">     &#125;     </div><div class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="2-求和"><a href="#2-求和" class="headerlink" title="2. 求和"></a>2. 求和</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 递归</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span><span class="params">(arr)</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> len = arr.length;</div><div class="line">    <span class="keyword">if</span>(len == <span class="number">0</span>)&#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (len == <span class="number">1</span>)&#123;</div><div class="line">        <span class="keyword">return</span> arr[<span class="number">0</span>];</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span> arr[<span class="number">0</span>] + sum(arr.slice(<span class="number">1</span>));</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 常规循环</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span><span class="params">(arr)</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> s = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = arr.length<span class="number">-1</span>; i &gt;= <span class="number">0</span>; i--)&#123;</div><div class="line">        s += arr[i];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> s;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 函数式编程 map-reduce</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span><span class="params">(arr)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> arr.reduce(<span class="function"><span class="keyword">function</span><span class="params">(prev, curr, idx, arr)</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> prev + curr;</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// forEach遍历</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span><span class="params">(arr)</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> s = <span class="number">0</span>;</div><div class="line">    arr.<span class="keyword">forEach</span>(<span class="function"><span class="keyword">function</span><span class="params">(val, idx, arr)</span> </span>&#123;</div><div class="line">        s += val;</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">return</span> s;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// eval</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span><span class="params">(arr)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">eval</span>(arr.join(<span class="string">"+"</span>));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="3-移除数组中与item相等的元素"><a href="#3-移除数组中与item相等的元素" class="headerlink" title="3. 移除数组中与item相等的元素"></a>3. 移除数组中与item相等的元素</h2><figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 常规循环</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">remove</span></span>(arr,item)&#123;</div><div class="line">    <span class="keyword">var</span> <span class="keyword">new</span><span class="type">Arr</span> = [];</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>, len = arr.length; i &lt; len; i++)&#123;</div><div class="line">        <span class="keyword">if</span>(arr[i] != item)&#123;</div><div class="line">            <span class="keyword">new</span><span class="type">Arr</span>.push(arr[i]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span><span class="type">Arr</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// filter</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">remove</span></span>(arr,item)&#123;</div><div class="line">    <span class="keyword">return</span> arr.filter(<span class="function"><span class="keyword">function</span></span>(s)&#123;</div><div class="line">        <span class="keyword">if</span>(s != item)&#123;</div><div class="line">            <span class="keyword">return</span> s;</div><div class="line">        &#125;</div><div class="line">    &#125;)；</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;知识点：盒子模型、src和href的区别、同步和异步、Dom节点操作。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="面试题" scheme="https://wenhuiyang-luck.github.io/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-    
-      <category term="面试题" scheme="https://wenhuiyang-luck.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
     
   </entry>
   
@@ -925,6 +674,181 @@ getElementById() //通过元素Id，唯一性
     
     
       <category term="CSS" scheme="https://wenhuiyang-luck.github.io/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>a标签伪类的书写顺序及原因</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/04/19/a%E6%A0%87%E7%AD%BE%E4%BC%AA%E7%B1%BB%E7%9A%84%E4%B9%A6%E5%86%99%E9%A1%BA%E5%BA%8F%E5%8F%8A%E5%8E%9F%E5%9B%A0/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/04/19/a标签伪类的书写顺序及原因/</id>
+    <published>2017-04-19T14:10:52.322Z</published>
+    <updated>2017-05-01T05:18:24.010Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>a 标签书写顺序：<code>:link</code>, <code>:visited</code>,  <code>:hover</code>,  <code>:active</code>;  简记：<code>lvha</code>。</p>
+</blockquote>
+<a id="more"></a>
+<ol>
+<li>链接未进行访问时，显示 link 样式，也就是链接的默认样式；</li>
+<li>当访问过了该链接，显示 visited 样式，由于两种选择器的优先级相等，必须让 visited 样式覆盖 link 样式，因此要先写 link 样式；</li>
+<li>当鼠标移动到链接上时，可能是未访问也可能是已经访问， hover 样式要能够覆盖另外两种样式，因此 hover 要放在 visited 的后面；</li>
+<li>当鼠标按下时，鼠标处于 a 标签之上（ hover 效果也处于激活状态），为了能够区分悬停和按下，需要让 active 样式覆盖 hover 样式，即 active 的样式放置在最后。</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;a 标签书写顺序：&lt;code&gt;:link&lt;/code&gt;, &lt;code&gt;:visited&lt;/code&gt;,  &lt;code&gt;:hover&lt;/code&gt;,  &lt;code&gt;:active&lt;/code&gt;;  简记：&lt;code&gt;lvha&lt;/code&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="CSS/CSS3笔记" scheme="https://wenhuiyang-luck.github.io/categories/CSS-CSS3%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="CSS" scheme="https://wenhuiyang-luck.github.io/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>七种隐藏元素的方法</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/04/19/%E4%B8%83%E7%A7%8D%E9%9A%90%E8%97%8F%E5%85%83%E7%B4%A0%E7%9A%84%E6%96%B9%E6%B3%95/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/04/19/七种隐藏元素的方法/</id>
+    <published>2017-04-19T13:46:02.177Z</published>
+    <updated>2017-05-01T05:14:21.359Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>列举七种隐藏元素的方法。</p>
+</blockquote>
+<a id="more"></a>
+<ol>
+<li><code>visiable:hidden;</code>这个属性只是简单的隐藏某个元素，但是元素占用文档空间。<ol>
+<li><code>opacity:0;</code>CSS3属性，可以使一个元素完全透明，与<code>visiable:hidden</code>效果相同。与<code>visiable</code>相比，它可以设置transition和animate。</li>
+</ol>
+</li>
+<li><code>position:absolute;</code>使元素脱离文档流，处于普通文档之上，给它设置一个很大的<code>left</code>负值定位，使元素定位在可见区域之外。</li>
+<li><code>display:none;</code>元素变得不可见，与<code>visiable:hidden</code>不同的是不会占用文档空间。</li>
+<li><code>transform:scale(0);</code>将一个元素设置为无限小，这个元素将不可见，但是元素占用的空间仍然保留。</li>
+<li><code>height:0;overflow:hidden;</code>将元素的高度设置为0，只要元素没有可见的边框，就可以使元素消失。</li>
+<li><code>filter:blur(0);</code>将元素的模糊度设为0，从而使这个元素“消失”在页面中。</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;列举七种隐藏元素的方法。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="CSS/CSS3笔记" scheme="https://wenhuiyang-luck.github.io/categories/CSS-CSS3%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="CSS" scheme="https://wenhuiyang-luck.github.io/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>事件绑定</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/04/11/%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/04/11/事件绑定/</id>
+    <published>2017-04-11T12:56:31.683Z</published>
+    <updated>2017-05-01T05:15:04.926Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<ol>
+<li>如何在选定的元素上绑定一个或多个事件处理函数;</li>
+<li>绑定鼠标滚轮事件;</li>
+<li>如何判断鼠标滚轮方向;</li>
+<li>绑定键盘方向键.</li>
+</ol>
+</blockquote>
+<a id="more"></a>
+<h4 id="1-如何在选定的元素上绑定一个或多个事件处理函数？"><a href="#1-如何在选定的元素上绑定一个或多个事件处理函数？" class="headerlink" title="1. 如何在选定的元素上绑定一个或多个事件处理函数？"></a>1. 如何在选定的元素上绑定一个或多个事件处理函数？</h4><p>语法：<code>on(events[,selector][,data],handler(eventObject))</code></p>
+<p>描述：</p>
+<ul>
+<li><code>events</code>: 一个或多空格分隔的事件类型，例如 click keydown。</li>
+<li><code>selector</code>: 一个选择器字符串，用于过滤出被选中的元素中能触发事件的后代元素，如果为 null，那么被选中的元素总是能触发事件。</li>
+<li><code>data</code>: 事件触发时，要传递给处理函数的 event.data。</li>
+<li><code>handler(eventObject)</code>: 事件触发时，执行的函数。</li>
+</ul>
+<h4 id="2-绑定鼠标滚轮事件"><a href="#2-绑定鼠标滚轮事件" class="headerlink" title="2. 绑定鼠标滚轮事件"></a>2. 绑定鼠标滚轮事件</h4><ol>
+<li>包括IE6浏览器在内都使用 mouseWheel, 而只有火狐浏览器使用 DOMMouseScroll;</li>
+<li><code>$(document).on(&quot;mouseWheel DOMMouseScroll&quot;,handler)</code>.</li>
+</ol>
+<h4 id="3-如何判断鼠标滚轮方向"><a href="#3-如何判断鼠标滚轮方向" class="headerlink" title="3. 如何判断鼠标滚轮方向"></a>3. 如何判断鼠标滚轮方向</h4><ol>
+<li>其他浏览器通过 wheeldalta 属性来判断，但是火狐浏览器没有这个属性，可以通过 detail 属性判断；</li>
+<li>开发中发现每次向下滚动时，wheeldalta 都是-120，但是detail确是3，火狐浏览器方向判断的数值正负与其他浏览器是相反的。</li>
+</ol>
+<h4 id="4-绑定键盘方向键"><a href="#4-绑定键盘方向键" class="headerlink" title="4. 绑定键盘方向键"></a>4. 绑定键盘方向键</h4><ul>
+<li>IE：只有<code>keyCode</code>属性;</li>
+<li>Firefox：有<code>which</code>和<code>charCode</code>属性;</li>
+<li>Opera：有<code>keyCode</code>和<code>which</code>属性;</li>
+</ul>
+<p>但是 jQuery 已经解决了这个兼容问题，通过<code>.witch</code>属性和<code>.keyCode</code>属性来确定按下了哪个键：</p>
+<ul>
+<li>arrow up：37</li>
+<li>arrow left：38</li>
+<li>arrow right：39</li>
+<li>arrow down：40</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$(<span class="built_in">window</span>).on(<span class="string">"keydown"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> keyCode = e.keyCode;</div><div class="line">    <span class="keyword">if</span>(keyCode == <span class="number">37</span> || keyCode == <span class="number">38</span>)&#123;</div><div class="line">    	...</div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(keyCode == <span class="number">39</span> || keyCode == <span class="number">40</span>)&#123;</div><div class="line">		...</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;如何在选定的元素上绑定一个或多个事件处理函数;&lt;/li&gt;
+&lt;li&gt;绑定鼠标滚轮事件;&lt;/li&gt;
+&lt;li&gt;如何判断鼠标滚轮方向;&lt;/li&gt;
+&lt;li&gt;绑定键盘方向键.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="JavaScript笔记" scheme="https://wenhuiyang-luck.github.io/categories/JavaScript%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="JavaScript" scheme="https://wenhuiyang-luck.github.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何解决failed to push some refs to git</title>
+    <link href="https://wenhuiyang-luck.github.io/2017/04/06/%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3failed%20to%20push%20some%20refs%20to%20git/"/>
+    <id>https://wenhuiyang-luck.github.io/2017/04/06/如何解决failed to push some refs to git/</id>
+    <published>2017-04-06T09:38:20.341Z</published>
+    <updated>2017-05-01T05:16:08.397Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>由于Github中的README.md文件不在本地代码目录中，导致执行git push -u origin master 时出现错误。</p>
+</blockquote>
+<a id="more"></a>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git init</div><div class="line">git commit -m <span class="string">"first commit"</span></div><div class="line">git remote <span class="keyword">add</span><span class="bash"> origin your Github repository</span></div><div class="line">git push -u origin master</div></pre></td></tr></table></figure>
+<h5 id="1-在使用git-对源代码进行push到Github时出现如下错误信息："><a href="#1-在使用git-对源代码进行push到Github时出现如下错误信息：" class="headerlink" title="1. 在使用git 对源代码进行push到Github时出现如下错误信息："></a>1. 在使用git 对源代码进行push到Github时出现如下错误信息：</h5><p><code>error: failed to push some refs to</code></p>
+<p><img src="../../../../images/13-1.png" alt=""></p>
+<h5 id="2-出现错误的主要原因是Github中的README-md文件不在本地代码目录中"><a href="#2-出现错误的主要原因是Github中的README-md文件不在本地代码目录中" class="headerlink" title="2. 出现错误的主要原因是Github中的README.md文件不在本地代码目录中."></a>2. 出现错误的主要原因是Github中的README.md文件不在本地代码目录中.</h5><p>可以通过如下命令进行代码合并[ 注：pull=fetch+merge]</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git pull <span class="comment">--rebase origin master</span></div></pre></td></tr></table></figure>
+<h5 id="3-执行上面代码后可以看到本地代码库中多了README-md文件"><a href="#3-执行上面代码后可以看到本地代码库中多了README-md文件" class="headerlink" title="3. 执行上面代码后可以看到本地代码库中多了README.md文件."></a>3. 执行上面代码后可以看到本地代码库中多了README.md文件.</h5><p>此时再执行以下语句即可完成代码上传到Github.</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">push</span> -u <span class="built_in">origin</span> master</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;由于Github中的README.md文件不在本地代码目录中，导致执行git push -u origin master 时出现错误。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="错误整理" scheme="https://wenhuiyang-luck.github.io/categories/%E9%94%99%E8%AF%AF%E6%95%B4%E7%90%86/"/>
+    
+    
+      <category term="Git" scheme="https://wenhuiyang-luck.github.io/tags/Git/"/>
     
   </entry>
   
